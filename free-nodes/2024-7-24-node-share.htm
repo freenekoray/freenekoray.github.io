@@ -316,6 +316,17 @@
 <script src="/assets/addons/xcblog/js/frontend/freenekoray/styleswitch.js"></script>
 <script src="/assets/addons/xcblog/js/frontend/freenekoray/main.js"></script>
 <script src="/assets/addons/xcblog/js/frontend/freenekoray/G.js"></script>
+            <script>
+            $(function() {
+                $('.js_to').click(function(){
+                    var url = $(this).data('url');
+                    var code = $(this).data('code');
+                    url += code;
+
+                    window.open(url);
+                })
+            });
+            </script>
         </div>
     </div>
 </body>
