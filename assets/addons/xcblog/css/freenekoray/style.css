@@ -1,0 +1,3093 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Reflex Corporate Responsive Bootstrap Template
+    Template URI: http:/devitems.com
+    Description: This is html5 template
+    Author: Dev Items
+    Author URI: http://devitems.com
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+	
+    1.  Theme default CSS
+    2.  Webfont CSS
+    3.  Home One CSS
+    4.  Slider CSS
+    5.  Service CSS
+    6.  About Reflex CSS
+    7.  What We Do CSS
+    8.  Consultation CSS
+    9.  Features CSS
+    10. Policy CSS
+    11. Latest Portfolio CSS
+    12. Team CSS
+    13. Testimonial CSS
+    14. Fun CSS
+    15. Latest Blog CSS
+    16. Client CSS
+    17. Footer CSS
+    18. Scroll Up CSS
+    19. Home Two & Three CSS
+    20. About Us CSS
+    21. Blog CSS
+    22. Blog Details CSS
+    23. Blog Sidebar CSS
+    24. Contact CSS
+    25. Team CSS
+    26. Service CSS
+    27. Single Service CSS
+    28. Single Product CSS
+    29. Portfolio CSS
+    30. Mobile Menu CSS
+    31. Shortcode CSS
+
+-----------------------------------------------------------------------------------*/
+
+/*----------------------------------------*/
+/*  1.  Theme default CSS
+/*----------------------------------------*/
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,600,700,800';
+html, body {}
+.bg-white{
+    background-color: #fff;
+}
+.ptb-100{padding: 100px 0}
+.ptb-95{padding: 95px 0}
+.ptb-70{padding: 70px 0}
+.ptb-200{padding: 200px 0}
+.container{
+    width: 1200px;
+}
+.floatleft {float:left}
+.floatright {float:right}
+.alignleft {float:left}
+.alignright {float:right}
+.aligncenter {display:block;margin:0 auto 15px}
+a{color:#282828;-webkit-transition: all 0.5s ease 0s;
+transition: all 0.5s ease 0s;}
+a:hover{color: #0A95BE;text-decoration: none;}
+a:focus {outline:0px solid; text-decoration: none;}
+img {max-width:100%;height:auto}
+.fix {overflow:hidden}
+.no-padding{padding:0}
+p {margin:0 0 15px;}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 10px;
+}
+a {-webkit-transition: all 0.3s ease 0s;transition: all 0.3s ease 0s;text-decoration:none;}
+a:active, a:hover {
+  outline: 0 none;
+}
+ul{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0
+}
+.clear{clear:both}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+body {font-family: 'montserratlight'}
+.pt-250{padding-top:250px}
+.pb-125{padding-bottom:125px}
+.ptb-150{padding:150px 0}
+.ec-handle i {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.as-mainwrapper {
+  position: relative;
+}
+.as-mainwrapper.wrapper-boxed {
+  background-color: #ffffff;
+  box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.1);
+  float: none;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.main-content-wrapper {
+  background-color: #fff;
+}
+/*----------------------------------------*/
+/*  2.  Webfont CSS
+/*----------------------------------------*/
+@font-face {
+    font-family: 'montserratlight';
+    src: url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-light-webfont.eot');
+    src: url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-light-webfont.woff2') format('woff2'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-light-webfont.woff') format('woff'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-light-webfont.ttf') format('truetype'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-light-webfont.svg#montserratlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'montserratsemi_bold';
+    src: url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-semibold-webfont.eot');
+    src: url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-semibold-webfont.woff2') format('woff2'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-semibold-webfont.woff') format('woff'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-semibold-webfont.ttf') format('truetype'),
+         url('/assets/addons/xcblog/fonts/freenekoray/webfont/montserrat-semibold-webfont.svg#montserratsemi_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*----------------------------------------*/
+/*  3.  Home One CSS
+/*----------------------------------------*/
+.header-top-area {
+    background-color: #28435f;
+    color: #ffffff;
+    padding: 0 50px;
+}
+.header-top-area.style-two, .header-top-area.style-two li, .header-top-area.style-two li i{
+    color: #28435F;
+}
+.header-top-area.style-two{
+    background-color: #fff;
+    border-bottom: 1px solid #28435F;
+}
+.header-top-area.style-three{
+    background-color: #0A95BE;
+}
+.header-top-area.style-three li, .header-top-area.style-three li i{
+    color: #fff;
+}
+.header-area.style-five {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    z-index: 99999;
+}
+.header-area.style-five .stick {
+    background: #28435F;
+}
+.header-area.style-five .mainmenu{
+    float: right;
+}
+.header-area.style-five .main-header-area ul#nav > li > a{
+    color: #fff;
+}
+.header-area.style-five .mainmenu ul li.shortcode .mega-menu {
+    width: 670px;
+}
+.header-area.style-five .mainmenu ul li {margin-right: 18px;}
+.header-area.style-five .mainmenu ul li.shortcode .mega-menu {
+    right: 0;
+    left: auto;
+}
+.header-area.style-five .mainmenu ul li .mega-menu { 
+    width: 740px;
+}
+.wrapper .header-top-area {
+    padding: 0 30px;
+}
+.main-header-area{padding: 0 50px;}
+.wrapper .main-header-area {padding: 0 20px}
+.cell-letter ul, .mainmenu ul, .social-icons ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.cell-letter > ul > li, .mainmenu > ul > li, .social-icons > ul > li{
+    display: inline-block;
+    position: relative;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    padding: 15px 0;
+    color: #d7d7d7;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+.social-icons > ul > li{
+    margin-right: 28px;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.social-icons > ul > li:last-child, .mainmenu > ul > li > a:last-child{
+    margin-right: 0;
+}
+.social-icons > ul > li > a{
+    color: #d7d7d7;
+}
+.social-icons > ul > li:hover > a{
+    color: #0A95BE;
+}
+.cell-letter ul li:first-child{
+    margin-right: 76px;
+}
+.cell-letter img {
+    margin-right: 8px;
+}
+.mainmenu ul > li > ul.submenu-mainmenu {
+    background-color: #ffffff;
+    border: 1px solid #adadad;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    left: 0;
+    margin: 0;
+    padding: 12px 0;
+    position: absolute;
+    text-align: left;
+    top: 48px;
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+    -webkit-transform-origin: center top 0;
+        -ms-transform-origin: center top 0;
+            transform-origin: center top 0;
+    -webkit-transition: all 0.6s ease 0s;
+            transition: all 0.6s ease 0s;
+    visibility: hidden;
+    width: 130px;
+    z-index: -99;
+    border-top: 2px solid #0A95BE;
+}
+.mainmenu ul li ul.submenu-mainmenu {
+    padding-top: 22px;
+    top: 146px;
+    width: 190px;
+}
+ul.submenu-mainmenu li a i{float: right; padding-right: 20px}
+.mainmenu > ul > li > ul.submenu-mainmenu > li > a {
+    color: #303030;
+    display: block;
+    padding: 0px 16px;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+}
+.mainmenu ul li:hover ul.submenu-mainmenu {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    visibility: visible;
+    z-index: 99999;
+}
+.header-top-right{
+    float: right;
+}
+.search-box {
+    padding: 55px 0;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.search-box input {
+    border: 1px solid #cccccc;
+    color: #282828;
+    font-family: "montserratlight";
+    font-size: 14px;
+    height: 35px;
+    padding-left: 5px;
+    width: 178px;
+}
+.wrapper .search-box input {
+    width: 158px;
+}
+.search-box > form {
+    position: relative;
+}
+.search-box button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    color: #fff;
+    background-image: url(/assets/addons/xcblog/img/freenekoray/icon/search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.stick .search-box button{
+  right: 21px;
+  top: 8px;
+}
+.banner-area.style-two h2{
+    float: left; display: inline-block
+}
+.banner-area.style-two .breadcrumbs{
+    float: right; margin-top: 15px;
+}
+.logo{
+    padding: 46px 0;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+/*
+.mainmenu-area {
+    margin-left: -30px;
+}
+*/
+.mainmenu {
+    display: inline-block;
+}
+.mainmenu ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.mainmenu ul li {
+    display: inline-block;
+    margin-right: 22px;
+    padding: 66px 0;
+    position: relative;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.wrapper-boxed .mainmenu ul li {
+    margin-right: 16px;
+}
+.mainmenu ul#nav > li > a{position: relative}
+.mainmenu ul#nav > li > a::after {
+    background: #0A95C8 none repeat scroll 0 0;
+    bottom: -8px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    width: 0;
+}
+.mainmenu ul#nav > li:hover > a::after {
+    width: 100%;
+}
+.wrapper .mainmenu ul li {
+    margin-right: 8px;
+    padding: 66px 0;
+}
+.mainmenu ul li ul.submenu-mainmenu li{
+    display: block;
+    position: relative;
+    margin-right: 0px;
+    padding-left: 30px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.mainmenu ul li:last-child{
+    margin-right: 0px;
+}
+.mainmenu ul li a{
+    display: block;
+    color: #303030;
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.mainmenu ul li:hover a{
+    color: #0A95BE;
+}
+.mainmenu ul li .mega-menu span {
+    float: left;
+}
+.mainmenu ul li:hover .mega-menu {
+    margin-top: 0;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    visibility: visible;
+    z-index: 99999;
+}
+.mainmenu ul li .mega-menu {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #ffffff none repeat scroll 0 0;
+    border-color: #0A95BE #adadad #adadad;
+    -webkit-border-image: none;
+         -o-border-image: none;
+            border-image: none;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    left: 0;
+    margin: 0;
+    padding: 35px 35px 20px;
+    position: absolute;
+    right: auto;
+    text-align: left;
+    top: 146px;
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+    -webkit-transform-origin: center top 0;
+        -ms-transform-origin: center top 0;
+            transform-origin: center top 0;
+    -webkit-transition: all 0.6s ease 0s;
+            transition: all 0.6s ease 0s;
+    visibility: hidden;
+    width: 930px;
+    z-index: -99;
+}
+.mainmenu ul li.shortcode .mega-menu {
+    width: 780px;
+}
+.mainmenu ul li .mega-menu span {
+    width: 23%;
+}
+.mainmenu ul li .mega-menu span:last-child {
+    width: 30%;
+}
+.mainmenu ul li.shortcode .mega-menu span {
+    width: 20%;
+}
+.mainmenu ul li.shortcode .mega-menu span:last-child {
+    width: 20%;
+}
+.mainmenu ul li .mega-menu span a.title, .mainmenu ul li .mega-menu span a{
+    font-size: 12px;
+    color: #303030;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.mainmenu ul li .mega-menu span a{
+    font-size: 14px;
+}
+.mainmenu ul li .mega-menu span a, .mainmenu ul li ul.submenu-mainmenu li a{
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-transform: capitalize;
+    color: #303030;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.mainmenu ul li .mega-menu span a.title:hover{
+    margin-left: inherit;
+}
+.mainmenu ul > li > .mega-menu span > a:hover, .mainmenu ul > li > ul.submenu-mainmenu > li:hover > a{
+    color: #0A95BE;
+    margin-left: 5px;
+}
+.stick {
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s
+}
+.as-mainwrapper.wrapper-boxed .stick {
+    width: 1200px
+}
+.stick .logo {padding: 20px 0 }
+.stick .mainmenu ul#nav > li{padding: 40px 0}
+.stick .search-box{padding: 34px 0}
+.stick .mainmenu ul li ul.submenu-mainmenu, .sticker.stick .mainmenu ul li .mega-menu {top: 103px}
+.as-mainwrapper {
+  position: relative;
+}
+.as-mainwrapper.wrapper-boxed {
+    background-color: #ffffff;
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.1);
+    float: none;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.main-content-wrapper {
+    background-color: #fff;
+}
+/*----------------------------------------*/
+/*  4.  Slider CSS
+/*----------------------------------------*/
+.slider-wrap{
+    position: relative;
+}
+.slider-wrap:after{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: 9;
+}
+.nivo-directionNav {
+    display: none;
+}
+.nivo-caption {
+    top: 28%;
+    z-index: 999;
+}
+.preview-2 .nivo-controlNav {
+    z-index: 999;
+}
+.nivo_text .slider-text-1 h2, .banner-text-wrapper .slider-text-1 h2 {
+    color: #ffffff;
+    font-family: "Raleway",sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 35px;
+}
+.nivo_text .slider-text-2 h1, .nivo_text .slider-text-3 h1, .banner-text-wrapper .slider-text-2 h1, .banner-text-wrapper .slider-text-3 h1{
+    font-size: 45px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    line-height: 45px;
+}
+.nivo_text .slider-text-4 p, .banner-text-wrapper .slider-text-4 p{
+    font-size: 16px;
+    color: #fff;
+    font-family: 'montserratlight';
+    margin-top: 12px;
+    margin-bottom: 30px;
+    line-height: 25px;
+}
+.slider-button, .default-button {
+    color: #fff;
+    font-size: 12px;
+    border: 1px solid #fff; 
+    padding: 10px 18px;
+    display: inline-block;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.default-button{
+    padding: 10px 24px;
+    color: #28435f;
+    border: 1px solid #CCCCCC;
+    font-size: 14px;
+    margin-top: 25px;
+}
+.slider-button:hover, .default-button:hover {
+    color: #fff;
+    background: #0A95BE;
+    border: 1px solid #0A95BE; 
+}
+.preview-2:hover .nivo-controlNav a{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+/*----------------------------------------*/
+/*   5.  Service CSS
+/*----------------------------------------*/
+.service-area{
+    margin-top: -75px;
+}
+.single-do-icon1, .single-do-icon2, .single-do-icon3, .single-do-icon4, .single-do-icon5, .single-do-icon6, .single-do-icon7, .single-do-icon8{position: relative; font-size: 20px;}
+.single-do-icon1:before, .single-do-icon2:before, .single-do-icon3:before, .single-do-icon4:before, .single-do-icon5:before, .single-do-icon6:before, .single-do-icon7:before, .single-do-icon8:before { 
+    content: "\f109";
+    font-family: "Flaticon";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.single-do-icon2:before { 
+    content: "\f10a";
+}
+.single-do-icon3:before { 
+    content: "\f10b";
+}
+.single-do-icon4:before { 
+    content: "\f10c";
+}
+.single-do-icon5:before { 
+    content: "\f10d";
+}
+.single-do-icon6:before { 
+    content: "\f114";
+}
+.single-do-icon7:before { 
+    content: "\f117";
+}
+.single-do-icon8:before { 
+    content:"\f120";
+}
+/*----------------------------------------*/
+/*  6.  About Reflex CSS
+/*----------------------------------------*/
+.marg-100{
+    margin: 100px 0;
+}
+.marg-95{
+    margin: 95px 0;
+}
+.ptb-95{
+    padding: 95px 0;
+}
+.ptb-100{padding: 100px 0}
+.pb-100{padding-bottom: 100px}
+.ptb-200{padding: 200px 0}
+.marg-65{
+    margin: 65px 0;
+}
+.marg-27 {
+    margin-top: 27px;
+}
+.mt-18 {
+    margin-top: 18px;
+}
+.instagram-image {padding-top: 5px;}
+.footer-img {
+    display: inline-block;
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+.instagram-image .footer-img:nth-child(3), .instagram-image .footer-img:nth-child(6) {margin-right: 0;}
+.footer-img a {display: inline-block; position: relative}
+.footer-img a:before {
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+}
+.footer-img:hover a:before {opacity: 1;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100)}
+.footer-img a:after {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    bottom: 0;
+    color: #ffffff;
+    content: "+";
+    font-family: "montserratregular";
+    font-size: 40px;
+    height: 18px;
+    left: 0;
+    margin: -9px auto 0;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 18px;
+}
+.footer-img:hover a:after {opacity: 1;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100)}
+.footer-area.style-five{background: #0B96BE}
+.footer-area.style-four .footer-logo{margin-bottom: 20px}
+.footer-area.style-four .copyright a{color: #fff}
+.default-title > h2 {
+    color: #282828;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700; 
+    margin-bottom: 18px;
+}
+.about-reflex-info  h2{
+    color: #282828;
+    font-size: 28px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.about-reflex-info p {
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight'; 
+    line-height: 24px;
+}
+.about-reflex-info p span {
+    color: #28435f;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+/*----------------------------------------*/
+/*  7.  What We Do CSS
+/*----------------------------------------*/
+.what-we-do-area{
+    background: #FAFAFA; 
+}
+.ptb-70{
+    padding: 70px 0;
+}
+.single-do-info {
+    padding-right: 10px;
+}
+.choose-plan .default-title > h2{
+    margin-bottom: 25px;
+}
+.default-title > h2 > span{
+    font-size: 24px;
+    font-family: 'montserratsemi_bold';
+    text-transform: lowercase;
+}
+.default-title > p, .choose-plan .default-title ul li {
+    color: #565656;
+    font-family: "montserratlight";
+    font-size: 14px;
+    line-height: 24px;
+}
+.choose-plan .default-title ul li{margin-top: 30px}
+.choose-plan .default-title ul li i{
+    margin-right: 10px;
+}
+.single-do-icon{
+    display: inline-block;
+    margin-right: 10px;
+}
+.single-do-title-info {
+    display: inline-block;
+    padding-left: 35px;
+}
+.single-do-title-info h4{
+    font-size: 18px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}
+.single-do-info p{
+    font-size: 14px;
+    color: #565656;
+    font-family: 'montserratlight';
+    margin-bottom: 5px;
+}
+.row .single-do-service{
+    margin-top: 55px;
+}
+/*----------------------------------------*/
+/*  8.  Consultation CSS
+/*----------------------------------------*/
+.consultation-area, .fun-area{
+    background: #28435F;
+    padding: 44px 0;
+    position: relative;
+    overflow: hidden;
+}
+.consultation-area:before, .fun-area:before, .single-project:before{
+    position: absolute;
+    background: url(/assets/addons/xcblog/img/freenekoray/consultation/1.png)no-repeat;
+    left: -300px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content:"";
+}
+.consultation-angle {
+    background: #28435f none repeat scroll 0 0;
+    content: "";
+    height: 250px;
+    left: 343px;
+    position: absolute;
+    top: -25px;
+    transform: rotate(30deg);
+    width: 93px;
+}
+.fun-angle {
+    background: #28435f none repeat scroll 0 0;
+    content: "";
+    height: 251px;
+    left: 337px;
+    position: absolute;
+    top: 5px;
+    transform: rotate(23deg);
+    width: 89px;
+}
+.consultation-info.default-title {
+    z-index: 999;
+    position: relative;
+}
+.wrapper-boxed .consultation-info.default-title {
+    margin-left: 70px
+}
+.wrapper-boxed .creative-area .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.wrapper-boxed .single-member-info-wrapper::before, .wrapper-boxed .single-member-info-wrapper::after {
+    height: 78px;
+    top: -64px;
+}
+.single-project:before{
+    position: absolute;
+    background: url(/assets/addons/xcblog/img/freenekoray/consultation/3.png)no-repeat;
+    left: -300px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content:"";
+}
+.fun-area:before{
+    background: url(/assets/addons/xcblog/img/freenekoray/consultation/2.png)no-repeat;
+    left: -301px;
+}
+.consultation-area h2{
+    color :#fff;
+    margin-bottom: 12px;
+}
+.consultation-area p{
+    color :#fff;
+    margin-bottom: 0;
+}
+.consultation-area .consultation-button{
+    float:right;
+    padding: 22px 0;: 
+}
+/*----------------------------------------*/
+/*  9.  Features CSS
+/*----------------------------------------*/
+.features-area .default-title{
+    margin-bottom: 60px;
+}
+.feature-info{
+    background: #28435F;
+    margin-left: 30px;
+    padding: 57px 50px 57px 155px;
+    position: relative;
+}
+.single-feature{
+    color: #fff;
+}
+/*
+.features-area {
+    margin-bottom: 72px;
+}
+*/
+.single-feature > h4 {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+.single-feature > p{
+    font-size: 14px;
+    color: #d3d3d3;
+    line-height: 24px;
+}
+.feature-info .row .col-md-6 .single-feature:nth-child(2){
+    margin: 40px 0;
+}
+/*----------------------------------------*/
+/*  10. Policy CSS
+/*----------------------------------------*/
+.single-policy-icon i {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+.marg-20 {
+    margin: 20px 0;
+}
+.policy-info .row .col-lg-4.col-md-6.col-sm-4.col-xs-12:nth-child(3){
+    margin-bottom: 45px;  
+}
+.single-policy-info > p {
+    line-height: 24px;
+}
+.single-policy-icon-info > h3{
+    color: #282828;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}
+.single-policy-no{
+    display: inline-block; 
+    float: left;
+    margin-right: 22px;
+    margin-top: 15px;
+    position: relative;
+    border: 1px solid #DCDCDC;
+    height: 29px;
+    width: 29px;
+    background: #fff;
+}
+.single-policy-no > h4 {
+    font-size: 20px;
+    color: #282828;
+    font-family: 'montserratsemi_bold';
+    display: inline-block;
+    padding: 3px 8px;
+    z-index: 1;
+    text-transform: capitalize;
+}
+.single-policy-no::before {
+    border: 1px solid #dcdcdc;
+    content: "";
+    height: 29px;
+    position: absolute;
+    right: -7px;
+    top: -6px;
+    width: 29px;
+    z-index: -1;
+}
+.single-policy-icon, .single-policy-icon-info {
+    display: block;
+}
+.single-policy-right{
+    float: left;
+}
+.single-policy-info{
+    display: inline-block;
+}
+.declarations {
+    border-left-color: #fff;
+    border-style: solid none solid solid;
+    border-width: 261px 0 261px 85px;
+    font-size: 0;
+    left: 45px;
+    line-height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: 99;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+.declarations::before, .declarations::after {
+    background: #0b96be none repeat scroll 0 0;
+    content: "";
+    height: 205px;
+    left: -45px;
+    position: absolute;
+    top: -205px;
+    transform: skewX(18deg);
+    width: 12px;
+}
+.declarations::after {
+    top: -1px;
+    transform: skewX(-18deg);
+}
+.policy-area .default-title, .latest-area .default-title, .creative-area .default-title, .latest-blog .default-title, .client-area .default-title, .testimonial-area .default-title {
+    margin-bottom: 60px;
+}
+.policy-img{
+   position: relative;
+}
+.single-service {
+  position: relative;
+  z-index: 9;
+}
+.style-declarations {
+    border-color: rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0);
+    border-style: solid solid solid none;
+    border-width: 168px 50px 168px medium;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    width: 0;
+}
+.style-declarations::before, .style-declarations::after {
+    background: #28435f none repeat scroll 0 0;
+    content: "";
+    height: 140px;
+    left: 20px;
+    position: absolute;
+    top: -141px;
+    transform: skewX(-16deg);
+    width: 12px;
+}
+.style-declarations::after {
+    top: -1px;
+    transform: skewX(16deg);
+}
+/*----------------------------------------*/
+/*  11. Latest Portfolio CSS
+/*----------------------------------------*/
+.portfolio-menu{
+    margin-bottom: 40px;
+}
+.portfolio-menu ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.portfolio-menu ul li{
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 14px;
+    color: #282828;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+.portfolio-menu ul li:last-child{
+    margin-right: 0px;
+}
+.portfolio-menu ul li:hover{
+    background: #28435F;
+    color: #fff;
+    border: 1px solid #28435F;
+}
+.portfolio-detail-info {
+    bottom: -75px;
+    color: #ffffff;
+    left: 35px;
+    position: absolute;
+    text-align: left;
+    transition: all 0.3s ease 0s;
+}
+.single-portfolio-item:hover .portfolio-detail-info {
+    bottom: 20px;
+}
+.portfolio-detail-info h5{
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.portfolio-detail-info h6{
+    font-size: 14px; 
+    font-family: 'montserratlight';
+}
+.single-portfolio{position: relative}
+.single-portfolio-item {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+.two .gallery_items .grid-item:first-child, .two .gallery_items .grid-item:nth-child(3), .two .gallery_items .grid-item:nth-child(5), .two .gallery_items .grid-item:nth-child(6), .two .gallery_items .grid-item:nth-child(8), .two .gallery_items .grid-item:nth-child(9) {padding-right: 10px; padding-bottom: 10px}
+.portfolio-detail{
+    position: absolute;
+    left:0;
+    top: 0;
+    content:"";
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.portfolio-detail::after {
+    background-color: #28435f;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.77;
+    position: absolute;
+    top: -100%;
+    transition: all 0.4s ease 0s;
+    width: 100%;
+    z-index: -1;
+}
+.portfolio-detail a {
+    color: #ffffff;
+    display: block;
+    height: 35px;
+    left: 50%;
+    margin-bottom: -17.5px;
+    margin-left: -17.5px;
+    padding-top: 5px;
+    position: absolute;
+    text-align: center;
+    width: 35px;
+    font-size: 30px;
+    bottom: -25px;
+}
+.single-portfolio:hover .portfolio-detail::after{
+    top: 0
+}
+.single-portfolio-item:hover .portfolio-detail a{
+    bottom:50%; margin-bottom: -17.5px
+}
+.grid-item{
+    position: relative;
+    box-sizing: border-box;
+    width: 30%;
+}
+.grid-item img {
+    height: 100%;
+    width: 100%;
+}
+.grid-item.grid-item-1{
+    width: 40%; 
+}
+.grid-item.grid-item-2{
+    width: 30%; 
+}
+.grid-item.grid-item-3{
+    width: 20%; 
+}
+.grid-item.grid-item-4{
+    width: 45%; 
+}
+.grid-item.grid-item-5{
+    width: 55%; 
+}
+.portfolio-page{
+    margin-top: 40px;
+}
+/*----------------------------------------*/
+/*  12. Team CSS
+/*----------------------------------------*/
+.single-member {
+    position: relative;
+    overflow: hidden;
+}
+.single-member-info{
+    background: #28435F;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 1px;
+    padding-top: 5px;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.single-member-info::before, .single-member-info::after {
+    background: #28435f none repeat scroll 0 0;
+    content: "";
+    height: 38px;
+    left: -3%;
+    position: absolute;
+    top: -21px;
+    transform: rotate(16deg);
+    width: 60%;
+}
+.single-member-info::after{
+    transform: rotate(-16deg);
+    right: -3%;
+    left: auto;
+}
+.single-member-info-wrapper{
+    position: relative;
+}
+.single-member-info-wrapper::before, .single-member-info-wrapper::after {
+    background: #0b96be none repeat scroll 0 0;
+    content: "";
+    height: 93px;
+    left: 70px;
+    position: absolute;
+    top: -73px;
+    transform: rotate(-74deg);
+    width: 7px;
+}
+.single-member-info-wrapper::after{
+    transform: rotate(74deg);
+    right: 70px;
+    left: auto;
+}
+.single-member-info-wrapper > h5 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 2px;
+}
+.single-member-info-wrapper > p{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.single-member-info-wrapper{
+    z-index: 9;  
+    position: relative;
+}
+.creative-area .row .col-lg-3 {
+    padding: 0 40px;
+}
+.creative-area .row {
+    margin-left: -40px;
+    margin-right: -40px;
+}
+.single-member-social {
+    bottom: -30px;
+    left: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+}
+.single-member:hover .single-member-social {
+  bottom: 0px;
+}
+.single-member:hover .single-member-info{
+    padding-bottom: 30px;
+}
+.single-member-social ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.single-member-social ul li{
+    display: inline-block;
+    margin-right: 25px;
+}
+.single-member-social ul li:last-child{
+    margin-right: 0px;
+}
+.single-member-social ul li a{
+    display: block;
+    color: #adadad;
+    font-size: 14px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.single-member-social ul li:hover a{
+    color: #fff;
+}
+/*----------------------------------------*/
+/*  13. Testimonial CSS
+/*----------------------------------------*/
+.testimonial-area{
+    background: #FAFAFA;
+}
+.testimonial-area.white{background: none}
+.testimonial-image-slider {margin-top: 5px}
+.slick-list {margin: 0 5px}
+.sin-opacity{
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 90px;
+    margin-top: 25px;
+    outline: 0 none;
+    overflow: hidden;
+    position: relative;
+    width: 90px;
+    box-shadow: 0 0 3px 3px #cccccc;
+}
+.sin-opacity img {width: 100%; height: 100%}
+.sin-testiImage.slick-current .sin-opacity::after {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+.sin-opacity:after{
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.sin-testiImage {
+    display: inline-block;
+    margin-bottom: 11px;
+    outline: medium none;
+}
+.sin-testiImage.slick-current .sin-opacity {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0 none;
+    height: 128px;
+    margin-top: 0px;
+    opacity: 1;
+    width: 128px;
+}
+.sin-testiImage.slick-current {
+    height: 135px;
+    margin-top: 5px;
+    opacity: 1;
+    filter:alpha(opacity=100);
+    width: 135px;
+}
+.testimonial-text-slider h2 {
+    display: block;
+    font-size: 18px;
+    color :#282828;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.testimonial-text-slider h2 > span{
+    font-size: 14px;
+    color :#565656;
+    font-family: 'montserratlight';
+}
+.testimonial-text-slider {
+    margin: auto;
+    padding: 20px 55px 4px;
+    position: relative;
+    width: 71%;
+    z-index: 9;
+}
+.sin-testiText{outline: none}
+.sin-testiText p {
+    color: #565656;
+    font-family: "montserratlight";
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+    padding: 0 112px;
+}
+.client-rating {margin-bottom: 5px}
+.client-rating i {
+    color: #7d7d7d;
+    font-size: 18px;
+}
+.client-rating i.color {color: #f1c30d}
+.slick-prev, .slick-next {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 25px;
+    outline: medium none;
+    padding: 0;
+    position: absolute;
+    top: 38%;
+    width: 16px;
+}
+.slick-prev {left: -31px}
+.slick-next {right: -31px}
+.slick-prev::before, .slick-next::before {
+    color: #2d3e50;
+    content: "";
+    font-family: "Material-Design-Iconic-Font";
+    font-size: 50px !important;
+    height: 25px;
+    left: 0;
+    position: absolute;
+    top: -23px;
+    transition: all 0.3s ease 0s;
+    width: 16px;
+}
+.slick-prev:hover:before, .slick-next:hover:before {color: #7a9757}
+.slick-next:before {
+    right: 0; 
+    content: "";
+}
+/*----------------------------------------*/
+/*   14. Fun CSS
+/*----------------------------------------*/
+.single-fun-factor-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 99;
+}
+.single-fun-factor {
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #28435f;
+    display: inline-table;
+    font-size: 34px;
+    height: 60px;
+    width: 60px;
+}
+.single-fun-factor i{
+    display: table-cell;
+    vertical-align: middle;
+}
+.single-fun-factor-info > h2, .single-fun-factor-info > h5 {
+    color: #fefefe;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+.single-fun-factor-info > h5 {
+    font-size: 16px;
+}
+/*----------------------------------------*/
+/*  15. Latest Blog CSS
+/*----------------------------------------*/
+.single-latest-blog-img{
+    position: relative;
+}
+.latest-blog .col-md-4 {
+    padding: 0 20px;
+}
+.latest-blog .row {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.single-latest-blog-date {
+    bottom: 15px;
+    left: 15px;
+    position: absolute;
+    z-index: 999;
+}
+.single-latest-blog-date > h4, .single-latest-blog-date > h6 {
+    color: #fcfcfc;
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+    background: #0B96BE;
+    padding: 9px 15px;
+    border-radius: 3px 3px 0 0;
+    margin-bottom: 0;
+}
+.single-latest-blog-date > h6{
+    font-size: 14px;
+    background: #28435F;
+    border-radius: 0 0 3px 3px;
+}
+.single-latest-blog-info{
+    margin-top: 16px;
+}
+.single-latest-blog-info h4 a{ 
+    font-size: 18px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 5px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+} 
+.single-latest-blog-info h4 a:hover{
+    color: #0B96BE;
+}
+.single-latest-blog-info h6{
+    font-size: 12px;
+    color: #565656;
+    font-family: 'montserratlight';
+    margin-bottom: 12px;
+}
+.single-latest-blog-info p{
+    font-size: 14px;
+    color: #565656;
+    font-family: 'montserratlight';
+    margin-bottom: 0;
+    line-height: 22px;
+}
+a.read-more{
+    background: #0B96BF;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 3px;
+    padding: 8px 15px;
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    left: 34%;
+    z-index: 99;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    opacity: 0;
+}
+a.read-more:hover{
+    color: #28435F;
+}
+.single-latest-blog-img:after{
+    background: rgba(40, 67, 95, 0.66);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    opacity: 0;
+     -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.single-latest-blog:hover .single-latest-blog-img:after, .single-latest-blog:hover a.read-more{
+    opacity: 1;
+}
+/*----------------------------------------*/
+/*  16. Client CSS
+/*----------------------------------------*/
+.client-area.ptb-70 {
+    background: #fafafa none repeat scroll 0 0;
+}
+.owl-carousel .owl-item img {
+  width: inherit;
+}
+.single-client-img > a {
+    display: inline-block;
+    text-align: center;
+}
+.single-client {
+    text-align: center;
+}
+/*----------------------------------------*/
+/*  17. Footer CSS
+/*----------------------------------------*/
+.footer-area{
+    background: #28435F;
+    color: #fff;
+}
+.ptb-90{
+    padding: 90px 0;
+}
+.footer-logo > p, .footer-widget > p {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'montserratlight';
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 24px;
+}
+.footer-add-icon{
+    color: #fff;
+    font-size: 22px;
+    display: inline-block;
+    margin-right: 15px;
+    float: left;
+}
+.footer-add-info p{
+    color: #fff;
+    font-size: 12px;
+    font-family: 'montserratlight';
+    display: inline-block;
+    line-height: 20px;
+}
+.footer-widget h5{
+    color: #fff;
+    font-size: 16px;
+    font-family: 'montserratsemi_bold';
+    text-transform: capitalize;
+    margin-bottom: 25px;
+}
+.footer-widget ul li{
+    margin-bottom: 13px;
+}
+.footer-widget ul li:last-child{
+    margin-bottom: 0px;
+}
+.footer-widget ul li a, .footer-widget.payment p{
+    color: #fff;
+    font-size: 12px;
+    font-family: 'montserratlight';
+    text-transform: capitalize;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.footer-widget input, .footer-widget textarea {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 1px solid #A5ACB2;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.footer-widget textarea{
+    margin-bottom: 15px;
+}
+.footer-widget button {
+    color: #28435f;
+    padding: 6px 20px;
+    font-family: 'montserratsemi_bold';
+    background: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.footer-widget button:hover{
+    background: #28435f;
+    color: #fff;
+}
+.footer-widget ul li:hover a{
+    color: #0A95BE;
+    margin-left: 5px;
+}
+.footer-bottom-area{
+    background: #122F4D;
+    padding: 25px 0;
+}
+.footer-bottom-area p, .footer-bottom-area p a{
+    margin-bottom: 0;
+    color: #d7d7d7;
+    font-size: 13px;
+    text-align: center;
+}
+.footer-bottom-area p a:hover{
+    color: #0A95BE;
+}
+.footer-widget input[placeholder], .footer-widget textarea[placeholder] {
+    font-size: 12px;
+}
+/*----------------------------------------*/
+/*  18. Scroll Up CSS
+/*----------------------------------------*/
+#scrollUp {
+    background: #ffffff none repeat scroll 0 0;
+    bottom: 52px;
+    color: #122f4d;
+    cursor: pointer;
+    font-size: 22px;
+    height: 35px;
+    line-height: 32px;
+    position: fixed;
+    right: 50px;
+    text-align: center;
+    transform: rotate(45deg);
+    transition: all 4ms linear 0s;
+    width: 35px;
+    z-index: 9999;
+}
+#scrollUp i{
+    transform: rotate(-45deg);
+}
+#scrollUp:hover {
+    background: #0B96BE;
+    color: #fff;
+}
+/*----------------------------------------*/
+/*  19. Home Two & Three CSS
+/*----------------------------------------*/
+.wrapper{
+    margin: auto;
+    width: 1200px;
+    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+}
+.p-0{padding: 0}
+.banner-wrap{
+    background: url(/assets/addons/xcblog/img/freenekoray/slider/1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.banner-wrap:after{
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+.banner-text-wrapper{
+    z-index: 99;
+    position: relative;
+}
+.about-reflex-area-two .about-reflex-info {
+    background: #fafafa none repeat scroll 0 0;
+    margin-top: -75px;
+    padding: 60px 0px;
+    width: 968px;
+}
+.about-reflex-area-two{
+    margin-top: 96px;
+    margin-bottom: 30px;
+}
+.what-we-do-area .home-two{
+    background: #fff;
+     margin-bottom: 90px;
+}
+.single-feature-left > h5, .single-feature-right > h5 {
+    color: #282828;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 16px;
+    margin-top: 65px;
+    position: relative;
+}
+.single-feature-left > h5 > span.circle, .single-feature-right > h5 > span.circle {
+    border: 1px solid #28435f;
+    border-radius: 50%;
+    content: "";
+    height: 19px;
+    position: absolute;
+    right: -38px;
+    top: 1px;
+    width: 19px;
+}
+.single-feature-right > h5 > span.circle{
+    left: -38px;
+}
+.single-feature-left > h5::after, .single-feature-right > h5::after {
+    background: #28435f none repeat scroll 0 0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    content: "";
+    height: 17px;
+    margin-top: 3px;
+    position: absolute;
+    right: -37px;
+    top: -1px;
+    width: 17px;
+}
+.single-feature-right > h5:after {
+    left: -37px;
+}
+.feature-img {
+    margin-left: 17px;
+}
+.single-feature-left > h5::before, .single-feature-right > h5::before {
+    background: #28435f none repeat scroll 0 0;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: -96px;
+    top: 9px;
+    width: 59px;
+}
+.single-feature-right > h5::before{
+    left: -96px;
+}
+.single-feature-left > p, .single-feature-right > p {
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight';
+    line-height: 24px;
+}
+.feature-left{
+    padding-left: 40px;
+}
+.feature-right{
+    padding-right: 40px;
+}
+.single-price-table-head{
+    background: #28435F;
+}
+.single-pricing-table{
+    position: relative;
+}
+.single-price-table-head > h4{
+    color: #fefefe;
+    font-size: 24px;
+    font-family: 'montserratsemi_bold';
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.price-table-angle {
+    border-color: rgba(0, 0, 0, 0) #28435f #f4f4f4;
+    border-style: solid;
+    border-width: 0 135px 40px;
+    font-size: 0;
+    left: 0;
+    line-height: 0;
+    position: absolute;
+    top: 73px;
+    width: 0;
+}
+.price-table-angle::before, .price-table-angle::after {
+    background: #0b96be none repeat scroll 0 0;
+    content: "";
+    height: 96px;
+    left: -50px;
+    position: absolute;
+    top: -30px;
+    transform: rotate(73deg);
+    width: 10px;
+}
+.price-table-angle::after{
+    right: -50px;
+    left: auto;
+    transform: rotate(-73deg);
+}
+.single-pricing-table-body{
+    background: #F4F4F4;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.single-pricing-table-body > h5 {
+    background: #0b96be none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    padding: 8px 18px;
+}
+.single-pricing-table-body li{
+    font-size: 14px;
+    color: #565656;
+    font-family: 'montserratlight';
+    padding-top: 20px;
+}
+.single-pricing-table-body a.order{
+    font-size: 14px;
+    color: #28435f;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #CCCCCC;
+    padding: 9px 25px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 28px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.single-pricing-table-body a.order:hover{
+    background: #28435F;
+    border: 1px solid #28435F;
+    color: #fff;
+}
+.single-pricing-table:hover{
+    box-shadow: 0px 2px 2px 2px #CECECE;
+}
+/* -------------------------------- 
+xclip 
+-------------------------------- */
+.cd-headline.clip span {
+  display: inline-block;
+  padding: .2em 0;
+}
+.cd-headline.clip .cd-words-wrapper {
+  overflow: hidden;
+  vertical-align: top;
+}
+.cd-headline.clip .cd-words-wrapper::after {
+  /* line */
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #aebcb9;
+}
+.cd-headline.clip b {
+  opacity: 0;
+}
+.cd-headline.clip b.is-visible {
+  opacity: 1;
+}
+.cd-headline.clip span {
+  display: inline-block;
+  padding: 0.2em 0;
+}
+.cd-headline.clip .cd-words-wrapper::after {
+  background-color: #aebcb9;
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+}
+.cd-headline.clip .cd-words-wrapper {
+  overflow: hidden;
+  vertical-align: top;
+}
+.cd-words-wrapper {
+  position: relative;
+  text-align: left;
+}
+/*----------------------------------------*/
+/*  20. About Us CSS
+/*----------------------------------------*/
+.banner-area{
+    background-image: url(/assets/addons/xcblog/img/freenekoray/banner/1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.banner-area:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: rgba(40, 67, 95, 0.66);
+}
+.banner-text{
+    padding: 175px 0;
+    z-index: 99;
+    position: relative;
+    overflow: hidden;
+}
+.banner-title h2, .banner-title h1{
+    color: #fff;
+    font-size: 48px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+} 
+.breadcrumbs ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.breadcrumbs ul li, .breadcrumbs ul li a{
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+    display: inline-block;
+}
+.breadcrumbs ul li a{
+    margin-right: 8px;
+}
+.breadcrumbs ul li{
+    margin-left: 5px;
+}
+.single-mission-img{
+    float: left;
+    margin-right: 35px;
+}
+.single-mission-info > h2 {
+    color: #282828;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+.single-mission-info > p{
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight';
+    line-height: 24px;
+}
+.single-mission{
+    margin-bottom: 60px;
+}
+.single-mission-info{
+    padding-right: 20px;
+}
+.single-skill {
+    color: #ffffff;
+    position: relative;
+    width: 107px;
+    height: 107px;
+    text-align: center;
+    margin: auto
+}
+.skill-text-bg {
+    background: #28435f none repeat scroll 0 0;
+    border-radius: 50%;
+    height: 58px;
+    left: 30px;
+    position: absolute;
+    top: 30px;
+    width: 58px;
+}
+.single-skill-wrapper h4 {
+    color: #282828;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.single-skill-wrapper{
+    margin-top: 40px;
+}
+.single-skill h4 {
+    font-size: 18px; 
+    font-weight: 700;
+    color: #F26522;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0
+}
+.circliful {
+    position: relative; 
+    text-align: center;
+    margin: 0 auto
+}
+.circle-text, .circle-info, .circle-text-half, .circle-info-half {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+}
+.circle-info, .circle-info-half {
+	color: #999;
+}
+.circliful .fa {
+	margin: -10px 3px 0 3px;
+	position: relative;
+	bottom: 4px;
+}
+/*----------------------------------------*/
+/*  21. Blog CSS
+/*----------------------------------------*/
+.latest-blog .single-latest-blog{
+    margin-bottom: 35px;
+}
+.latest-blog.home-one .single-latest-blog{
+    margin-bottom: 0px;
+}
+.page-indicators ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.page-indicators ul li{
+    display: inline-block;
+    margin-right: 8px;
+}
+.page-indicators ul li a{
+    display: block;
+    border: 1px solid #A6A6A6;
+    font-size: 14px;
+    color: #656565;
+    font-family: 'montserratsemi_bold';
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.page-indicators ul li:hover a, .page-indicators ul li.active a {
+    background: #28435f none repeat scroll 0 0;
+    color: #ffffff;
+    border: 1px solid #28435f;
+}
+.latest-blog .row .col-md-4:nth-child(10) .single-latest-blog, .latest-blog .row .col-md-4:nth-child(11) .single-latest-blog, .latest-blog .row .col-md-4:nth-child(12) .single-latest-blog{
+    margin-bottom: 20px;
+}
+.portfolio-area.latest-area .portfolio-item{margin-bottom: 40px}
+/*----------------------------------------*/
+/*  22. Blog Details CSS
+/*----------------------------------------*/
+.blog-details .single-latest-blog-info > h4 {
+    color: #282828;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 54px;
+}
+.blog-details .single-latest-blog-info > h6 {
+    margin-bottom: 25px;
+}
+.blog-details .single-latest-blog-info > p {
+    margin-bottom: 30px;
+}
+quotation {
+    display: block;
+    font-style: italic;
+    padding-left: 55px;
+    padding-right: 110px;
+    color: #565656;
+    margin-bottom: 30px;
+}
+.tag-share{
+    border-bottom: 1px solid #CCCCCC;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.share{
+    float: right;
+}
+.tags ul, .share ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.tags ul li, .share ul li{
+    display: inline-block;
+}
+.share ul li{
+    padding: 0 12px;
+}
+.tags ul li.title, .share ul li.title{
+    color: #282828;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}
+.tags ul li a, .share ul li a{
+    display: block;
+    font-size: 14c
+    color: #565656;
+    font-family: 'montserratlight';
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.tags ul li:hover a, .share ul li:hover a{
+    color: #0B96BF;
+}
+.comments{
+    margin-top: 95px;
+}
+.comments-title h4 {
+    font-size: 18px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}
+.single-comment{
+    margin-top: 35px;
+}
+.comment-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.comment-info{
+    display: block;
+}
+.comment-info h5{
+    color: #282828;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+.comment-info h6, .comment-info p{
+    color: #565656;
+    font-size: 12px;
+    font-family: 'montserratlight';
+}
+.comment-info p{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.comment-info a.reply{
+    color: #282828;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}
+.comment-form input, .comment-form textarea{
+    border: 1px solid #dddddd;
+    padding: 7px 10px;
+    color: #565656;
+    font-family: 'montserratlight';
+    width: 48%;
+    margin-top: 30px;
+}
+.comment-form input:first-child{
+    margin-right: 30px;
+}
+.comment-form textarea{
+    width: 100%;
+}
+.comment-form button{
+    margin-top: 30px;
+    display: inline-block;
+    background: #28435F;
+    padding: 8px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.comment-form button:hover{
+    background: #0B96BE;
+}
+.blog-single-sidebar{
+    margin-bottom: 50px;
+}
+.blog-single-sidebar h3{
+    font-size: 18px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 12px;
+    text-transform: capitalize;
+    margin-bottom: 22px;
+}
+.blog-single-sidebar ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.blog-single-sidebar ul li{
+    display: block;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.blog-single-sidebar ul li a{
+    text-transform: capitalize;
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight';
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.blog-single-sidebar ul li:hover a{
+    color: #0B96BE;
+}
+.blog-single-sidebar ul li a span{
+    float: right;
+}
+.latest-post-img{
+    float: left;
+    margin-right: 15px;
+}
+.latest-post-info{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+.latest-post-info h4{margin-bottom: 5px}
+.latest-post-info h4 a{
+    font-size: 15px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+}
+.latest-post-info h4 a:hover{
+    color: #0B96BE;
+}
+.latest-post-info h6, .latest-post-info p{
+    font-size: 12px;
+    color: #565656;
+    font-family: 'montserratlight';
+}
+.latest-post-info p{
+    font-size: 14px;
+}
+.single-tweets{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.single-tweets p{
+    font-size: 14px;
+    color: #565656;
+    line-height: 22px;
+}
+.single-tweets p span{
+    color: #0b96bf;
+    font-size: 15px;
+}
+.single-tweets h6{
+    color: #565656;
+    font-size: 12px;
+    font-family: 'montserratlight';
+}
+.single-latest-blog-img > img {
+    width: 100%;
+}
+.tag-wrapper{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+.tag-wrapper ul li{
+    display: inline-block;
+    border-bottom: none;
+    margin-right: 5px;
+}
+.tag-wrapper ul li a{
+    display: block;
+    color: #282828;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 5px 12px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.tag-wrapper ul li:hover a{
+    background: #0B96BE;
+    color: #fff;
+    border: 1px solid #0B96BE;
+}
+/*--------------------------------------------*/
+/* 23. Blog Sidebar CSS
+/*--------------------------------------------*/
+.latest-blog.sidebar .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+/*--------------------------------------------*/
+/* 24. Contact CSS
+/*--------------------------------------------*/
+.contact-address{
+    margin: 100px 0;
+    text-align: center;
+    margin-right: 80px;
+}
+.single-address{
+    margin-bottom: 45px;
+}
+.single-address-icon {
+    display: inline-table;
+    margin-bottom: 20px;
+}
+.single-address-icon i{
+    background: #28435F;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    color: #fff;
+    font-size: 24px;
+}
+.single-address-info > h4 {
+    color: #282828;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+.single-address-info > p {
+    color: #565656;
+    font-size: 12px;
+    font-family: 'montserratlight';
+}
+input.f-wid {
+    width: 100%;
+}
+.map-area{
+    border-bottom: 1px solid #A8C3DF;
+}
+/*--------------------------------------------*/
+/* 25. Team CSS
+/*--------------------------------------------*/
+.head-img{position: relative}
+.head-img:before, .head-img:after{
+    position: absolute;
+    background: #28435F;
+    width: 12px;
+    height: 325px;
+    content: "";
+    left: 0;
+    top: 34px;
+}
+.head-img:after{
+    width: 325px;
+    height: 12px;
+    bottom: 0;
+    top: auto;
+}
+.head-info{
+    margin-top: 35px;
+}
+.head-info > h3 {
+    color: #282828;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 5px;
+}
+.head-info > h4, .head-info > p {
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight';
+    margin-bottom: 40px;
+}
+.head-info > p {
+    margin-bottom: 25px;
+    line-height: 24px;
+}
+.head-social ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.head-social ul li{
+    display: inline-block;
+    margin-right: 10px;
+}
+.head-social ul li a{
+    display: block;
+    color: #adadad;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.head-social ul li:hover a{
+    background: #28435F;
+    color: #fff;
+}
+/*--------------------------------------------*/
+/* 26. Service CSS
+/*--------------------------------------------*/
+.quality-area .default-title{
+    margin-top: 55px;
+}
+.quality-img{
+    border: 14px solid #28435F;
+    position: relative;
+}
+.quality-img:before, .quality-img:after {
+    position: absolute;
+    content: "";
+    left:-14px;
+    top: 0;
+    background: #fff;
+    width: 14px;
+    height: 100%
+}
+.quality-img::after {
+    height: 14px;
+    left: -14px;
+    top: -14px;
+    width: 80%;
+}
+.lil-angle{position: relative}
+.lil-angle::after, .lil-angle::before {
+    background: #fff;
+    bottom: 213px;
+    content: "";
+    height: 20px;
+    left: -38px;
+    position: absolute;
+    transform: rotate(35deg);
+    width: 10px;
+}
+.lil-angle::before {
+    bottom: -215px;
+    left: -312px;
+}
+.quality-area .default-title > h2{
+    margin-bottom: 32px;
+}
+.quality-area .default-title > p > span{
+    color: #28435f;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.quality-area .default-title > p{
+    line-height: 24px;
+    margin-bottom: 28px;
+}
+.quality-area .default-title > .signature{
+    margin-top: 38px;
+}
+.quality-area .default-title > .signature > h6{
+    font-size: 14px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+/*--------------------------------------------*/
+/* 27. Single Service CSS
+/*--------------------------------------------*/
+.graphic-left{
+    float: left;
+    width: 50%;
+}
+.graphic-info h4{
+    color: #282828;
+    font-size: 28px;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.graphic-left p, .graphic-right p, .graphic-right li{
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight';
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+.graphic-left p:last-child, .graphic-right li{margin-bottom: 0}
+.graphic-left p span{
+    color: #28435f;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.graphic-right {
+    padding-left: 40px;
+    overflow: hidden;
+}
+.graphic-right ul li i{
+    margin-right: 10px;
+    margin-bottom: 18px;
+}
+.description-tab-menu ul{
+    margin: 0px;
+    padding: 0px;
+}
+.description-tab-menu ul li{
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-right: 5px;
+    width: 230px;
+    height: 40px;
+}
+.description-tab-menu ul li a {
+    color: #fff;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    background: #28435F;
+    padding: 12px 0;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s ease 0;
+    -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
+}
+.description-tab-menu ul li:hover a, .description-tab-menu ul li.active a {
+    background: #0B96BE;
+    color: #fff;
+}
+.product-details-area.fullwidth{
+    padding-bottom: 100px;
+}
+.product-details-area.left-sidebar .product-description-tab {
+    padding: 40px 30px 30px;
+}
+.product-details-area.left-sidebar{
+    padding-bottom: 75px;
+}
+.description-tab-menu ul li:last-child a:before{
+    background: transparent;
+}
+.product-description-tab ul li i.fa.fa-circle {
+    margin-right: 12px;
+}
+.product-description-tab ul li {
+    line-height: 17px;
+}
+.product-details-area .single-left-widget {
+    margin-top: 10px;
+}
+.product-details-area.left-sidebar .single-left-widget {
+    margin-top: 3px;
+    margin-bottom: 27px;
+}
+.product-description-tab .tab-content {
+    padding-bottom: 85px;
+    padding-top: 25px;
+    border: 1px solid #ddd;
+}
+#history, #team, #awards{
+    padding-left: 50px;
+    padding-top: 40px;
+}
+.single-comlete {
+    padding-left: 50px;
+    padding-top: 40px;
+}
+.single-comlete h5{
+    font-size: 16px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px
+}
+.single-comlete h5:first-child{
+    margin-bottom: 8px
+}
+.single-comlete p, #team li, #history > p, #team > p{
+    font-size: 14px;
+    color: #565656;
+    font-family: 'montserratlight';
+}
+/*--------------------------------------------*/
+/* 28. Single Product CSS
+/*--------------------------------------------*/
+.banner-info, .branding-img{
+    margin-bottom: 100px;
+}
+.banner-info h4{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #282828;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.banner-info p{margin-bottom: 45px}
+.row .col-md-6 .banner-info p:nth-child(4){margin-bottom: 25px}
+.banner-info p, project-info p{
+    color: #565656;
+    font-size: 14px;
+    font-family: 'montserratlight';
+    line-height: 24px;
+}
+.banner-info p span{
+    color: #28435f;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+.banner-info h5, .project-info h5{
+    font-size: 18px;
+    color: #282828;
+    font-family: 'Montserrat', sans-serif; 
+    text-transform: capitalize;
+}
+.banner-info ul{}
+.banner-info ul li{
+    font-family: 'montserratlight';
+    color: #565656;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.banner-info ul li span{
+    color: #282828;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif; 
+    text-transform: uppercase;
+}
+.project-info p {
+    line-height: 28px;
+    margin-bottom: 35px;
+}
+.project-info p:last-child {
+    margin-bottom: 0px;
+}
+.banner-info {
+    margin-left: 15px;
+}
+.project-img{position: relative; float: right}
+.project-img:before, .project-img:after{
+    position: absolute;
+    background: #28435F;
+    width: 9px;
+    height: 340px;
+    content: "";
+    right: 0;
+    bottom: 0
+}
+.project-img:after{
+    width: 305px;
+    height: 9px;
+}
+.project-img-info {
+    left: 85px;
+    position: absolute;
+    top: 77px;
+}
+.project-img-info i{
+    color: #5C5C5C;
+    font-size: 16px;
+}
+.project-img-info p{
+    font-style: italic;
+    font-family: 'montserratlight';
+    margin-top: 12px;
+    margin-bottom: 28px;
+    line-height: 25px;
+    color: #565656;
+}
+.project-img-info h6{
+    font-size: 14px;
+}
+.project-img-info img{
+    margin-bottom: 10px;
+}
+/*--------------------------------------------*/
+/* 29. Portfolio CSS
+/*--------------------------------------------*/
+.column-one {
+    width: 30%
+}
+.column-two {
+    width: 40%
+}
+.column-three {
+    width: 20%
+}
+.column-four{
+    width: 48%
+}
+.column-five{
+    width: 52%
+}
+.column-six{
+    width: 35%
+}
+.portfolio-two .portfolio-item .row > div {
+    float: left;
+    padding: 8px;
+}
+.portfolio-two .single-portfolio-item {
+    height: 259px;
+}
+/*--------------------------------------------*/
+/* 30. Mobile Menu CSS
+/*--------------------------------------------*/
+.mobile-menu-area {
+    background: #28435F none repeat scroll 0 0;
+    display: none;
+}
+.mean-container .mean-bar:after {
+    display: none;
+}
+.mean-container .mean-nav ul li a:hover {
+    color: #28435F;
+    background: none;
+}
+.mean-container a.meanmenu-reveal span {
+    background: #fff;
+}
+.mean-container .mean-nav ul li a {
+    background: #fff;
+    color: #303030;
+    display: block;
+}
+.mean-container .mean-nav ul li a.mean-expand {
+    background: none;
+    top: -4px;
+}
+.mean-container .mean-nav ul li a.mean-expand:hover {
+    background: none;
+}
+/*----------------------------------------*/
+/*  31. Shortcodes CSS
+/*----------------------------------------*/
+.shortcodes-area{
+    padding-bottom: 80px;
+}
+.shortcodes-title h4{
+    padding-top: 80px;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+    text-transform: uppercase;;
+    position: relative;
+}
+.shortcodes-title h4:after{
+    content: "";
+    background:  #303030;
+    width: 100px;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.shortcodes-area .btn-group, .shortcodes-area .dropdown{
+    padding-bottom: 30px;
+}
+.shortcodes-area .panel-heading {
+  padding: 17px 15px 17px 0;
+}
+.mean-container .mean-nav ul li {
+    background: #fff;
+}
+.mean-container .mean-nav ul li li a {
+    color: #303030;
+    opacity: .90;
+    filter: alpha(opacity=90);
+    border-top: 0;
+}
+.mean-container a.meanmenu-reveal {
+    color: #444;
+}
+.meanmenu-reveal.meanclose:hover {
+    color: #303030 !important;
+}
+.mean-container a.meanmenu-reveal:hover span {
+    background: #303030;
+}
+.mobile-menu-area .mean-nav {
+    background: #28435F none repeat scroll 0 0;
+}
+.mean-last {
+    margin-bottom: 20px;
+}
+.mobile-menu {
+    position: relative;
+}
+.mean-container .mean-bar:before {
+    color: #ffffff;
+    content: "MENU";
+    font-size: 18px;
+    font-weight: 600;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+}
+.white-hover {
+    display: block;
+    position: relative;
+}
+.white-hover:hover:before {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.white-hover:before {
+    background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
+    bottom: 15px;
+    content: "";
+    left: 15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+    -webkit-transition: all 500ms ease 0s;
+            transition: all 500ms ease 0s;
+}
+/*----------------------------------------*/
+/*  31. Shortcodes CSS
+/*----------------------------------------*/
+.shortcodes-area{
+    padding-bottom: 80px;
+}
+.shortcodes-title h4{
+    padding-top: 80px;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+    text-transform: uppercase;;
+    position: relative;
+}
+.shortcodes-title h4:after{
+    content: "";
+    background:  #303030;
+    width: 100px;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.shortcodes-area .btn-group, .shortcodes-area .dropdown{
+    padding-bottom: 30px;
+}
+.shortcodes-area .panel-heading {
+  padding: 17px 15px 17px 0;
+}
+
+#video-bg {width: 100%;}
+.video-wrapper, .video-banner {
+    height: 570px;
+    overflow: hidden;
+    position: relative;
+}
+.backgrount-area {position: relative}
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+#particles-js.bg-1 {
+    background-image: url('img/slider/1.jpg'); 
+}
+#particles-js.bg-2 {
+    background-image: url('img/slider/2.jpg'); 
+}
+.animated-background{position: relative;}
+.animated-background:after{
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+.animated-background.overlay-blue:after, .animated-background.video-overlay:after, .animated-background.with-overlay:after{
+    background: #0A95BE;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    opacity: .6
+}
+.static-text{
+    position: absolute; 
+    left:0;
+    top:0;
+    right:0;
+    text-align: center;
+    z-index: 999;    
+}
+.animated-background .banner-text-wrapper{
+    display:  table;
+}
+.animated-background, .animated-background .container, .animated-background .row, .animated-background .col-lg-12, .animated-background .banner-text-wrapper, .animated-background .static-table-cell, .animated-background .static-text{
+  height: 100%;
+  margin: auto;
+    width: 100%;
+}
+.static-table-cell{
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+}
+.fixed-background{
+    background: url("img/slider/2.jpg") no-repeat fixed top center / cover;
+    padding: 250px 0;
+}
+/* Preloader Css */
+.preloader{
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  margin-top: 0px;
+  top: 0px;
+  z-index: 99999999;
+}
+.loading-center{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.loading-center-absolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 150px;
+  width: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+.object{
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 65px;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -webkit-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
+}
+.object_one {	
+  -webkit-animation: object_one 1.5s infinite;
+  animation: object_one 1.5s infinite;
+}
+.object_two {
+  -webkit-animation: object_two 1.5s infinite;
+  animation: object_two 1.5s infinite;
+  -webkit-animation-delay: 0.25s; 
+  animation-delay: 0.25s;
+}
+.object_three {
+  -webkit-animation: object_three 1.5s infinite;
+  animation: object_three 1.5s infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+@-webkit-keyframes object_one {
+75% { -webkit-transform: scale(0); }
+}
+@keyframes object_one {
+  75% { 
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+}
+@-webkit-keyframes object_two {
+  75% { -webkit-transform: scale(0); }
+}
+@keyframes object_two {
+  75% { 
+    transform: scale(0);
+    -webkit-transform:  scale(0);
+  }
+}
+@-webkit-keyframes object_three {
+  75% { -webkit-transform: scale(0); }
+}
+@keyframes object_three {
+  75% { 
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+}
+.common-area p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    padding-bottom: 25px;
+}
+.common-area p:nth-child(2){
+    padding-bottom: 0px;
+}
+.banner-area.blog.dark{background: #000}
+ul.submenu-mainmenu li{position: relative; display: inline-block}
+ul.sub-submenu-mainmenu {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #0a95be #adadad #adadad;
+    border-image: none;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    content: "";
+    padding-top: 22px;
+    position: absolute;
+    right: -189px;
+    top: 0;
+    transform: rotateX(90deg);
+    transform-origin: center top 0;
+    transition: all 0.6s ease 0s;
+    visibility: hidden;
+    width: 188px;
+    z-index: -99;
+}
+.mainmenu ul#nav > li > ul.submenu-mainmenu > li > ul.sub-submenu-mainmenu > li > a {
+    color: #303030;
+    display: block;
+    padding: 0px 16px;
+    -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+}
+.mainmenu ul#nav > li > ul.submenu-mainmenu > li > ul.sub-submenu-mainmenu > li:hover > a {
+    color: #0A95BE;
+    margin-left: 5px;
+}
+.mainmenu ul li ul.submenu-mainmenu li:hover ul.sub-submenu-mainmenu {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    visibility: visible;
+    z-index: 99999;
+}
+.mainmenu ul li ul.submenu-mainmenu li ul.sub-submenu-mainmenu li{
+    padding-left: 15px;
+}
+p.form-messege{margin-top:15px;font-size:14px}
+p.success {
+  color: green;
+}
+p.error {
+  color: red;
+}
+.main-header-area.transparent{
+    background-color: rgba(10, 149, 190, 0.53);
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    content: "";
+}
+
+.about-reflex-area {}
+.about-reflex-area h2 {font-size: 2.5rem;margin-bottom: 1rem;}
+.about-reflex-area .item {margin-bottom: 2rem;}
+.about-reflex-area .item h3 {font-size: 1.5rem;}
+.logo {font-size: 2.5rem;font-weight: bold;}
+.slider-content h2, .slider-content h1 {font-size: 2rem;font-weight: bold;}

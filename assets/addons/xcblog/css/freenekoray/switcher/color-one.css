@@ -1,0 +1,12 @@
+.single-latest-blog-info h4 a:hover, .blog-single-sidebar ul li:hover a, .latest-post-info h4 a:hover, .mainmenu ul#nav > li > a::after, .mainmenu ul#nav > li:hover > a, .mainmenu ul#nav li ul.submenu-mainmenu li:hover a, .mainmenu ul#nav > li > ul.submenu-mainmenu > li > ul.sub-submenu-mainmenu > li:hover > a{
+    color: #0B96BE;
+}
+.single-latest-blog-date > h4, .tag-wrapper ul li:hover a, .description-tab-menu ul li:hover a, .description-tab-menu ul li.active a, #scrollUp:hover, .comment-form button:hover, .slider-button:hover, .default-button:hover, .preview-2 .nivo-controlNav a:hover, .preview-2 .nivo-controlNav a.active, .declarations::before, .declarations::after, .portfolio-detail::after, .single-member-info-wrapper::before, .single-member-info-wrapper::after, .mainmenu ul#nav > li > a::after, .object, a.read-more, .animated-background.video-overlay:after, .animated-background.with-overlay:after {
+    background-color: #0B96BE;
+}
+.tag-wrapper ul li:hover a, .tag-wrapper ul li:hover a, .slider-button:hover, .default-button:hover {
+    border-color: #0B96BE;
+}
+.mainmenu ul li .mega-menu, .mainmenu ul > li > ul.submenu-mainmenu, ul.sub-submenu-mainmenu{
+    border-color: #0B96BE #adadad #adadad
+}
