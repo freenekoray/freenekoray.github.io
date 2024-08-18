@@ -1,0 +1,206 @@
+/* large desktop :1400px. */
+@media (min-width: 1400px) and (max-width: 2000px) {
+    .nivo_text .slider-text-1 h2 {font-size: 40px; line-height: 35px;}
+    .nivo_text .slider-text-2 h1, .nivo_text .slider-text-3 h1{font-size: 60px;line-height: 55px}
+    .nivo_text .slider-text-4 p{font-size: 16px; margin-top: 22px; margin-bottom: 48px}
+    .slider-button {font-size: 14px}
+    .search-box button {right: 10px}
+    .mainmenu ul li {margin-right: 50px}
+    .single-portfolio-item {height: 320px}
+    .consultation-area::before, .fun-area::before, .single-project::before {left: -58px}
+    .consultation-angle {left: 580px;}
+    .fun-angle {left: 531px}
+    .fun-area::before {left: -107px;}
+    .consultation-area::after {left: -54px; width: 33%;}
+    .fun-area::after {left: -59px; width: 31%;}
+    .mainmenu ul li {margin-right: 50px}
+    .search-box input {width: 270px}
+}
+/* desktop 1200px to 1600px */
+@media (min-width: 1200px) and (max-width: 1600px) {
+    .consultation-info.default-title {margin-left: 20px}
+    .as-mainwrapper.wrapper-boxed .mainmenu ul li:nth-child(8) {display: none}
+}
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+.container {width:970px}
+    .as-mainwrapper.wrapper-boxed {width: 970px}
+    .as-mainwrapper.wrapper-boxed .stick {width: 970px}
+    .mainmenu-area {margin-left: 20px}
+    .logo {padding: 55px 0}
+    .nivo_text .slider-text-2 h1, .nivo_text .slider-text-3 h1 {font-size: 35px; line-height: 25px}
+    .consultation-area::before, .fun-area::before, .single-project::before, .consultation-area::after, .fun-area::after {background: none}
+    .feature-info {padding: 55px 50px 55px 110px}
+    .feature-img {margin-top: 70px}
+    .single-police {margin-top: 15px}
+    .creative-area .row .col-lg-3 {padding: 0 53px}
+    .sin-testiText p {padding: 0 0px;}
+    .about-reflex-area-two .about-reflex-info { width: 800px}
+    .feature-img {margin-top: -2px; position: relative; z-index: 9;}
+    .feature-left {padding-left: 0px;}
+    .feature-right {padding-right: 0px;}
+    .single-member-info-wrapper::before, .single-member-info-wrapper::after {height: 85px; top: -68px; left: 74px}
+    .single-member-info-wrapper::after {right: 74px; left: auto}
+    .price-table-angle { border-width: 0 147px 40px}
+    .price-table-angle::before, .price-table-angle::after {top: -31px;transform: rotate(75deg)}
+    .price-table-angle::after {transform: rotate(-75deg)}
+    .single-do-info {padding-right: 0px;}
+    .stick .mainmenu ul li { margin-right: 15px}
+    .stick .logo {padding: 25px 0}
+    .stick .search-box {padding: 28px 0}
+    .project-img-info {left: 20px;}
+    .product-description-tab .tab-content {border: none;}
+    .comment-form input {width: 47%;}
+    input.f-wid {width: 100%;}
+    .mainmenu ul li .mega-menu {width: 870px}
+    .mainmenu ul li.shortcode .mega-menu {width: 700px}
+    .as-mainwrapper.wrapper-boxed .search-box input {width: 130px}
+    .as-mainwrapper.wrapper-boxed .mainmenu ul li:nth-child(6), .as-mainwrapper.wrapper-boxed .mainmenu ul li:nth-child(8), .mainmenu ul li:nth-child(6), .mainmenu ul li:nth-child(8) {display: none}
+    .as-mainwrapper.wrapper-boxed .mainmenu ul li .mega-menu {width: 750px}
+    .as-mainwrapper.wrapper-boxed .mainmenu ul li.shortcode .mega-menu {width: 600px}
+    .stick .mainmenu ul li ul.submenu-mainmenu, .sticker.stick .mainmenu ul li .mega-menu {top: 93px}
+    .header-area.style-five .mainmenu ul li .mega-menu { left: -300px}
+    .wrapper-boxed .mainmenu ul li {margin-right: 11px}
+    
+}
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+.container {width:765px}
+    .as-mainwrapper.wrapper-boxed, .as-mainwrapper.wrapper-boxed .portfolio_gallery_area, .as-mainwrapper.wrapper-boxed .stick {width:750px}
+    .as-mainwrapper.wrapper-boxed .main-header-area.stick{position:inherit}
+    .main-header-area.bg-white.sticker.stick {position: inherit}
+    .mobile-menu-area {display:block}
+    .mainmenu, .zoomContainer {display: none}
+    .search-box {float: right;}
+    .nivo-caption {top: 30%}
+    .about-reflex-area .ptd-100 {margin: 100px 0 0;}
+    .consultation-area::before, .fun-area::before, .single-project::before, .consultation-area::after, .fun-area::after {background: none}
+    .default-title > h2 {font-size: 25px; margin-bottom: 0;line-height: 36px;}
+    .consultation-area .consultation-button {padding: 0px 0;}
+    .feature-img {text-align: center}
+    .feature-info .row .col-md-6 .single-feature:nth-child(2) {margin: 30px 0}
+    .feature-info { padding: 50px 50px 30px 155px}
+    .feature-img, .policy-img {margin-bottom: 60px}
+    .style-declarations::before, .style-declarations::after, .fun-angle {background: none;}
+    .creative-area .row .col-lg-3 {padding: 0 17px;}
+    .sin-testiText p {padding: 0 0px}
+    .policy-img > img {width: 100%}
+    .style-declarations {background: none; border: none;}
+    .about-reflex-area-two .about-reflex-info {width: 650px; margin-left: 35px; padding: 60px 30px;}
+    .price-table-angle {border-width: 0 172px 40px}
+    .price-table-angle::before, .price-table-angle::after {top: -33px; transform: rotate(77deg)}
+    .price-table-angle::after {transform: rotate(-77deg);}
+    .latest-blog .single-latest-blog {margin-bottom: 0px;}
+    .single-latest-blog {padding-bottom: 50px}
+    .latest-post-img {margin-right: 30px;}
+    .comment-form input:first-child {margin-right: 22px}
+    .latest-blog.right .page-indicators, .comment-form, .graphic-img {margin-bottom: 50px;}
+    .comment-form input, .branding-img img, .graphic-img img {width: 100%;}
+    .choose-plan, .project-img {margin-top: 100px;}
+    .quality-area .default-title {margin-top: 0px}
+    .project-img-info {left: 240px; top: 150px;}
+    .description-tab-menu ul li {margin-right: 0px; width: 180px;}
+    .description-tab-menu ul li a {font-size: 12px}
+    .single-comlete {padding-left: 20px;}
+    .policy-info.marg-27 {margin-top: 15px;}
+    .contact-address {margin: 100px 0;} 
+    .portfolio-menu ul li {padding: 8px;}
+    .product-description-tab .tab-content { margin-bottom: 50px;padding-bottom: 30px}
+    .as-mainwrapper.wrapper-boxed .slick-prev::before, .slick-next::before {display: none}
+    .as-mainwrapper.wrapper-boxed .consultation-button, .as-mainwrapper.wrapper-boxed .main-footer-area .row:last-child, .creative-area .row:last-child {margin-right: 30px}
+    .as-mainwrapper.wrapper-boxed .latest-blog.home-one .single-latest-blog, .as-mainwrapper.wrapper-boxed .feature-info, .as-mainwrapper.wrapper-boxed .policy-img img{margin-right: 10px}
+    .header-area.style-five .logo{background: #28435F; text-align: center}
+    .single-member-info-wrapper::before, .single-member-info-wrapper::after {height: 73px;top: -61px}
+    .wrapper-boxed .single-member-info-wrapper::before, .wrapper-boxed .single-member-info-wrapper::after {height: 63px; top: -56px}
+    
+}
+/* small mobile :320px. */
+@media (max-width: 767px) {
+.container {width:300px}
+    .main-header-area.bg-white.sticker.stick {position: inherit}
+    .as-mainwrapper.wrapper-boxed, .as-mainwrapper.wrapper-boxed .stick, .as-mainwrapper.wrapper-boxed .portfolio_gallery_area, .as-mainwrapper.wrapper-boxed .gallery, .as-mainwrapper.wrapper-boxed .gallery {width:300px}
+    .mobile-menu-area {display:block}
+    .mainmenu, .nivo-directionNav, .zoomContainer, .portfolio-detail-info, .as-mainwrapper.wrapper-boxed .slick-prev::before, .slick-next::before{display: none}
+    .logo {text-align: center}
+    .service-area {margin-top: 0;}
+    .single-service, .single-police, .single-fun-factor-wrapper {margin-top: 40px;}
+    .consultation-area::before, .fun-area::before, .single-project::before, .consultation-area::after, .fun-area::after {background: none}
+    .consultation-area .consultation-button {float: left;}
+    .declarations::before, .declarations::after, .style-declarations::before, .style-declarations::after {display: none;}
+    .declarations, .style-declarations {border:none;}
+    .feature-info {margin-left: 0; margin-top: 55px; padding: 50px 12px 50px 20px}
+    .policy-info .row .col-lg-4.col-md-6.col-sm-4.col-xs-12:nth-child(3){ margin-bottom: 0px;}
+    .creative-area .row .col-lg-3 {padding: 0 58px}
+    .creative-area.marg-100 .default-title{margin-left: 20px}
+    .fun-area {padding-top: 0;}
+    a.read-more {left: 29%;}
+    .single-latest-blog, .footer-widget {padding-bottom: 65px}
+    .latest-blog.home-one.marg-100 {margin-bottom: 0px}
+    .single-member{margin-bottom: 65px}
+    .single-member{margin-bottom: 65px}
+    .footer-area .row .col-lg-4:last-child .footer-widget {padding-bottom: 0px}
+    .sin-testiText p {padding: 0 0px;}
+    .nivo_text .slider-text-1 h2 {font-size: 20px;}
+    .single-member-info-wrapper::before, .single-member-info-wrapper::after {height: 93px;left: 70px;top: -73px}
+    .single-member-info-wrapper::after {right: 70px; left: auto}
+    .testimonial-text-slider, .single-mission-img {padding: 0px; width: 100%}
+    .about-reflex-area-two .about-reflex-info {margin-top: 22px;padding: 30px 20px;width: 253px}
+    .single-feature-left > h5::before, .single-feature-right > h5::before, .single-feature-left > h5::after, .single-feature-right > h5::after{display: none}
+    .single-feature-left > h5 > span.circle, .single-feature-right > h5 > span.circle{border:none}
+    .feature-left {padding-left: 0px; text-align: left; padding-bottom: 50px}
+    .features-area.home-two .default-title, .creative-area.marg-100, .latest-blog .marg-100, .latest-blog .single-latest-blog{margin-bottom: 0}
+    .single-pricing-table, .quality-img { margin-top: 50px;}
+    .single-mission-info {padding-right: 0}
+    .single-mission-img > img{width: 100%; margin-bottom: 30px}
+    .page-indicators {margin-bottom: 50px;}
+    .share {float: left; margin-top: 20px;}
+    .share ul li:first-child { padding: 0px;}
+    .comment-form input { width: 100%;}
+    .comment-form {margin-bottom: 50px;}
+     quotation {padding-right: 30px}
+    .contact-address {margin: 50px auto 0}
+    .banner-title h2 {font-size: 30px;}
+    .project-img, .graphic-info{margin-top: 80px}
+    .project-img::after {width: 250px;}
+    .graphic-left, .graphic-right { width: 100%;}
+    .graphic-right {padding-left: 0; padding-top: 50px}
+    .description-tab-menu ul li a {font-size: 11px; padding: 12px 0;}
+    .description-tab-menu ul li {margin-right: 0; width: 135px}
+    .head-img::after {width: 240px;}
+    .head-img::before {top: -18px}
+    .about-reflex-area .ptd-100 {margin-bottom: 0;}
+    .portfolio-menu ul li {margin-bottom: 10px;}
+    .latest-area.marg-100.text-center {margin-top: 50px}
+    .slick-prev::before, .slick-next::before {left: 29px}
+    .slick-next {right: 32px}
+    .creative-area .row {margin-left: -15px; margin-right: -15px;}
+    .creative-area .row .col-lg-3 {padding-left: 33px; padding-right: 33px;}
+    .product-description-tab .tab-content {margin-bottom: 50px;padding-bottom: 10px}
+    .fun-angle{background: none}
+    .wrapper-boxed .consultation-info.default-title {margin-left: 0px}
+    .as-mainwrapper.wrapper-boxed .single-member-info-wrapper::before, .as-mainwrapper.wrapper-boxed .single-member-info-wrapper::after {height: 93px; top: -73px}
+    .about-reflex-info.default-title.marg-65 {margin-bottom: 0}
+    .header-area.style-five {position: inherit; background: #000}
+    .header-area.style-five .stick .logo{display: none}
+    
+}
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .container {width:460px}
+    .as-mainwrapper.wrapper-boxed {width:450px}
+    .mobile-menu-area {display:block}
+    .mainmenu {display: none}
+    .single-member-img > img {width: 100%;}
+    .nivo_text .slider-text-1 h2 {font-size: 26px;}
+    .single-member-info::before, .single-member-info::after {height: 57px; top: -28px}
+    .single-member-info-wrapper::before, .single-member-info-wrapper::after {height: 165px; left: 115px; top: -116px}
+    .single-member-info-wrapper::after {right: 115px;left: auto}
+    .about-reflex-area-two .about-reflex-info {width: 400px}
+    .price-table-angle {border-width: 0 210px 40px}
+    .price-table-angle::before, .price-table-angle::after {height: 150px; left: -80px; top: -57px; transform: rotate(79deg)}
+    .price-table-angle::after {right: -75px; transform: rotate(-79deg); left: auto}
+    .description-tab-menu ul li {width: 210px;}
+    .head-img::after {width: 315px}
+    .head-img::before { height: 370px;}
+    .as-mainwrapper.wrapper-boxed .single-member-info-wrapper::before, .as-mainwrapper.wrapper-boxed .single-member-info-wrapper::after {height: 165px; top: -116px}
+}
