@@ -2,12 +2,11 @@
 <html class="no-js" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freenekoray.github.io" />
+        <link rel="canonical" href="https://freenekoray.github.io/news/article-25477.htm" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>2024-09归档 - Free Nekoray官方节点站</title>
-        <meta name="keywords" content="2024-09归档" />
-        <meta name="description" content="2024-09归档" />
+    <title>Azure DevOps通过流水线完成Docker镜像的部署</title>
+        <meta name="description" content="上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去， 完成镜像部署的闭环。 首先我们需要先准备一" />
         <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -105,7 +104,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
     <!-- Pre Loader
     ============================================ -->
     <div class="preloader">
@@ -182,12 +181,13 @@
                         <div class="col-xs-12">
                             <div class="banner-text text-center">
                                 <div class="banner-title">
-                                    <h1>2024-09 归档</h1>
+                                    <h1>Azure DevOps通过流水线完成Docker镜像的部署</h1>
                                 </div>
                                 <div class="breadcrumbs">
                                     <ul>
                                         <li><a href="/">首页</a>></li>
-                                        <li>2024-09 归档</li>
+                                        <li><a href="/news/">新闻资讯</a>></li>
+                                        <li>正文</li>
                                     </ul>
                                 </div>
                             </div>
@@ -196,169 +196,17 @@
                 </div>
             </div>
             <!-- banner end -->
-            
             <!-- about start-->
             <div class="about-reflex-area bg-white bg-white ptb-100">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9">
-                            <div class="xcblog-blog-list">
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-10">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-10-node-share-links.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/580b410232b007debe3ac5f2e5985aa6.webp" alt="「9月10日」最高速度20.7M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
+                                              				  				  				<p>上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去，</p> <p>完成镜像部署的闭环。</p> <p>首先我们需要先准备一下部署的环境，我们先找一台服务器在上面安装一下docker的容器引擎，我的用系统版本是centos的，这里贴一下安装命令。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">sudo yum remove docker \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">client \                   docker</span>-client-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">common \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-latest-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">engine  sudo yum install</span>-y yum-<span style="color: rgba(0, 0, 0, 1)">utils  sudo yum</span>-config-<span style="color: rgba(0, 0, 0, 1)">manager \</span>--add-<span style="color: rgba(0, 0, 0, 1)">repo \     https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">download.docker.com/linux/centos/docker-ce.repo</span><span style="color: rgba(0, 0, 0, 1)"> sudo yum install docker</span>-ce docker-ce-cli containerd.io</pre> </div> <p>执行完命令之后，执行一下systemctl start docker ,然后通过systemctl status docker 查看一下守护进程的状态，正常的话如下图所示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/de4f2dcedb9bc77244a630784e4be017.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>环境准备好之后，我们接下来去改造我们之前创建好的流水线，我们在我们已经完成了镜像推送到仓库的流水线上添加第三个任务，这个任务的目的是通过SSH登录到</p> <p>我们的公网服务器上去，然后在我们的服务器上登录到我们的镜像仓库，从仓库中获取到我们想要的镜像，最后进行镜像的部署。</p> <p>首先，添加ssh任务</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2f1abea6ecab6947f4a064600395c3ae.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;选择我们装好了docker环境的服务器，选择编辑在线脚本，脚本的主要内容是：登录我们之前做好的镜像仓库，从仓库中获取我们的镜像，执行docker run部署</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a70484635f510a7c3cbd5f8ff36f7d6c.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;脚本内容如下：</p> <div class="cnblogs_code"> <pre>docker login ccr.ccs.tencentyun.com --username=<span style="color: rgba(128, 0, 128, 1)">100008582177</span> --password=******<span style="color: rgba(0, 0, 0, 1)"> //这里我们使用</span>$(Build.BuildId)环境变量，让流水线自动拉取上一个任务编译好的镜像TAG</pre> <pre><span style="color: rgba(0, 0, 0, 1)">docker pull docker pull ccr.ccs.tencentyun.com</span>/my-registry/my-image-repository:test-<span style="color: rgba(0, 0, 0, 1)">$(Build.BuildId)<br/>docker run</span>-d --name test -p<span style="color: rgba(128, 0, 128, 1)">8080</span>:<span style="color: rgba(128, 0, 128, 1)">8081</span> ccr.ccs.tencentyun.com/my-registry/my-image-repository:test-$(Build.BuildId)</pre> </div> <p>编写好之后，我们运行一下流水线看看效果</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ded43ec91b070c3719358f183c4cb0ee.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;这里有个小插曲，就是我第一次运行的时候所有的命令都执行成功了，但是到最后流水线依然会报出异常，结果查证之后发现原来是最后docker向控制台输出了stderr，我去搜索了一番</p> <p>stackoverfolw上是这么答复的：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f0a997b5831cf75682c3d46e2dcdda9f.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;所以我们需要按照提示去关闭ssh这个任务中的Fail on stderr选项。</p> <p>被这个玩意坑了我20分钟，太惨了。</p> <p>到这里，我们就完成了通过azure实现从镜像编译到部署的全套流程，接下来我们将会开始研究azure的更多功能。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25014.htm">海拉鲁有几个村子（海拉鲁外面）</a></p>
+                                        <p>下一个：<a href="/news/article-25478.htm">同安宠物领养中心电话多少号码（同安宠物领养中心电话多少号码啊）</a></p>
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-10-node-share-links.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月10日」最高速度20.7M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了韩国、欧洲、美国、香港、新加坡、加拿大、日本等地区,最高速度可达20.7 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
                                         </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-09">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-9-free-subscribe-node.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/71846a8b65c4f70f2e36e3d012297e6a.webp" alt="「9月9日」最高速度20.7M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-9-free-subscribe-node.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月9日」最高速度20.7M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了香港、加拿大、韩国、美国、新加坡、欧洲、日本等地区,最高速度可达20.7 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-08">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-8-node-share.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/b4dc9263e685a0adb8500eb7193babca.webp" alt="「9月8日」最高速度20.4M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-8-node-share.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月8日」最高速度20.4M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了香港、美国、加拿大、韩国、新加坡、欧洲、日本等地区,最高速度可达20.4 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-07">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-7-node-share.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/c14ac28445ebbf33c8921c7fc05b0464.webp" alt="「9月7日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-7-node-share.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月7日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了韩国、加拿大、日本、香港、欧洲、美国、新加坡等地区,最高速度可达21.6 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-05">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-5-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/71846a8b65c4f70f2e36e3d012297e6a.webp" alt="「9月5日」最高速度18.7M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-5-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月5日」最高速度18.7M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了加拿大、日本、新加坡、香港、美国、欧洲、韩国等地区,最高速度可达18.7 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-04">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-4-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/a96df406be5c13b47b13cb96f9c549d0.webp" alt="「9月4日」最高速度20.2M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-4-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月4日」最高速度20.2M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了美国、香港、新加坡、韩国、日本、欧洲、加拿大等地区,最高速度可达20.2 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-03">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-3-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/1f973d195b527d1d5e7df55ef1db8401.webp" alt="「9月3日」最高速度22.6M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-3-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月3日」最高速度22.6M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了美国、韩国、加拿大、新加坡、日本、香港、欧洲等地区,最高速度可达22.6 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-02">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-2-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/bb7ea60394a6fc6ef4ba7a46eac10989.webp" alt="「9月2日」最高速度19.6M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-2-free-node-subscribe-links.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月2日」最高速度19.6M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了欧洲、韩国、美国、日本、香港、新加坡、加拿大等地区,最高速度可达19.6 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <div class="row item xcblog-blog-item" data-date="2024-09-01">
-                                    <div class="col-md-3">
-                                        <div class="about-reflex-img">
-                                            <a href="/free-nodes/2024-9-1-free-node-subscribe.htm" class="xcblog-blog-url">
-                                                <img src="/uploads/20240725/d0cc610dfda7459acf4819ec817c064f.webp" alt="「9月1日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="about-reflex-info default-title">
-                                            <a href="/free-nodes/2024-9-1-free-node-subscribe.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「9月1日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接</h3>
-                                            </a>
-                                            <p>这一次的节点更新覆盖了欧洲、美国、韩国、香港、新加坡、加拿大、日本等地区,最高速度可达22.9 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <ul class="pagination"><li><a href="/date/2024-09/page-2.htm">&laquo;</a></li> <li><a href="/date/2024-09/">1</a></li><li><a href="/date/2024-09/page-2.htm">2</a></li><li class="active"><span>3</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                            </div>
-                        </div>
                         <div class="col-md-3">
                             <div class="panel panel-default">
     <div class="panel-heading">
@@ -366,16 +214,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-node-subscribe-links.htm" title="「11月13日」最高速度20.7M/S，2024年Nekoray每天更新免费节点订阅链接">「11月13日」最高速度20.7M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-26-free-high-speed-nodes.htm" title="「7月26日」最高速度18.7M/S，2024年Nekoray每天更新免费节点订阅链接">「7月26日」最高速度18.7M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share-links.htm" title="「12月11日」最高速度19.9M/S，2024年Nekoray每天更新免费节点订阅链接">「12月11日」最高速度19.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share-links.htm" title="「12月10日」最高速度20.5M/S，2024年Nekoray每天更新免费节点订阅链接">「12月10日」最高速度20.5M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23162.htm" title="猫疫苗可以不打针吗（猫打疫苗与不打疫苗的区别）">猫疫苗可以不打针吗（猫打疫苗与不打疫苗的区别）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-node-share-links.htm" title="「12月12日」最高速度20.1M/S，2024年Nekoray每天更新免费节点订阅链接">「12月12日」最高速度20.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-6-node-share.htm" title="「11月6日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接">「11月6日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-node-subscribe.htm" title="「8月15日」最高速度19.3M/S，2024年Nekoray每天更新免费节点订阅链接">「8月15日」最高速度19.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe.htm" title="「11月21日」最高速度21.5M/S，2024年Nekoray每天更新免费节点订阅链接">「11月21日」最高速度21.5M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-23-node-share.htm" title="「9月23日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接">「9月23日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-subscribe-node.htm" title="「8月10日」最高速度19.7M/S，2024年Nekoray每天更新免费节点订阅链接">「8月10日」最高速度19.7M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe-links.htm" title="「10月20日」最高速度20.8M/S，2024年Nekoray每天更新免费节点订阅链接">「10月20日」最高速度20.8M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-subscribe-node.htm" title="「9月13日」最高速度21M/S，2024年Nekoray每天更新免费节点订阅链接">「9月13日」最高速度21M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-high-speed-nodes.htm" title="「11月15日」最高速度20.4M/S，2024年Nekoray每天更新免费节点订阅链接">「11月15日」最高速度20.4M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24087.htm" title="公务员国考2024年考试时间（2022公务员国考时间）">公务员国考2024年考试时间（2022公务员国考时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-25-free-high-speed-nodes.htm" title="「7月25日」最高速度18.4M/S，2024年Nekoray每天更新免费节点订阅链接">「7月25日」最高速度18.4M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-8-19-node-share-links.htm" title="「8月19日」最高速度18.4M/S，2024年Nekoray每天更新免费节点订阅链接">「8月19日」最高速度18.4M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-high-speed-nodes.htm" title="「8月30日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接">「8月30日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -413,7 +261,6 @@
                 </div>
             </div>
             <!-- about end -->
-
             <!-- footer start -->
 <footer class="footer-area">
     <div class="footer-bottom-area">
@@ -495,7 +342,6 @@
 <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
         </div>
     </div>
-    
 </body>
 
 </html>
