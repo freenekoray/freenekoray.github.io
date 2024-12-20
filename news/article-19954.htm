@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>《C语言及程序设计》程序阅读——宏定义</title>
         <meta name="description" content="返回：贺老师课程教学链接 写出下面程序的输出结果，并和运行的结果对照。 （1） #include&lt;stdio.h&gt; #define M 3 #define N M+1 #define NN" />
-        <link rel="icon" href="__ADDON__/img/freenekoray/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Bootstrap CSS
@@ -201,7 +201,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9">
-                                              				  				  				<div id="content_views" class="htmledit_views"> <div class="content-detail markdown-body"> <div class="markdown_views"> <p>返回：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/sxhelijian/article/details/8001601"  rel="nofollow">贺老师课程教学链接</a></p> <p>写出下面程序的输出结果，并和运行的结果对照。</p> <pre class="prettyprint"><code class="hljs vala">（<span class="hljs-number">1</span>） <span class="hljs-preprocessor">#include&lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define M 3</span> <span class="hljs-preprocessor">#define N M+1</span> <span class="hljs-preprocessor">#define NN N*N/2</span> <span class="hljs-keyword">int</span> main() {     printf(<span class="hljs-string">"%d\n"</span>, NN);     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> <p>（2）</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-preprocessor">#include&lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define SQR(X) X*X</span> <span class="hljs-keyword">int</span> main( ) {     <span class="hljs-keyword">int</span> a=<span class="hljs-number">10</span>,k=<span class="hljs-number">2</span>,m=<span class="hljs-number">1</span>;     a/=SQR(k+m)/SQR(k+m);     printf(<span class="hljs-string">"%d\n"</span>,a);     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> <p>（3）</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-preprocessor">#include&lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define PR(ar) printf("%d",ar)</span> <span class="hljs-keyword">int</span> main( ) {     <span class="hljs-keyword">int</span> j ,a[ ]= {<!-- --><span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">11</span>,<span class="hljs-number">13</span>,<span class="hljs-number">15</span>},*p=a+<span class="hljs-number">5</span>;     <span class="hljs-keyword">for</span>(j=<span class="hljs-number">3</span>; j; j--)     {         <span class="hljs-keyword">switch</span>(j)         {         <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:         <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:             PR(*p++);             <span class="hljs-keyword">break</span>;         <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:             PR(*(--p));         }     }     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> <p>（4）</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-preprocessor">#include  &lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define PT  5.5</span> <span class="hljs-preprocessor">#define S(x) PT*x*x</span> <span class="hljs-keyword">int</span> main() {     <span class="hljs-keyword">int</span> a=<span class="hljs-number">1</span>,b=<span class="hljs-number">2</span>;     printf(<span class="hljs-string">"%4.1f\n"</span>,S(a+b));     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> </p></div> </div></div> 			                <div class="clearfix"></div>
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="content-detail markdown-body"> <div class="markdown_views"> <p>返回：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/sxhelijian/article/details/8001601"  rel="nofollow">贺老师课程教学链接</a></p> <p>写出下面程序的输出结果，并和运行的结果对照。</p> <pre class="prettyprint"><code class="hljs vala">（<span class="hljs-number">1</span>） <span class="hljs-preprocessor">#include&lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define M 3</span> <span class="hljs-preprocessor">#define N M+1</span> <span class="hljs-preprocessor">#define NN N*N/2</span> <span class="hljs-keyword">int</span> main() {     printf(<span class="hljs-string">"%d\n"</span>, NN);     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> <p>（2）</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-preprocessor">#include&lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define SQR(X) X*X</span> <span class="hljs-keyword">int</span> main( ) {     <span class="hljs-keyword">int</span> a=<span class="hljs-number">10</span>,k=<span class="hljs-number">2</span>,m=<span class="hljs-number">1</span>;     a/=SQR(k+m)/SQR(k+m);     printf(<span class="hljs-string">"%d\n"</span>,a);     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> <p>（3）</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-preprocessor">#include&lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define PR(ar) printf("%d",ar)</span> <span class="hljs-keyword">int</span> main( ) {     <span class="hljs-keyword">int</span> j ,a[ ]= {<!-- --><span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">11</span>,<span class="hljs-number">13</span>,<span class="hljs-number">15</span>},*p=a+<span class="hljs-number">5</span>;     <span class="hljs-keyword">for</span>(j=<span class="hljs-number">3</span>; j; j--)     {         <span class="hljs-keyword">switch</span>(j)         {         <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:         <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:             PR(*p++);             <span class="hljs-keyword">break</span>;         <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:             PR(*(--p));         }     }     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> <p>（4）</p> <pre class="prettyprint"><code class="hljs vala"><span class="hljs-preprocessor">#include  &lt;stdio.h&gt;</span> <span class="hljs-preprocessor">#define PT  5.5</span> <span class="hljs-preprocessor">#define S(x) PT*x*x</span> <span class="hljs-keyword">int</span> main() {     <span class="hljs-keyword">int</span> a=<span class="hljs-number">1</span>,b=<span class="hljs-number">2</span>;     printf(<span class="hljs-string">"%4.1f\n"</span>,S(a+b));     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }</code></pre> </p></div> </div></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-19498.htm">猫多久不回家就算丢了（猫咪走失后一般会躲在哪里）</a></p>
                                         <p>下一个：<a href="/news/article-19955.htm">数据库四大特性与隔离级别</a></p>
@@ -214,16 +215,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-subscribe-node.htm" title="「9月13日」最高速度21M/S，2024年Nekoray每天更新免费节点订阅链接">「9月13日」最高速度21M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-node-share-links.htm" title="「11月2日」最高速度18.2M/S，2024年Nekoray每天更新免费节点订阅链接">「11月2日」最高速度18.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-24-node-share.htm" title="「7月24日」最高速度19.2M/S，2024年Nekoray每天更新免费节点订阅链接">「7月24日」最高速度19.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-node-subscribe.htm" title="「10月30日」最高速度20.9M/S，2024年Nekoray每天更新免费节点订阅链接">「10月30日」最高速度20.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20414.htm" title="怎么开宠物店需要些什么证件（怎么开宠物店需要些什么证件和材料）">怎么开宠物店需要些什么证件（怎么开宠物店需要些什么证件和材料）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-2-free-node-subscribe-links.htm" title="「8月2日」最高速度21.3M/S，2024年Nekoray每天更新免费节点订阅链接">「8月2日」最高速度21.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-high-speed-nodes.htm" title="「9月30日」最高速度19.1M/S，2024年Nekoray每天更新免费节点订阅链接">「9月30日」最高速度19.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21787.htm" title="动物医院申请条件有哪些内容和要求图片大全（动物医院收费标准）">动物医院申请条件有哪些内容和要求图片大全（动物医院收费标准）</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-9-14-free-node-subscribe-links.htm" title="「9月14日」最高速度18.3M/S，2024年Nekoray每天更新免费节点订阅链接">「9月14日」最高速度18.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19498.htm" title="猫多久不回家就算丢了（猫咪走失后一般会躲在哪里）">猫多久不回家就算丢了（猫咪走失后一般会躲在哪里）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-subscribe-node.htm" title="「8月14日」最高速度22.3M/S，2024年Nekoray每天更新免费节点订阅链接">「8月14日」最高速度22.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-node-share.htm" title="「11月18日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接">「11月18日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19954.htm" title="《C语言及程序设计》程序阅读——宏定义">《C语言及程序设计》程序阅读——宏定义</a></li>
+                        <li class="py-2"><a href="/news/article-18628.htm" title="镜双城究竟讲什么(镜双城剧情介绍|剧情简介)">镜双城究竟讲什么(镜双城剧情介绍|剧情简介)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-high-speed-nodes.htm" title="「12月4日」最高速度20.8M/S，2024年Nekoray每天更新免费节点订阅链接">「12月4日」最高速度20.8M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-free-subscribe-node.htm" title="「9月26日」最高速度22.2M/S，2024年Nekoray每天更新免费节点订阅链接">「9月26日」最高速度22.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share-links.htm" title="「12月11日」最高速度19.9M/S，2024年Nekoray每天更新免费节点订阅链接">「12月11日」最高速度19.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-node-subscribe-links.htm" title="「10月22日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接">「10月22日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-node-share-links.htm" title="「8月22日」最高速度19.4M/S，2024年Nekoray每天更新免费节点订阅链接">「8月22日」最高速度19.4M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -235,7 +236,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">56</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -268,6 +269,15 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p>
                             <a href="/">Free Nekoray官方节点站</a> 版权所有
                             <br />
