@@ -1,0 +1,351 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekoray.github.io/news/article-37309.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>java的Integer中也会有缓存</title>
+        <meta name="description" content="在上篇《java的自动拆箱会发生NPE》博客中接收了java中的Integer中的自动拆箱产生的NPE，其实对于所有的包装类来说都是一样的，都会产生这样的问题，大家需要举一反三，做学问学知识要懂得反思" />
+        <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
+    <!-- Nivo slider CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <!-- Fontawsome CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
+    <!-- Flaticon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/flaticon.css">
+    <!-- material iconic CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/owl.carousel.css">
+    <!-- jquery-ui CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery-ui.css">
+    <!-- meanmenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/meanmenu.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate.css">
+    <!-- Slick CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/slick.css">
+    <!-- Venobox CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/venobox.css">
+    <!-- Circle Chart CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.circliful.css">
+    <!-- Color Switcher CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color-switcher.css">
+    <!-- Animate headline CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate-heading.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/reset.css">
+    <!-- Video CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.mb.YTPlayer.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/style.css">
+    <!-- Responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/responsive.css">
+    <!-- Modernizr JS
+        ============================================ -->
+    <script src="/assets/website/js/frontend/freenekoray/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Color Css Files Start -->
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-one.css" title="color-one" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-two.css" title="color-two" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-three.css" title="color-three" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-four.css" title="color-four" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-five.css" title="color-five" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-six.css" title="color-six" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-seven.css" title="color-seven" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-eight.css" title="color-eight" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-nine.css" title="color-nine" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren1.css" title="pattren1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren2.css" title="pattren2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren3.css" title="pattren3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren4.css" title="pattren4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren5.css" title="pattren5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background1.css" title="background1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background2.css" title="background2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background3.css" title="background3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background4.css" title="background4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background5.css" title="background5" media="screen" />
+    <!-- Color Css Files End -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ0BL8Q290"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CZ0BL8Q290');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- Pre Loader
+    ============================================ -->
+    <div class="preloader">
+        <div class="loading-center">
+            <div class="loading-center-absolute">
+                <div class="object object_one"></div>
+                <div class="object object_two"></div>
+                <div class="object object_three"></div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="as-mainwrapper">
+        <!-- header start -->
+<header class="header-area">
+    <div class="main-header-area bg-white sticker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">
+                    <div class="logo">
+                                                <a href="/">Free Nekoray</a>
+                                            </div>
+                </div>
+                <div class="col-lg-7 col-md-8 hidden-sm hidden-xs">
+                    <div class="mainmenu-area">
+                        <div class="mainmenu">
+                            <nav>
+                                <ul id="nav">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                                                <li><a href="/">首页</a>
+                                                                    <li><a href="/free-nodes/">免费节点</a>
+                                                                    <li><a href="/paid-subscribe/">推荐机场</a>
+                                                                    <li><a href="/news/">新闻资讯</a>
+                                                                    <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area end -->
+</header>
+<!-- header end -->
+        <div class="main-content-wrapper">
+            <!-- banner start -->
+            <div class="banner-area blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="banner-text text-center">
+                                <div class="banner-title">
+                                    <h1>java的Integer中也会有缓存</h1>
+                                </div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">首页</a>></li>
+                                        <li><a href="/news/">新闻资讯</a>></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- banner end -->
+            <!-- about start-->
+            <div class="about-reflex-area bg-white bg-white ptb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>在上篇《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/teach/p/16146998.html"  target="_blank" rel="nofollow">java的自动拆箱会发生NPE</a>》博客中接收了java中的Integer中的自动拆箱产生的NPE，其实对于所有的包装类来说都是一样的，都会产生这样的问题，大家需要举一反三，做学问学知识要懂得反思总结。</p> </h1> <p>先回顾下上次的知识点，</p> <blockquote> <p><strong><span style="font-size: 18pt">自动拆箱</span></strong> 实际调用的是intValue()方法</p> <p><strong><span style="font-size: 18pt">自动装箱</span></strong> 实际调用的是valueOf(int i)方法</p> </blockquote> <p>其他的包装类，小伙伴们自己总结</p> </h1> <p>好了话不多说，书接上回，开始这次的分享，上次说到在自动装箱的时候还大有玄机，这个玄机就是本地缓存。这个玄机在自动装箱的方法中，如下</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * Returns an {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} instance representing the specified      * {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> int} value.  If a new {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} instance is not      * required, this method should generally be used in preference to      * the constructor {</span><span style="color: rgba(128, 128, 128, 1)">@link</span><span style="color: rgba(0, 128, 0, 1)"> #Integer(int)}, as this method is likely      * to yield significantly better space and time performance by      * caching frequently requested values.      *      * This method will always cache values in the range -128 to 127,      * inclusive, and may cache other values outside of this range.      *      *</span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)">  i an {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> int} value.      *</span><span style="color: rgba(128, 128, 128, 1)">@return</span><span style="color: rgba(0, 128, 0, 1)"> an {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} instance representing {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> i}.      *</span><span style="color: rgba(128, 128, 128, 1)">@since</span><span style="color: rgba(0, 128, 0, 1)">  1.5</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> Integer valueOf(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> i) {</span><span style="color: rgba(0, 0, 255, 1)">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;=<span style="color: rgba(0, 0, 0, 1)"> IntegerCache.high)</span><span style="color: rgba(0, 0, 255, 1)">return</span> IntegerCache.cache[i + (-<span style="color: rgba(0, 0, 0, 1)">IntegerCache.low)];</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Integer(i);     }</span></pre> </div> <p>先看下其方法说明吧，用我大学英语六级的水平给大家翻译下，献丑了大家莫怪，</p> <blockquote> <p>返回一个代表指定int的Integer对象，如果一个新的Integer实例不是必需的，这个方法通常使用构造方法来生成，另一方面，这个方法通常为了节省空间和实际会缓存一些经常使用的值</p> <p>这个方法会缓存[-128~127]间的值，也可能会缓存这个范围以外的值</p> </blockquote> <p>翻译的太差劲了，大体意思是如果参数在[-128,127]间则会从缓存中取，如果不在则直接生成Integer的实例。<strong>还有很重要的一点最大值可以配置。</strong></p> <p>看方法的逻辑也是这样的，看下Integer初始化缓存的代码，在Integer中有静态内部类IntegerCache，代码</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> IntegerCache {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">缓存区间，最小值</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">final</span><span style="color: rgba(0, 0, 255, 1)">int</span> low = -128<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">缓存区间，最大值，可配置</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">final</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> high;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">缓存</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">final</span><span style="color: rgba(0, 0, 0, 1)"> Integer cache[];</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 0, 1)"> {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> high value may be configured by property</span><span style="color: rgba(0, 0, 255, 1)">int</span> h = 127<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获得配置的缓存区间最大值</span>             String integerCacheHighPropValue =<span style="color: rgba(0, 0, 0, 1)">                 sun.misc.VM.getSavedProperty(</span>"java.lang.Integer.IntegerCache.high"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 0, 255, 1)">if</span> (integerCacheHighPropValue !=<span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">) {</span><span style="color: rgba(0, 0, 255, 1)">try</span><span style="color: rgba(0, 0, 0, 1)"> {</span><span style="color: rgba(0, 0, 255, 1)">int</span> i =<span style="color: rgba(0, 0, 0, 1)"> parseInt(integerCacheHighPropValue);                     i</span>= Math.max(i, 127<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> Maximum array size is Integer.MAX_VALUE</span>                     h = Math.min(i, Integer.MAX_VALUE - (-low) -1<span style="color: rgba(0, 0, 0, 1)">);                 }</span><span style="color: rgba(0, 0, 255, 1)">catch</span><span style="color: rgba(0, 0, 0, 1)">( NumberFormatException nfe) {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> If the property cannot be parsed into an int, ignore it.</span><span style="color: rgba(0, 0, 0, 1)">                }             }             high</span>=<span style="color: rgba(0, 0, 0, 1)"> h;              cache</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer[(high - low) + 1<span style="color: rgba(0, 0, 0, 1)">];</span><span style="color: rgba(0, 0, 255, 1)">int</span> j =<span style="color: rgba(0, 0, 0, 1)"> low;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">for循环，生成缓存</span><span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> k = 0; k &lt; cache.length; k++<span style="color: rgba(0, 0, 0, 1)">)                 cache[k]</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer(j++<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> range [-128, 127] must be interned (JLS7 5.1.7)</span><span style="color: rgba(0, 0, 255, 1)">assert</span> IntegerCache.high &gt;= 127<span style="color: rgba(0, 0, 0, 1)">;         }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> IntegerCache() {}     }</span></pre> </div> <p>上面的代码加注释足以说明一切，不再一一解释了，默认情况下Integer中存在[-128,127]范围内的的256个缓存Integer实例。</p> </h1> <p>上面说到，在Integer中存在缓存，<strong>重要的一点是在调用valueOf()方法的时候才会校验缓存，</strong>valueOf方法共有以下几个</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/532c1ba677b2c101bad2f45cb71fcbc6.jpg" alt="java的Integer中也会有缓存"></p> <p>重要声明，在使用构造方法的时候是没有缓存的，看构造方法</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * Constructs a newly allocated {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} object that      * represents the specified {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> int} value.      *      *</span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)">   value   the value to be represented by the      *                  {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} object.</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 255, 1)">public</span> Integer(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value) {</span><span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> value;     }</span></pre> </div> <p>那么在验证的时候就不能使用构造方法的方式，需要使用自动装箱的方式。</p> <h2>1、构造方法没有缓存</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> TestIntegerConstruct {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args) {         Integer i1</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer(1<span style="color: rgba(0, 0, 0, 1)">);         Integer i2</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer(1<span style="color: rgba(0, 0, 0, 1)">);         System.out.println(i1</span>==<span style="color: rgba(0, 0, 0, 1)">i2);      } }</span></pre> </div> <p>打印结果为，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  Process finished with exit code</span>0</pre> </div> <p>打印出来为false，说明i1和i2为两个不同的对象。</p> <h2>2、valueOf()方法才有的缓存</h2> <p>使用valueOf构造两个Integer对象，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> TestValueOf {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args) {         Integer i1</span>=1<span style="color: rgba(0, 0, 0, 1)">;         Integer i2</span>=1<span style="color: rgba(0, 0, 0, 1)">;         System.out.println(i1</span>==<span style="color: rgba(0, 0, 0, 1)">i2);     } }</span></pre> </div> <p>打印结果为，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">  Process finished with exit code</span>0</pre> </div> <p>说明i1和i2为同一个实例，这里使用的是==来判断，对引用对象来说判断的不正是其地址。</p> <p>多说一点，这里两个引用类型的比较，大家不要像我这里似的，使用“==”，请使用equals方法，使用“==”比较的是内存地址，在大部分情况下，内存地址肯定不相等，而使用equals方法就说不准了，equals方法比较的是什么？</p> <h2>3、Integer的equals方法</h2> <p>看下Integer的equals方法比较的是什么东西</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> equals(Object obj) {</span><span style="color: rgba(0, 0, 255, 1)">if</span> (obj<span style="color: rgba(0, 0, 255, 1)">instanceof</span><span style="color: rgba(0, 0, 0, 1)"> Integer) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> value ==<span style="color: rgba(0, 0, 0, 1)"> ((Integer)obj).intValue();         }</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;     }</span></pre> </div> <p>看到没，搜先判断的是类型，然后调用其intValue方法，也就是拆箱，比较的是Integer中value的值，也就是数值的比较。</p> </h1> <p>本文，分享了Integer中的本地缓存，需要明白以下几个问题，</p> <p>1、什么时候会用到本地缓存？--调用valueOf方法的时候</p> <p>2、本地缓存的大小；--默认为[-128,127]，最大值可设置</p> <p>3、equals方法比较的是什么；--比较的是值得大小，非内存地址</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36822.htm">动物医院收费价目表（动物医院怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-37310.htm">新手做电商卖什么产品好（新手做电商选择哪类产品）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-subscribe-node.htm" title="「11月7日」最高速度18.2M/S，2024年Nekoray每天更新免费节点订阅链接">「11月7日」最高速度18.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-node-subscribe-links.htm" title="「10月22日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接">「10月22日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-subscribe-node.htm" title="「11月19日」最高速度20.2M/S，2024年Nekoray每天更新免费节点订阅链接">「11月19日」最高速度20.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-high-speed-nodes.htm" title="「12月7日」最高速度22.3M/S，2024年Nekoray每天更新免费节点订阅链接">「12月7日」最高速度22.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-high-speed-nodes.htm" title="「11月8日」最高速度19.7M/S，2024年Nekoray每天更新免费节点订阅链接">「11月8日」最高速度19.7M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe-links.htm" title="「11月26日」最高速度21.9M/S，2024年Nekoray每天更新免费节点订阅链接">「11月26日」最高速度21.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe.htm" title="「12月22日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接">「12月22日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34430.htm" title="被猫爪子勾了一下出了一点血会死吗会感染吗（被猫爪子勾了一下出了一点血需要打疫苗吗）">被猫爪子勾了一下出了一点血会死吗会感染吗（被猫爪子勾了一下出了一点血需要打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-24087.htm" title="公务员国考2024年考试时间（2022公务员国考时间）">公务员国考2024年考试时间（2022公务员国考时间）</a></li>
+                        <li class="py-2"><a href="/news/article-29666.htm" title="广州宠物领养网免费地址查询电话（广州宠物领养中心具体地址）">广州宠物领养网免费地址查询电话（广州宠物领养中心具体地址）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- about end -->
+            <!-- footer start -->
+<footer class="footer-area">
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free Nekoray官方节点站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<!-- jquery
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/vendor/jquery-1.12.4.min.js"></script>
+<!-- bootstrap JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/bootstrap.min.js"></script>
+<!-- meanmenu JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.meanmenu.js"></script>
+<!-- wow JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/wow.min.js"></script>
+<!-- owl.carousel JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/owl.carousel.min.js"></script>
+<!-- scrollUp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.scrollUp.min.js"></script>
+<!-- Counter up js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.counterup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/waypoints.min.js"></script>
+<!-- Video Player JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.mb.YTPlayer.js"></script>
+<!-- AJax Chimp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.ajaxchimp.min.js"></script>
+<!-- plugins JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/plugins.js"></script>
+<!-- Nevo Slider js
+        ============================================ -->
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/home.js"></script>
+<!-- Slick js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/slick.min.js"></script>
+<!--Circle chart js-->
+<script src="/assets/website/js/frontend/freenekoray/jquery.circliful.min.js"></script>
+<!--Venobox js-->
+<script src="/assets/website/js/frontend/freenekoray/venobox.min.js"></script>
+<!-- Isotope js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/isotope.pkgd.min.js"></script>
+<!-- textillate js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.textillate.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/jquery.lettering.js"></script>
+<!-- animated headline js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/animate-heading.js"></script>
+<!-- ajax js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/ajax-mail.js"></script>
+<!-- main JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/styleswitch.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
