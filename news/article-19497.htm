@@ -8,15 +8,43 @@
     <title>vue中的this.$router.replace()和.push()和.go()的区别解析</title>
         <meta name="description" content="跳转到不同的url，但这个方法会向history栈添加一个记录，点击后会返回到上一个页面。    跳转到不同的url，这个方法不会向history栈添加一个记录，点击后会返回到上上一个页面    向前" />
         <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekoray官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekoray.github.io/news/article-19497.htm" />
+    <meta property="og:site_name" content="Free Nekoray官方节点站" />
+    <meta property="og:title" content="vue中的this.$router.replace()和.push()和.go()的区别解析" />
+    <meta property="og:image" content="https://freenekoray.github.io/uploads/20240725/e759aaf7aa726ce30a7ff75eaacc1d50.webp" />
+        <meta property="og:release_date" content="2024-12-01T10:00:26" />
+    <meta property="og:updated_time" content="2024-12-01T10:00:26" />
+        <meta property="og:description" content="跳转到不同的url，但这个方法会向history栈添加一个记录，点击后会返回到上一个页面。    跳转到不同的url，这个方法不会向history栈添加一个记录，点击后会返回到上上一个页面    向前" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue中的this.$router.replace()和.push()和.go()的区别解析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS
         ============================================ -->
     <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
     <!-- Nivo slider CSS
         ============================================ -->
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
     <!-- Fontawsome CSS
         ============================================ -->
     <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
@@ -215,16 +243,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-node-subscribe-links.htm" title="「11月1日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接">「11月1日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-high-speed-nodes.htm" title="「12月6日」最高速度21.2M/S，2024年Nekoray每天更新免费节点订阅链接">「12月6日」最高速度21.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-25014.htm" title="海拉鲁有几个村子（海拉鲁外面）">海拉鲁有几个村子（海拉鲁外面）</a></li>
-                        <li class="py-2"><a href="/news/article-33953.htm" title="动物医院好评模板图片大全集最新（动物医院美团好评）">动物医院好评模板图片大全集最新（动物医院美团好评）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-node-subscribe.htm" title="「1月2日」最高速度21.5M/S，2025年Nekoray每天更新免费节点订阅链接">「1月2日」最高速度21.5M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="「1月5日」最高速度22.7M/S，2025年Nekoray每天更新免费节点订阅链接">「1月5日」最高速度22.7M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-node-share.htm" title="「12月20日」最高速度22.6M/S，2024年Nekoray每天更新免费节点订阅链接">「12月20日」最高速度22.6M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="「1月10日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接">「1月10日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43243.htm" title="给猫打疫苗去哪（给猫打疫苗去哪里打针）">给猫打疫苗去哪（给猫打疫苗去哪里打针）</a></li>
+                        <li class="py-2"><a href="/news/article-24087.htm" title="公务员国考2024年考试时间（2022公务员国考时间）">公务员国考2024年考试时间（2022公务员国考时间）</a></li>
+                        <li class="py-2"><a href="/news/article-25943.htm" title="王允是什么样的臣子（王允是个怎样的人?）">王允是什么样的臣子（王允是个怎样的人?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-node-subscribe.htm" title="「1月20日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接">「1月20日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-22704.htm" title="领养宠物送到家附近怎么办呢（宠物领养赠送）">领养宠物送到家附近怎么办呢（宠物领养赠送）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-node-subscribe-links.htm" title="「10月2日」最高速度21.1M/S，2024年Nekoray每天更新免费节点订阅链接">「10月2日」最高速度21.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-23-node-share.htm" title="「9月23日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接">「9月23日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-node-share.htm" title="「12月28日」最高速度23M/S，2024年Nekoray每天更新免费节点订阅链接">「12月28日」最高速度23M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-18628.htm" title="镜双城究竟讲什么(镜双城剧情介绍|剧情简介)">镜双城究竟讲什么(镜双城剧情介绍|剧情简介)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-node-subscribe.htm" title="「12月26日」最高速度21.4M/S，2024年Nekoray每天更新免费节点订阅链接">「12月26日」最高速度21.4M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35514.htm" title="宠物粮食加工厂设备有哪些厂家的呢 宠物粮食加工厂设备有哪些厂家的呢图片">宠物粮食加工厂设备有哪些厂家的呢 宠物粮食加工厂设备有哪些厂家的呢图片</a></li>
                     </ul>
     </div>
 </div>
@@ -236,25 +264,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

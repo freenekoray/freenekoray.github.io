@@ -8,15 +8,43 @@
     <title>Spring Cache缓存框架详解</title>
         <meta name="description" content="一、序言 Spring Cache是Spring体系下标准化缓存框架。Spring Cache有如下优势：  缓存品种多  支持缓存品种多，常见缓存Redis、EhCache、Caffeine均支持。" />
         <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekoray官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekoray.github.io/news/article-31094.htm" />
+    <meta property="og:site_name" content="Free Nekoray官方节点站" />
+    <meta property="og:title" content="Spring Cache缓存框架详解" />
+    <meta property="og:image" content="https://freenekoray.github.io/uploads/20240725/e0e4ec6396a7a7a809b72a298ddc2040.webp" />
+        <meta property="og:release_date" content="2024-12-26T00:05:52" />
+    <meta property="og:updated_time" content="2024-12-26T00:05:52" />
+        <meta property="og:description" content="一、序言 Spring Cache是Spring体系下标准化缓存框架。Spring Cache有如下优势：  缓存品种多  支持缓存品种多，常见缓存Redis、EhCache、Caffeine均支持。" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Cache缓存框架详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS
         ============================================ -->
     <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
     <!-- Nivo slider CSS
         ============================================ -->
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
     <!-- Fontawsome CSS
         ============================================ -->
     <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
@@ -215,16 +243,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-33952.htm" title="宠物食品加工流程 宠物食品加工流程图">宠物食品加工流程 宠物食品加工流程图</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-node-share.htm" title="「12月3日」最高速度22.2M/S，2024年Nekoray每天更新免费节点订阅链接">「12月3日」最高速度22.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-node-share.htm" title="「12月29日」最高速度22.4M/S，2024年Nekoray每天更新免费节点订阅链接">「12月29日」最高速度22.4M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe-links.htm" title="「10月20日」最高速度20.8M/S，2024年Nekoray每天更新免费节点订阅链接">「10月20日」最高速度20.8M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="「10月8日」最高速度22.7M/S，2024年Nekoray每天更新免费节点订阅链接">「10月8日」最高速度22.7M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-node-subscribe-links.htm" title="「11月1日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接">「11月1日」最高速度19M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27339.htm" title="动物疫苗发展现状及未来展望论文题目（动物疫苗市场分析）">动物疫苗发展现状及未来展望论文题目（动物疫苗市场分析）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-9-node-share.htm" title="「8月9日」最高速度21M/S，2024年Nekoray每天更新免费节点订阅链接">「8月9日」最高速度21M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-node-share.htm" title="「10月1日」最高速度18.1M/S，2024年Nekoray每天更新免费节点订阅链接">「10月1日」最高速度18.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23162.htm" title="猫疫苗可以不打针吗（猫打疫苗与不打疫苗的区别）">猫疫苗可以不打针吗（猫打疫苗与不打疫苗的区别）</a></li>
+                        <li class="py-2"><a href="/news/article-43740.htm" title="动物疫苗厂家排名榜单图片（动物疫苗厂家排名榜单图片及价格）">动物疫苗厂家排名榜单图片（动物疫苗厂家排名榜单图片及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-node-share-links.htm" title="「11月5日」最高速度20.1M/S，2024年Nekoray每天更新免费节点订阅链接">「11月5日」最高速度20.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38290.htm" title="猫三联第三针最晚什么时候打（猫三联第三针最晚什么时候打）">猫三联第三针最晚什么时候打（猫三联第三针最晚什么时候打）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-node-subscribe-links.htm" title="「1月25日」最高速度18.9M/S，2025年Nekoray每天更新免费节点订阅链接">「1月25日」最高速度18.9M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36018.htm" title="芭比堂宠物医院是哪个公司旗下的（芭比堂宠物医院是哪个公司旗下的）">芭比堂宠物医院是哪个公司旗下的（芭比堂宠物医院是哪个公司旗下的）</a></li>
+                        <li class="py-2"><a href="/news/article-49696.htm" title="领养宠物协议书范本图片大全集（领养宠物协议书在法律上属于什么合同）">领养宠物协议书范本图片大全集（领养宠物协议书在法律上属于什么合同）</a></li>
+                        <li class="py-2"><a href="/news/article-29193.htm" title="宠物医院仓鼠服务流程图（宠物医院在线问诊仓鼠）">宠物医院仓鼠服务流程图（宠物医院在线问诊仓鼠）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe-links.htm" title="「1月29日」最高速度22.5M/S，2025年Nekoray每天更新免费节点订阅链接">「1月29日」最高速度22.5M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-node-share-links.htm" title="「1月8日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接">「1月8日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40266.htm" title="动物疫苗公司销量排名最新数据（全国动物用疫苗销量排行）">动物疫苗公司销量排名最新数据（全国动物用疫苗销量排行）</a></li>
                     </ul>
     </div>
 </div>
@@ -236,25 +264,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

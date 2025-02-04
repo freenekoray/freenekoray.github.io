@@ -8,15 +8,43 @@
     <title>Azure DevOps通过流水线完成Docker镜像的部署</title>
         <meta name="description" content="上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去， 完成镜像部署的闭环。 首先我们需要先准备一" />
         <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekoray官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekoray.github.io/news/article-25477.htm" />
+    <meta property="og:site_name" content="Free Nekoray官方节点站" />
+    <meta property="og:title" content="Azure DevOps通过流水线完成Docker镜像的部署" />
+    <meta property="og:image" content="https://freenekoray.github.io/uploads/20240725/d0cc610dfda7459acf4819ec817c064f.webp" />
+        <meta property="og:release_date" content="2024-12-14T10:11:17" />
+    <meta property="og:updated_time" content="2024-12-14T10:11:17" />
+        <meta property="og:description" content="上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去， 完成镜像部署的闭环。 首先我们需要先准备一" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Azure DevOps通过流水线完成Docker镜像的部署">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS
         ============================================ -->
     <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
     <!-- Nivo slider CSS
         ============================================ -->
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
     <!-- Fontawsome CSS
         ============================================ -->
     <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
@@ -205,7 +233,7 @@
                   				  				  				<p>上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去，</p> <p>完成镜像部署的闭环。</p> <p>首先我们需要先准备一下部署的环境，我们先找一台服务器在上面安装一下docker的容器引擎，我的用系统版本是centos的，这里贴一下安装命令。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">sudo yum remove docker \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">client \                   docker</span>-client-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">common \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-latest-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">engine  sudo yum install</span>-y yum-<span style="color: rgba(0, 0, 0, 1)">utils  sudo yum</span>-config-<span style="color: rgba(0, 0, 0, 1)">manager \</span>--add-<span style="color: rgba(0, 0, 0, 1)">repo \     https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">download.docker.com/linux/centos/docker-ce.repo</span><span style="color: rgba(0, 0, 0, 1)"> sudo yum install docker</span>-ce docker-ce-cli containerd.io</pre> </div> <p>执行完命令之后，执行一下systemctl start docker ,然后通过systemctl status docker 查看一下守护进程的状态，正常的话如下图所示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/de4f2dcedb9bc77244a630784e4be017.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>环境准备好之后，我们接下来去改造我们之前创建好的流水线，我们在我们已经完成了镜像推送到仓库的流水线上添加第三个任务，这个任务的目的是通过SSH登录到</p> <p>我们的公网服务器上去，然后在我们的服务器上登录到我们的镜像仓库，从仓库中获取到我们想要的镜像，最后进行镜像的部署。</p> <p>首先，添加ssh任务</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2f1abea6ecab6947f4a064600395c3ae.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;选择我们装好了docker环境的服务器，选择编辑在线脚本，脚本的主要内容是：登录我们之前做好的镜像仓库，从仓库中获取我们的镜像，执行docker run部署</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a70484635f510a7c3cbd5f8ff36f7d6c.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;脚本内容如下：</p> <div class="cnblogs_code"> <pre>docker login ccr.ccs.tencentyun.com --username=<span style="color: rgba(128, 0, 128, 1)">100008582177</span> --password=******<span style="color: rgba(0, 0, 0, 1)"> //这里我们使用</span>$(Build.BuildId)环境变量，让流水线自动拉取上一个任务编译好的镜像TAG</pre> <pre><span style="color: rgba(0, 0, 0, 1)">docker pull docker pull ccr.ccs.tencentyun.com</span>/my-registry/my-image-repository:test-<span style="color: rgba(0, 0, 0, 1)">$(Build.BuildId)<br/>docker run</span>-d --name test -p<span style="color: rgba(128, 0, 128, 1)">8080</span>:<span style="color: rgba(128, 0, 128, 1)">8081</span> ccr.ccs.tencentyun.com/my-registry/my-image-repository:test-$(Build.BuildId)</pre> </div> <p>编写好之后，我们运行一下流水线看看效果</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ded43ec91b070c3719358f183c4cb0ee.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;这里有个小插曲，就是我第一次运行的时候所有的命令都执行成功了，但是到最后流水线依然会报出异常，结果查证之后发现原来是最后docker向控制台输出了stderr，我去搜索了一番</p> <p>stackoverfolw上是这么答复的：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f0a997b5831cf75682c3d46e2dcdda9f.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;所以我们需要按照提示去关闭ssh这个任务中的Fail on stderr选项。</p> <p>被这个玩意坑了我20分钟，太惨了。</p> <p>到这里，我们就完成了通过azure实现从镜像编译到部署的全套流程，接下来我们将会开始研究azure的更多功能。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-25014.htm">海拉鲁有几个村子（海拉鲁外面）</a></p>
-                                        <p>下一个：<a href="/news/article-25478.htm">同安宠物领养中心电话多少号码（同安宠物领养中心电话多少号码啊）</a></p>
+                                        <p>下一个：<a href="/news/article-28265.htm">【Azure Developer】使用 CURL 获取 Key Vault 中 Secrets 中的值</a></p>
                                     </div>
                                         </div>
                         <div class="col-md-3">
@@ -215,16 +243,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-7-26-free-high-speed-nodes.htm" title="「7月26日」最高速度18.7M/S，2024年Nekoray每天更新免费节点订阅链接">「7月26日」最高速度18.7M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-node-share-links.htm" title="「12月1日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接">「12月1日」最高速度21.6M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40766.htm" title="Python 查找算法_众里寻他千百度，蓦然回首那人却在灯火阑珊处（线性、二分，分块、插值查找算法)">Python 查找算法_众里寻他千百度，蓦然回首那人却在灯火阑珊处（线性、二分，分块、插值查找算法)</a></li>
+                        <li class="py-2"><a href="/news/article-30618.htm" title="奶猫有跳蚤怎么办（奶猫身上的跳蚤会传染到人身上吗）">奶猫有跳蚤怎么办（奶猫身上的跳蚤会传染到人身上吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-node-subscribe.htm" title="「1月20日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接">「1月20日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-node-share-links.htm" title="「12月12日」最高速度20.1M/S，2024年Nekoray每天更新免费节点订阅链接">「12月12日」最高速度20.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48184.htm" title="vue实现简单无缝滚动效果_vue.js">vue实现简单无缝滚动效果_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-36018.htm" title="芭比堂宠物医院是哪个公司旗下的（芭比堂宠物医院是哪个公司旗下的）">芭比堂宠物医院是哪个公司旗下的（芭比堂宠物医院是哪个公司旗下的）</a></li>
                         <li class="py-2"><a href="/news/article-33476.htm" title="我被猫咬了,没去***,会不会死人（被猫咬伤了没打疫苗要紧吗）">我被猫咬了,没去***,会不会死人（被猫咬伤了没打疫苗要紧吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-node-share-links.htm" title="「11月12日」最高速度21.1M/S，2024年Nekoray每天更新免费节点订阅链接">「11月12日」最高速度21.1M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-28-free-node-subscribe.htm" title="「7月28日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接">「7月28日」最高速度22.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-14-free-node-subscribe-links.htm" title="「9月14日」最高速度18.3M/S，2024年Nekoray每天更新免费节点订阅链接">「9月14日」最高速度18.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24088.htm" title="开宠物诊所向哪个部门申请动物诊疗许可证书呢（办个宠物诊所证需要哪些材料）">开宠物诊所向哪个部门申请动物诊疗许可证书呢（办个宠物诊所证需要哪些材料）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-29-node-share.htm" title="「8月29日」最高速度18.3M/S，2024年Nekoray每天更新免费节点订阅链接">「8月29日」最高速度18.3M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-node-share.htm" title="「11月24日」最高速度19.2M/S，2024年Nekoray每天更新免费节点订阅链接">「11月24日」最高速度19.2M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-7-node-share.htm" title="「8月7日」最高速度21.9M/S，2024年Nekoray每天更新免费节点订阅链接">「8月7日」最高速度21.9M/S，2024年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45729.htm" title="养猫要打疫苗要多少钱一针呢（养猫要打几针）">养猫要打疫苗要多少钱一针呢（养猫要打几针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-node-share-links.htm" title="「2月2日」最高速度18.9M/S，2025年Nekoray每天更新免费节点订阅链接">「2月2日」最高速度18.9M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22246.htm" title="狗粮属于什么经营范围（狗粮属于什么商品类目）">狗粮属于什么经营范围（狗粮属于什么商品类目）</a></li>
                     </ul>
     </div>
 </div>
@@ -236,25 +264,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
