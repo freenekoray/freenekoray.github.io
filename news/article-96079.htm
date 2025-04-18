@@ -1,0 +1,375 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekoray.github.io/news/article-96079.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>maven生成war包的两种方式</title>
+        <meta name="description" content="&nbsp;&nbsp;&nbsp; war包即对WEB应用程序进行打包，用于应用容器的部署。如在jboss中只要把war包丢入deploy目录下即可发布自己的应用了。打包方式有很多中，很多工具本身就" />
+        <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekoray官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekoray.github.io/news/article-96079.htm" />
+    <meta property="og:site_name" content="Free Nekoray官方节点站" />
+    <meta property="og:title" content="maven生成war包的两种方式" />
+    <meta property="og:image" content="https://freenekoray.github.io/uploads/20240725/a96df406be5c13b47b13cb96f9c549d0.webp" />
+        <meta property="og:release_date" content="2025-04-15T05:59:14" />
+    <meta property="og:updated_time" content="2025-04-15T05:59:14" />
+        <meta property="og:description" content="&nbsp;&nbsp;&nbsp; war包即对WEB应用程序进行打包，用于应用容器的部署。如在jboss中只要把war包丢入deploy目录下即可发布自己的应用了。打包方式有很多中，很多工具本身就" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="maven生成war包的两种方式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
+    <!-- Nivo slider CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <!-- Fontawsome CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
+    <!-- Flaticon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/flaticon.css">
+    <!-- material iconic CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/owl.carousel.css">
+    <!-- jquery-ui CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery-ui.css">
+    <!-- meanmenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/meanmenu.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate.css">
+    <!-- Slick CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/slick.css">
+    <!-- Venobox CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/venobox.css">
+    <!-- Circle Chart CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.circliful.css">
+    <!-- Color Switcher CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color-switcher.css">
+    <!-- Animate headline CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate-heading.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/reset.css">
+    <!-- Video CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.mb.YTPlayer.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/style.css">
+    <!-- Responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/responsive.css">
+    <!-- Modernizr JS
+        ============================================ -->
+    <script src="/assets/website/js/frontend/freenekoray/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Color Css Files Start -->
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-one.css" title="color-one" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-two.css" title="color-two" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-three.css" title="color-three" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-four.css" title="color-four" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-five.css" title="color-five" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-six.css" title="color-six" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-seven.css" title="color-seven" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-eight.css" title="color-eight" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-nine.css" title="color-nine" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren1.css" title="pattren1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren2.css" title="pattren2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren3.css" title="pattren3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren4.css" title="pattren4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren5.css" title="pattren5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background1.css" title="background1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background2.css" title="background2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background3.css" title="background3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background4.css" title="background4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background5.css" title="background5" media="screen" />
+    <!-- Color Css Files End -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ0BL8Q290"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CZ0BL8Q290');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- Pre Loader
+    ============================================ -->
+    <div class="preloader">
+        <div class="loading-center">
+            <div class="loading-center-absolute">
+                <div class="object object_one"></div>
+                <div class="object object_two"></div>
+                <div class="object object_three"></div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="as-mainwrapper">
+        <!-- header start -->
+<header class="header-area">
+    <div class="main-header-area bg-white sticker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">
+                    <div class="logo">
+                        <a href="/">
+                                                <span>Free Nekoray</span>
+                                                </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-8 hidden-sm hidden-xs">
+                    <div class="mainmenu-area">
+                        <div class="mainmenu">
+                            <nav>
+                                <ul id="nav">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                                                <li><a href="/">首页</a>
+                                                                    <li><a href="/free-nodes/">免费节点</a>
+                                                                    <li><a href="/paid-subscribe/">推荐机场</a>
+                                                                    <li><a href="/client.htm">客户端</a>
+                                                                    <li><a href="/news/">新闻资讯</a>
+                                                                </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area end -->
+</header>
+<!-- header end -->
+        <div class="main-content-wrapper">
+            <!-- banner start -->
+            <div class="banner-area blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="banner-text text-center">
+                                <div class="banner-title">
+                                    <h1>maven生成war包的两种方式</h1>
+                                </div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">首页</a>></li>
+                                        <li><a href="/news/">新闻资讯</a>></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- banner end -->
+            <!-- about start-->
+            <div class="about-reflex-area bg-white bg-white ptb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp;&nbsp;&nbsp; war包即对WEB应用程序进行打包，用于应用容器的部署。如在jboss中只要把war包丢入deploy目录下即可发布自己的应用了。打包方式有很多中，很多工具本身就支持此功能。下面主要介绍通过maven来操作的两种方式：</p> <p><strong>方法一：</strong></p> <p>&nbsp;&nbsp; 即第一反应的那种啦，就是利用maven的maven-war-plugin。</p> <pre class="xml">&lt;build&gt;    &lt;plugins&gt;    ......     &lt;plugin&gt;        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;        &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;        &lt;version&gt;2.0.2&lt;/version&gt;        &lt;configuration&gt;           &lt;warSourceExcludes&gt;WEB-INF/lib/log4j-${log4j.version}.jar&lt;/warSourceExcludes&gt;        &lt;/configuration&gt;     &lt;/plugin&gt;    &lt;/plugins&gt;  &lt;/build&gt;</pre> <p>当然你可以指定war包的名称，输出的目录，webapp目录等等。</p> <p>可以在需要打包的工程中直接设定：&lt;pom&gt;war&lt;/pom&gt;</p> <p>这样在install的时候就会对此工程生成相应配置的war包，原来此web工程依赖的其他工程全部会以jar包的形式出现在lib目录下，所以不需要再去关心war包中集成的jar包是否完整，maven已经帮你做完了。</p> <p>顺便提一句，在jboss中发布war包，如果包中包含log4j.jar，会报错，所以在本例中将此jar包排除在外。</p> <p><strong>方法二：</strong></p> <p>不用war插件，而是用到另外三个插件：maven-dependency-plugin 、maven-antrun-plugin&nbsp;、 build-helper-maven-plugin</p> <p>下面分别说明下着三个插件在此过程扮演的角色：</p> <p>maven-dependency-plugin ：相当于数据收集器，该依赖那些jar包，该加载那些resource信息。</p> <p>maven-antrun-plugin：完成收集完文件夹的压缩和包的重命名。</p> <p>build-helper-maven-plugin：让压缩包拥有男人本色，oh sorry 是war本色。</p> <p>在写pom.xml配置前，先说明下目录结构</p> <p>root</p> <p>|</p> <p>|---template</p> <p>|</p> <p>|---wardir</p> <p>其中这两个目录都作为maven的独立工程，下面要写配置在wardir下的pom.xml中</p> <pre class="xml">&lt;build&gt;    &lt;plugins&gt;       &lt;plugin&gt;         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;         &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;         &lt;version&gt;2.0&lt;/version&gt;         &lt;executions&gt;            &lt;execution&gt;               &lt;id&gt;create-structure&lt;/id&gt;               &lt;phase&gt;process-resources&lt;/phase&gt;                &lt;goals&gt;                    &lt;goal&gt;unpack&lt;/goal&gt;                 &lt;/goals&gt;                 &lt;configuration&gt;                     &lt;artifactItems&gt;                        &lt;artifactItem&gt;                           &lt;groupId&gt;GROUPID&lt;/groupId&gt;                            &lt;artifactId&gt;template&lt;/artifactId&gt;                        &lt;/artifactItem&gt;                  &lt;/artifactItems&gt;                  &lt;outputDirectory&gt;                      ${project.build.directory}/${assembly.name}.war                   &lt;/outputDirectory&gt;                 &lt;/configuration&gt;              &lt;/execution&gt;              &lt;execution&gt;                  &lt;id&gt;copy-libs&lt;/id&gt;                   &lt;phase&gt;process-resources&lt;/phase&gt;                    &lt;goals&gt;                       &lt;goal&gt;copy&lt;/goal&gt;                    &lt;/goals&gt;                    &lt;configuration&gt;                       &lt;artifactItems&gt;                          &lt;artifactItem&gt;                              &lt;groupId&gt;jdom&lt;/groupId&gt;                               &lt;artifactId&gt;jdom&lt;/artifactId&gt;                           &lt;/artifactItem&gt;                                 ......                        &lt;/artifactItems&gt;                          &lt;outputDirectory&gt;${project.build.directory}/${assembly.name}.war/WEB-INF/lib&lt;/outputDirectory&gt;                     &lt;/configuration&gt;                  &lt;/execution&gt;             &lt;/executions&gt;        &lt;/plugin&gt;         &lt;plugin&gt;             &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;             &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;             &lt;version&gt;1.3&lt;/version&gt;             &lt;executions&gt;                &lt;execution&gt;                   &lt;id&gt;copy-config&lt;/id&gt;                   &lt;phase&gt;process-resources&lt;/phase&gt;                   &lt;goals&gt;                       &lt;goal&gt;run&lt;/goal&gt;                    &lt;/goals&gt;                    &lt;configuration&gt;                    &lt;tasks&gt;                        &lt;copy todir="${project.build.directory}/${assembly.name}.war"&gt;                            &lt;fileset dir="src/main/resources" /&gt;                        &lt;/copy&gt;                        &lt;zip destfile="${project.build.directory}/${assembly.name}-${project.version}-war.zip"&gt;                             &lt;zipfileset dir="${project.build.directory}/${assembly.name}.war" includes="**\*.*"  excludes="*.zip" /&gt;                        &lt;/zip&gt;                        &lt;copy file="${project.build.directory}/${assembly.name}-${project.version}-war.zip"                                     tofile="${project.build.directory}/${assembly.name}-${project.version}.war" /&gt;                      &lt;/tasks&gt;                      &lt;/configuration&gt;                 &lt;/execution&gt;             &lt;/executions&gt;        &lt;/plugin&gt;        &lt;plugin&gt;            &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;            &lt;artifactId&gt;build-helper-maven-plugin&lt;/artifactId&gt;            &lt;version&gt;1.4&lt;/version&gt;            &lt;executions&gt;               &lt;execution&gt;               &lt;id&gt;attach-artifacts&lt;/id&gt;               &lt;phase&gt;package&lt;/phase&gt;                  &lt;goals&gt;                      &lt;goal&gt;attach-artifact&lt;/goal&gt;                  &lt;/goals&gt;                  &lt;configuration&gt;                       &lt;artifacts&gt;                          &lt;artifact&gt;                              &lt;file&gt;${project.build.directory}/${assembly.name}-${project.version}.war&lt;/file&gt;                               &lt;type&gt;war&lt;/type&gt;                           &lt;/artifact&gt;                        &lt;/artifacts&gt;                   &lt;/configuration&gt;                &lt;/execution&gt;             &lt;/executions&gt;          &lt;/plugin&gt;     &lt;/plugins&gt; &lt;/build&gt;</pre> <p>&nbsp;当然这种方式也可以用来打ear包。对于打无页面操作系统的war包，个人认为用后者更灵活，当然建立假web工程，再依赖工程，通过第一种方式同样可以达到最终的结果。看个人喜好了。</p> <p>结束语：maven真的很强大！</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96078.htm">SpringMVC中RequestMapping注解【作用、出现的位置、属性】</a></p>
+                                        <p>下一个：<a href="/news/article-96822.htm">给宠物医院的好评 给宠物医院的好评怎么写</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-node-subscribe.htm" title="「3月18日」最高速度18.3M/S，2025年Nekoray每天更新免费节点订阅链接">「3月18日」最高速度18.3M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-free-node-subscribe.htm" title="「4月14日」最高速度21.2M/S，2025年Nekoray每天更新免费节点订阅链接">「4月14日」最高速度21.2M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-node-subscribe-links.htm" title="「3月7日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接">「3月7日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-66143.htm" title="被猫抓伤五天后在打的针有效果吗（被猫抓伤后五天才打疫苗有作用吗?）">被猫抓伤五天后在打的针有效果吗（被猫抓伤后五天才打疫苗有作用吗?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-free-node-subscribe.htm" title="「3月22日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接">「3月22日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-71290.htm" title="学动物医学的学校有哪些重庆招生（重庆有动物医学专业的大学）">学动物医学的学校有哪些重庆招生（重庆有动物医学专业的大学）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-node-share.htm" title="「4月17日」最高速度21.3M/S，2025年Nekoray每天更新免费节点订阅链接">「4月17日」最高速度21.3M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-68683.htm" title="孕妇被猫抓伤出了一点血有危险么（孕妇被猫抓了出血对宝宝有什么影响）">孕妇被猫抓伤出了一点血有危险么（孕妇被猫抓了出血对宝宝有什么影响）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-high-speed-nodes.htm" title="「3月23日」最高速度18.6M/S，2025年Nekoray每天更新免费节点订阅链接">「3月23日」最高速度18.6M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-high-speed-nodes.htm" title="「4月1日」最高速度18M/S，2025年Nekoray每天更新免费节点订阅链接">「4月1日」最高速度18M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- about end -->
+            <!-- footer start -->
+<footer class="footer-area">
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Free Nekoray官方节点站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<!-- jquery
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/vendor/jquery-1.12.4.min.js"></script>
+<!-- bootstrap JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/bootstrap.min.js"></script>
+<!-- meanmenu JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.meanmenu.js"></script>
+<!-- wow JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/wow.min.js"></script>
+<!-- owl.carousel JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/owl.carousel.min.js"></script>
+<!-- scrollUp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.scrollUp.min.js"></script>
+<!-- Counter up js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.counterup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/waypoints.min.js"></script>
+<!-- Video Player JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.mb.YTPlayer.js"></script>
+<!-- AJax Chimp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.ajaxchimp.min.js"></script>
+<!-- plugins JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/plugins.js"></script>
+<!-- Nevo Slider js
+        ============================================ -->
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/home.js"></script>
+<!-- Slick js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/slick.min.js"></script>
+<!--Circle chart js-->
+<script src="/assets/website/js/frontend/freenekoray/jquery.circliful.min.js"></script>
+<!--Venobox js-->
+<script src="/assets/website/js/frontend/freenekoray/venobox.min.js"></script>
+<!-- Isotope js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/isotope.pkgd.min.js"></script>
+<!-- textillate js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.textillate.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/jquery.lettering.js"></script>
+<!-- animated headline js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/animate-heading.js"></script>
+<!-- ajax js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/ajax-mail.js"></script>
+<!-- main JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/styleswitch.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
