@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekoray.github.io/news/article-101150.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>PHP重载</title>
+        <meta name="description" content="介绍 与其他面向对象的语言（例如C ++或Java）相比，PHP中对重载的解释是不同的，其中该术语表示具有使用相同名称的方法多次但具有不同参数和/或返回类型的类的能力。另一方面，在PHP中，动态创建属" />
+        <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekoray官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekoray.github.io/news/article-101150.htm" />
+    <meta property="og:site_name" content="Free Nekoray官方节点站" />
+    <meta property="og:title" content="PHP重载" />
+    <meta property="og:image" content="https://freenekoray.github.io/uploads/20240725/b4dc9263e685a0adb8500eb7193babca.webp" />
+        <meta property="og:release_date" content="2025-04-22T08:20:18" />
+    <meta property="og:updated_time" content="2025-04-22T08:20:18" />
+        <meta property="og:description" content="介绍 与其他面向对象的语言（例如C ++或Java）相比，PHP中对重载的解释是不同的，其中该术语表示具有使用相同名称的方法多次但具有不同参数和/或返回类型的类的能力。另一方面，在PHP中，动态创建属" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PHP重载">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
+    <!-- Nivo slider CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <!-- Fontawsome CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
+    <!-- Flaticon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/flaticon.css">
+    <!-- material iconic CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/owl.carousel.css">
+    <!-- jquery-ui CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery-ui.css">
+    <!-- meanmenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/meanmenu.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate.css">
+    <!-- Slick CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/slick.css">
+    <!-- Venobox CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/venobox.css">
+    <!-- Circle Chart CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.circliful.css">
+    <!-- Color Switcher CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color-switcher.css">
+    <!-- Animate headline CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate-heading.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/reset.css">
+    <!-- Video CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.mb.YTPlayer.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/style.css">
+    <!-- Responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/responsive.css">
+    <!-- Modernizr JS
+        ============================================ -->
+    <script src="/assets/website/js/frontend/freenekoray/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Color Css Files Start -->
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-one.css" title="color-one" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-two.css" title="color-two" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-three.css" title="color-three" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-four.css" title="color-four" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-five.css" title="color-five" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-six.css" title="color-six" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-seven.css" title="color-seven" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-eight.css" title="color-eight" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-nine.css" title="color-nine" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren1.css" title="pattren1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren2.css" title="pattren2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren3.css" title="pattren3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren4.css" title="pattren4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren5.css" title="pattren5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background1.css" title="background1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background2.css" title="background2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background3.css" title="background3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background4.css" title="background4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background5.css" title="background5" media="screen" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Color Css Files End -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ0BL8Q290"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CZ0BL8Q290');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- Pre Loader
+    ============================================ -->
+    <div class="preloader">
+        <div class="loading-center">
+            <div class="loading-center-absolute">
+                <div class="object object_one"></div>
+                <div class="object object_two"></div>
+                <div class="object object_three"></div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="as-mainwrapper">
+        <!-- header start -->
+<header class="header-area">
+    <div class="main-header-area bg-white sticker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">
+                    <div class="logo">
+                        <a href="/">
+                                                <span>Free Nekoray</span>
+                                                </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-8 hidden-sm hidden-xs">
+                    <div class="mainmenu-area">
+                        <div class="mainmenu">
+                            <nav>
+                                <ul id="nav">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                                                <li><a href="/">首页</a>
+                                                                    <li><a href="/free-nodes/">免费节点</a>
+                                                                    <li><a href="/paid-subscribe/">推荐机场</a>
+                                                                    <li><a href="/client.htm">客户端</a>
+                                                                    <li><a href="/news/">新闻资讯</a>
+                                                                </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area end -->
+</header>
+<!-- header end -->
+        <div class="main-content-wrapper">
+            <!-- banner start -->
+            <div class="banner-area blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="banner-text text-center">
+                                <div class="banner-title">
+                                    <h1>PHP重载</h1>
+                                </div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">首页</a>></li>
+                                        <li><a href="/news/">新闻资讯</a>></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- banner end -->
+            <!-- about start-->
+            <div class="about-reflex-area bg-white bg-white ptb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<h2>介绍</h2> <p>与其他面向对象的语言（例如C ++或Java）相比，PHP中对重载的解释是不同的，其中该术语表示具有使用相同名称的方法多次但具有不同参数和/或返回类型的类的能力。另一方面，在PHP中，动态创建属性和方法的功能称为重载。PHP的<strong>魔术方法</strong>（方法名称以双下划线开头）用于设置动态属性和方法。</p> <p>以下魔术方法用于重载属性-</p> <h2>语法</h2> <pre>public&nbsp;__set&nbsp;(&nbsp;string&nbsp;$name&nbsp;,&nbsp;mixed&nbsp;$value&nbsp;)&nbsp;:&nbsp;void public&nbsp;__get&nbsp;(&nbsp;string&nbsp;$name&nbsp;)&nbsp;:&nbsp;mixed public&nbsp;__isset&nbsp;(&nbsp;string&nbsp;$name&nbsp;)&nbsp;:&nbsp;bool public&nbsp;__unset&nbsp;(&nbsp;string&nbsp;$name&nbsp;)&nbsp;:&nbsp;void</pre> <p>运行__set()以便将数据写入受保护的，私有的或不存在的不可访问的属性。</p> <p>__get()从不可访问的属性读取数据。</p> <p>__isset()调用<code>isset()</code>或<code>empty()</code>无法访问的属性。</p> <p><code>unset()</code>在无法访问的属性上调用__unset()时会被调用。</p> <p>在以下代码中，设置，检索和取消设置了名为<strong>myprop</strong>的动态属性。</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;myclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__set($name,&nbsp;$value){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"setting&nbsp;$name&nbsp;property&nbsp;to&nbsp;$value&nbsp;\n"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;$name&nbsp;=&nbsp;$value; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__get($name){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"value&nbsp;of&nbsp;$name&nbsp;property&nbsp;is&nbsp;"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;$this-&gt;$name; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__isset($name){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset($this-&gt;$name); &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__unset($name){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset($this-&gt;$name); &nbsp;&nbsp;&nbsp;} } $obj&nbsp;=&nbsp;new&nbsp;myclass(); $obj-&gt;myprop="test"; echo&nbsp;$obj-&gt;myprop&nbsp;.&nbsp;"\n"; var_dump&nbsp;(isset($obj-&gt;myprop)); unset($obj-&gt;myprop); var_dump&nbsp;(isset($obj-&gt;myprop)); ?&gt;</pre> <p>输出结果</p> <p>输出如下-</p> <pre>setting&nbsp;myprop&nbsp;property&nbsp;to&nbsp;test test bool(true) bool(false)</pre> <h2>方法重载</h2> <p>用于动态设置方法的两个魔术方法是__call()和__callStatic()</p> <pre>public&nbsp;__call&nbsp;(&nbsp;string&nbsp;$name&nbsp;,&nbsp;array&nbsp;$arguments&nbsp;)&nbsp;:&nbsp;mixed public&nbsp;static&nbsp;__callStatic&nbsp;(&nbsp;string&nbsp;$name&nbsp;,&nbsp;array&nbsp;$arguments&nbsp;)&nbsp;:&nbsp;mixed</pre> <p>在对象上下文中调用不可访问的方法时，会触发__call()。</p> <p>在静态上下文中调用不可访问的方法时，会触发__callStatic()。</p> <p>以下示例演示了PHP中的方法重载</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;myclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;__call($name,&nbsp;$args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//注意：$name的值区分大小写。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"Calling&nbsp;object&nbsp;method&nbsp;$name&nbsp;with&nbsp;"&nbsp;.&nbsp;implode("&nbsp;",&nbsp;$args).&nbsp;"\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;__callStatic($name,&nbsp;$args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"Calling&nbsp;static&nbsp;method&nbsp;$name&nbsp;with&nbsp;"&nbsp;.&nbsp;implode("&nbsp;",&nbsp;$args).&nbsp;"\n"; &nbsp;&nbsp;&nbsp;} } $obj&nbsp;=&nbsp;new&nbsp;myclass(); $obj-&gt;mymethod("你好，世界！"); myclass::mymethod("你好，世界！"); ?&gt;</pre> <p>输出结果</p> <p>上面的代码产生以下结果：</p> <pre>Calling&nbsp;object&nbsp;method&nbsp;mymethod&nbsp;with&nbsp;你好，世界！ Calling&nbsp;static&nbsp;method&nbsp;mymethod&nbsp;with&nbsp;你好，世界！</pre> <div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-100537.htm">KestrelServer详解自定义一个迷你版的KestrelServer</a></p>
+                                        <p>下一个：<a href="/news/article-101155.htm">动物疫苗厂家有哪些牌子的 动物疫苗厂家有哪些牌子的好</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-free-node-subscribe.htm" title="「3月27日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接">「3月27日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-71947.htm" title="动物医院的仪器设备是什么意思（动物医院的仪器设备是什么意思啊）">动物医院的仪器设备是什么意思（动物医院的仪器设备是什么意思啊）</a></li>
+                        <li class="py-2"><a href="/news/article-78694.htm" title="动物疫苗和生物疫苗的区别是什么 动物疫苗和生物疫苗的区别是什么意思">动物疫苗和生物疫苗的区别是什么 动物疫苗和生物疫苗的区别是什么意思</a></li>
+                        <li class="py-2"><a href="/news/article-87166.htm" title="宠物领养协议合同电子版有效吗安全吗（宠物领养电子合同模板）">宠物领养协议合同电子版有效吗安全吗（宠物领养电子合同模板）</a></li>
+                        <li class="py-2"><a href="/news/article-70631.htm" title="农大动物医院地址电话（农大动物医院电话地址）">农大动物医院地址电话（农大动物医院电话地址）</a></li>
+                        <li class="py-2"><a href="/news/article-89341.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-free-node-subscribe.htm" title="「4月13日」最高速度22.1M/S，2025年Nekoray每天更新免费节点订阅链接">「4月13日」最高速度22.1M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-66772.htm" title="2021重庆免费领养狗狗贴吧最新消息（重庆在哪领养狗）">2021重庆免费领养狗狗贴吧最新消息（重庆在哪领养狗）</a></li>
+                        <li class="py-2"><a href="/news/article-65529.htm" title="猫粮批发app（猫粮批发价格）">猫粮批发app（猫粮批发价格）</a></li>
+                        <li class="py-2"><a href="/news/article-73941.htm" title="controller使用map接收参数注意事项">controller使用map接收参数注意事项</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- about end -->
+            <!-- footer start -->
+<footer class="footer-area">
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Free Nekoray官方节点站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<!-- jquery
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/vendor/jquery-1.12.4.min.js"></script>
+<!-- bootstrap JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/bootstrap.min.js"></script>
+<!-- meanmenu JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.meanmenu.js"></script>
+<!-- wow JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/wow.min.js"></script>
+<!-- owl.carousel JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/owl.carousel.min.js"></script>
+<!-- scrollUp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.scrollUp.min.js"></script>
+<!-- Counter up js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.counterup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/waypoints.min.js"></script>
+<!-- Video Player JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.mb.YTPlayer.js"></script>
+<!-- AJax Chimp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.ajaxchimp.min.js"></script>
+<!-- plugins JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/plugins.js"></script>
+<!-- Nevo Slider js
+        ============================================ -->
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/home.js"></script>
+<!-- Slick js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/slick.min.js"></script>
+<!--Circle chart js-->
+<script src="/assets/website/js/frontend/freenekoray/jquery.circliful.min.js"></script>
+<!--Venobox js-->
+<script src="/assets/website/js/frontend/freenekoray/venobox.min.js"></script>
+<!-- Isotope js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/isotope.pkgd.min.js"></script>
+<!-- textillate js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.textillate.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/jquery.lettering.js"></script>
+<!-- animated headline js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/animate-heading.js"></script>
+<!-- ajax js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/ajax-mail.js"></script>
+<!-- main JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/styleswitch.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
