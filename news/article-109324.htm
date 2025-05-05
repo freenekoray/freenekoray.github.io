@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freenekoray.github.io/news/article-109324.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>C++ atomic 和 memory ordering</title>
+        <meta name="description" content="如果不使用任何同步机制（例如 mutex 或 atomic），在多线程中读写同一个变量，那么，程序的结果是难以预料的。简单来说，编译器以及 CPU 的一些行为，会影响到程序的执行结果：  即使是简单的" />
+        <link rel="icon" href="/assets/website/img/freenekoray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Nekoray官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freenekoray.github.io/news/article-109324.htm" />
+    <meta property="og:site_name" content="Free Nekoray官方节点站" />
+    <meta property="og:title" content="C++ atomic 和 memory ordering" />
+    <meta property="og:image" content="https://freenekoray.github.io/uploads/20240725/e0e4ec6396a7a7a809b72a298ddc2040.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:21:50" />
+    <meta property="og:updated_time" content="2025-05-02T09:21:50" />
+        <meta property="og:description" content="如果不使用任何同步机制（例如 mutex 或 atomic），在多线程中读写同一个变量，那么，程序的结果是难以预料的。简单来说，编译器以及 CPU 的一些行为，会影响到程序的执行结果：  即使是简单的" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++ atomic 和 memory ordering">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/bootstrap.min.css">
+    <!-- Nivo slider CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/nivo-slider.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/freenekoray/custom-slider/css/preview.css" media="screen" />
+    <!-- Fontawsome CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/font-awesome.min.css">
+    <!-- Flaticon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/flaticon.css">
+    <!-- material iconic CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/material-design-iconic-font.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/owl.carousel.css">
+    <!-- jquery-ui CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery-ui.css">
+    <!-- meanmenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/meanmenu.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate.css">
+    <!-- Slick CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/slick.css">
+    <!-- Venobox CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/venobox.css">
+    <!-- Circle Chart CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.circliful.css">
+    <!-- Color Switcher CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/color-switcher.css">
+    <!-- Animate headline CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/animate-heading.css">
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/reset.css">
+    <!-- Video CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/jquery.mb.YTPlayer.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/style.css">
+    <!-- Responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/assets/website/css/freenekoray/responsive.css">
+    <!-- Modernizr JS
+        ============================================ -->
+    <script src="/assets/website/js/frontend/freenekoray/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Color Css Files Start -->
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-one.css" title="color-one" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-two.css" title="color-two" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-three.css" title="color-three" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-four.css" title="color-four" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-five.css" title="color-five" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-six.css" title="color-six" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-seven.css" title="color-seven" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-eight.css" title="color-eight" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-nine.css" title="color-nine" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren1.css" title="pattren1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren2.css" title="pattren2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren3.css" title="pattren3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren4.css" title="pattren4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/pattren5.css" title="pattren5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background1.css" title="background1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background2.css" title="background2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background3.css" title="background3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background4.css" title="background4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/assets/website/css/freenekoray/switcher/background5.css" title="background5" media="screen" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Color Css Files End -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ0BL8Q290"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CZ0BL8Q290');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- Pre Loader
+    ============================================ -->
+    <div class="preloader">
+        <div class="loading-center">
+            <div class="loading-center-absolute">
+                <div class="object object_one"></div>
+                <div class="object object_two"></div>
+                <div class="object object_three"></div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="as-mainwrapper">
+        <!-- header start -->
+<header class="header-area">
+    <div class="main-header-area bg-white sticker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">
+                    <div class="logo">
+                        <a href="/">
+                                                <span>Free Nekoray</span>
+                                                </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-8 hidden-sm hidden-xs">
+                    <div class="mainmenu-area">
+                        <div class="mainmenu">
+                            <nav>
+                                <ul id="nav">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                                                <li><a href="/">首页</a>
+                                                                    <li><a href="/free-nodes/">免费节点</a>
+                                                                    <li><a href="/paid-subscribe/">推荐机场</a>
+                                                                    <li><a href="/client.htm">客户端</a>
+                                                                    <li><a href="/news/">新闻资讯</a>
+                                                                </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area end -->
+</header>
+<!-- header end -->
+        <div class="main-content-wrapper">
+            <!-- banner start -->
+            <div class="banner-area blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="banner-text text-center">
+                                <div class="banner-title">
+                                    <h1>C++ atomic 和 memory ordering</h1>
+                                </div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">首页</a>></li>
+                                        <li><a href="/news/">新闻资讯</a>></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- banner end -->
+            <!-- about start-->
+            <div class="about-reflex-area bg-white bg-white ptb-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>如果不使用任何同步机制（例如 mutex 或 atomic），在多线程中读写同一个变量，那么，程序的结果是难以预料的。简单来说，编译器以及 CPU 的一些行为，会影响到程序的执行结果：</p> <ul> <li>即使是简单的语句，C++ 也不保证是原子操作。</li> <li>CPU 可能会调整指令的执行顺序。</li> <li>在 CPU cache 的影响下，一个 CPU 执行了某个指令，不会立即被其它 CPU 看见。</li> </ul> <p>利用 C++ 的<code>atomic&lt;T&gt;</code> 能完成对象的原子的读、写以及RMW（read-modify-write），而参数<code>std::memory_order</code> 规定了如何围绕原子对象的操作进行排序。<code>memory order</code> 内存操作顺序其实是<strong>内存一致性模型</strong> (Memory Consistency Model)，解决处理器的<code>write</code> 操作什么时候能够影响到其他处理器，或者说解决其他处理处理器什么时候能够观测到当且<strong>写CPU/写线程</strong> 写入内存的值，有了 memory odering，我们就能知道其他处理器是怎么观测到<code>store</code> 指令的影响的。</p> <p>一致模型有很多种，在 Wikipedia 里面搜索<em>Consistency model</em> 即可看到，目前 C++ 所用到有 Sequential Consistency 和 Relaxed Consistency 以及 Release consistency。</p> <h2 id="memory--operation-ordering">Memory  Operation Ordering</h2> <p>我们所编写的程序会定义一系列的<code>load</code> 和<code>store</code> 操作，也就是<code>Program ordering</code>，这些 load 和 store 的操作应用在内存上就有了内存操作序(memory operation ordering)，一共有四种内存操作顺序的限制，不同的内存一致模型需要保持不同级别的操作限制，其中<code>W</code> 代表写，<code>R</code> 代表读：</p> <ul> <li><code>W -&gt; R</code>：写入内存地址 X 的操作必须比在后面的程序定义序列的读取地址 Y 之前提交 (commit), 以至于当读取内存地址 Y 的时候，写入地址 X 的影响已经能够在读取Y时被观测到。</li> <li><code>R -&gt; R</code>: 读取内存地址 X 的操作必须在后序序列中的读取内存地址 Y 的操作之前提交。</li> <li><code>R -&gt; W</code>：读取内存地址 X 的操作必须在后序序列中读取内存地址 Y 的操作之前提交。</li> <li><code>W -&gt; W</code>：写入内存地址 X 的操作必须在后续序列中写入内存地址 Y 的操作之前提交。</li> </ul> <p>提交的意思可以理解为，后面的操作需要等前面的操作完全执行完才能进行下一个操作。</p> <h2 id="sequential-consistency">Sequential consistency</h2> <p>序列一致是<strong>Leslie Lamport</strong> 提出来的，如果熟悉分布式共识算法<strong>Paxos</strong> ，那么应该不陌生这位大科学家，而序列一致的定义是：</p> <p>the result of any execution is the same as-if （任何一种执行结果都是相同的就好像）</p> <ol> <li>the operations of all threads are executed in some sequential order （所有线程的操作都在某种次序下执行）</li> <li>the operations of each thread appear in this sequence in the order specified by their program （在全局序列中的，各个线程内的操作顺序由程序指定的一致）</li> </ol> <p>组合起来：全局序列中的操作序列要和线程所指定的操作顺序要对应，最终的结果是所有线程指定顺序操作的排列，不能出现和程序指定顺序组合不出来的结果。</p> <p>怎么做会违反 sequcential consistency（SC）？也就是 SC 的反例是什么？</p> <ul> <li>乱序执行 （out-of-order)</li> <li>内存访问重叠，写A的过程中读取A，宽于计算机word的，64位机器写128位变量</li> </ul> <p>更加形象的理解可以从内存的角度来看：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/01dfa7afa1ba23f41af8cdba61bacda5.jpg" alt="C++ atomic 和 memory ordering"></p> <p>所有的处理器都按照<code>program order</code> 发射<code>load</code> 和<code>store</code> 的操作，而内存一个地一个地从上面 4 个处理器中读取指令，并且仅当完成一个操作后才会去执行下一个操作，类似于多个<code>producer</code> 一个<code>consumer</code> 的情况。</p> <p><s>（Lamport 一句话，让我为他理解了一下午）</s></p> <p>SC 需要保持所有的内存操作序（memory operation ordering），也是最严格的一种，并且 SC 是 c++<code>atomic&lt;T&gt;</code> 默认的以一种内存模型，对应<code>std::memory_order_seq_cst</code>，可以看到标准库中的函数定义将其设置为了默认值：</p> <pre><code class="language-c++">    bool     load(memory_order __m = memory_order_seq_cst) const noexcept     { return _M_base.load(__m); }</code></pre> <h2 id="relaxed-consistency">Relaxed Consistency</h2> <p>松弛内存序，对应的<code>std::memory_order_relaxed</code>，在 cppreference 上的说明是："不保证同步操作，不会将一定的顺序强加到并发内存访问上，只保证原子性和修改顺序一致性"，并且通常用于计数器，比如<code>shared_ptr</code> 的引用计数。</p> <p>松弛内存序不再保证<strong>W -&gt; R</strong>，不相互依赖的读写操作可以在 write 之前或者在同一时间段并行处理。（读内存并不是想象中的那么简单，有内存寻址过程，将内存数据映射到 cache block，发送不合法位用于缓存替换）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6cb0fed3e9c36f1474e08c788bc31ed7.jpg" alt="C++ atomic 和 memory ordering"></p> <p>好处是什么？性能，执行命令的写操作的延迟都被抹去了，cpu 能够更快的执行完一段带有读写的指令序列。</p> <p>具体实现是通过在 cpu 和 cache 之间加入一个<strong>write buffer</strong>，如下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a046204cca2956b80a5eb879f9475631.jpg" alt="C++ atomic 和 memory ordering"></p> <p>处理器<code>Write</code> 命令将会发送到<code>Write Buffer</code>，而<code>Read</code> 命令就直接能访问 cache，这样可以省去写操作的延迟。<code>Write Buffer</code> 还有一个细节问题，放开<strong>W -&gt; R</strong> 的限制是当<code>Write</code> 和<code>Read</code> 操作内存地址不是同一个的时候，R/W 才能同时进行甚至 R 能提前到 W 之前，但如果<code>Write Buffer</code> 中有一个<code>Read</code> 所依赖的内存地址就存在问题，<code>Read</code> 需要等在<code>Write buffer</code> 中的<code>Write</code> 执行完成才能继续吗？只需要<code>Read</code> 能直接访问这个<code>Write Buffer</code>，如下（注：这里的<code>Load</code>通常和<code>Read</code>等意，<code>Store</code>和<code>Write</code>等意）：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c1802812061d47fe5d612a57a2dc8a60.jpg" alt="C++ atomic 和 memory ordering"></p> <h2 id="release-consistency">Release Consistency</h2> <p>在这种一致性下，所有的 memory operation ordering 都将不再维护，是最激进的一种内存一致模型，进入临界区叫做<code>Acquire</code> ，离开临界区叫做<code>Release</code>。所有的<code>memory operation ordering</code> 都将不再维护，处理器支持特殊的同步操作，所有的内存访问指令必须在<code>fence</code> 指令发送之前完成，在<code>fench</code> 命令完成之前，其他所有的命令都不能开始执行。</p> <p>Intel x86/x64 芯片在硬件层面提供了 total store ordering 的能力，如果软件要求更高级别的一致性模型，处理器提供了三种指令：</p> <ul> <li>mm_lfence：load fence，等待所有 load 完成</li> <li>mm_sfence：store fence，等待所有 store 完成</li> <li>mm_mfence：完全读写屏障</li> </ul> <p>而在 ARM 架构上，提供的是一种非常松弛（very relaxed）内存一致模型。</p> <p>PS. 曾经有个公司做出了支持 Sequential Consistency 的硬件，但是最终还是败给了市场。</p> <h2 id="acquirerelease">Acquire/Release</h2> <p>Acquire/release 对应<code>std::memory_order_acquire</code> 和<code>std::memory_order_acquire</code>，它们的语义解释如下：</p> <ul> <li>Acquire：如果一个操作 X 带有 acquire 语义，那么在操作 X 后的所有<code>load/store</code> 指令都不会被重排序到操作 X 之前，其他处理器会在看到操作X后序操作的影响之前看到操作 X 的影响，也就是必须先看到 X 的影响，再是后续操作的影响。</li> <li>Relase：如果一个操作 X 带有 release 语义，那么在操作 X 之前的所有<code>load/store</code> 指令操作都不会被重排序到操作 X 之后，其他处理器会先看到操作 X 之前的操作。</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3936ac4961c3ad05a2eaf1a6c6411799.jpg" alt="C++ atomic 和 memory ordering"></p> <p>Acquire/Release 常用在互斥锁(mutex lock)和自旋锁(spin lock)，获得一个锁和释放一个锁需要分别使用 Acquire 和 Release 语义防止指令操作被重排出临界区而造成的数据竞争，Acquire/Release 用在互斥锁上其实还解释了为什么线程执行完临界区后，对临界区的数据更改对于其他线程是可见的，而不是仅仅缓存在<code>cache</code> 中。</p> <h2 id="acquireconsume">Acquire/Consume</h2> <p>Acquire/Consume 对应<code>std::memory_order_acquire</code> 和<code>std::memory_order_consume</code>，两种内存模型的组合仅有 consume 不同于 release，不同点在于，假设原子操作 X， Release 会防止 X 之前的所有指令不会被重排到 X 之后，而 Consume 只能保证依赖的变量不会被重排到 X 之后，引入了依赖关系。</p> <p>但是在 cppreference 上面写着，“释放消费顺序的规范正在修订中，而且暂时不鼓励使用<code>memory_order_consume</code>&nbsp;。”，所以暂时不对其做深入的研究。</p> <h2 id="volatile">Volatile</h2> <p>volatile 关键词通常会被拿出来说，因为通常会在并发编程中被错误使用：</p> <p>volatile 的翻译是“不稳定的，易发生变化的”，编译器会始终读取 volatile 修饰的变量，不会将变量的值优化掉，但是这不是用在线程同步的工具，而是一种错误行为，cppreference上面写道：“volatile 访问不建立线程间同步，volatile 访问不是原子的，且不排序内存，非 volatile 内存访问可以自由地重排到 volatile 访问前后。”（Visual Studio 是个例外）。</p> <p>volatile 变量的作用是用在非常规内存上的内存操作，常规内存在处理器不去操作的时候是不会发生变化的，但是像非常规内存如内存映射I/O的内存，实际上是在和外围设备做串口通信，所以不能省去。（《modern effective c++》）</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109323.htm">反射的概念 和基本使用（一）</a></p>
+                                        <p>下一个：<a href="/news/article-110170.htm">宠物粮食哪里批发好卖呢（宠物粮食批发厂家价格）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share.htm" title="「4月4日」最高速度21.2M/S，2025年Nekoray每天更新免费节点订阅链接">「4月4日」最高速度21.2M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-free-node-subscribe.htm" title="「4月26日」最高速度20.7M/S，2025年Nekoray每天更新免费节点订阅链接">「4月26日」最高速度20.7M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-98283.htm" title="动物使用疫苗时应注意哪些事项（动物使用疫苗时应注意哪些事项呢）">动物使用疫苗时应注意哪些事项（动物使用疫苗时应注意哪些事项呢）</a></li>
+                        <li class="py-2"><a href="/news/article-102705.htm" title="北京宠爱国际动物医疗中心（北京宠爱动物医院消费高吗）">北京宠爱国际动物医疗中心（北京宠爱动物医院消费高吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-12-free-high-speed-nodes.htm" title="「4月12日」最高速度22M/S，2025年Nekoray每天更新免费节点订阅链接">「4月12日」最高速度22M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-20-free-subscribe-node.htm" title="「4月20日」最高速度20M/S，2025年Nekoray每天更新免费节点订阅链接">「4月20日」最高速度20M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-free-high-speed-nodes.htm" title="「4月23日」最高速度18.4M/S，2025年Nekoray每天更新免费节点订阅链接">「4月23日」最高速度18.4M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-93050.htm" title="三国杀谋武将技能.（三国杀 计谋）">三国杀谋武将技能.（三国杀 计谋）</a></li>
+                        <li class="py-2"><a href="/news/article-87889.htm" title="PHP $ _GET">PHP $ _GET</a></li>
+                        <li class="py-2"><a href="/news/article-96079.htm" title="maven生成war包的两种方式">maven生成war包的两种方式</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- about end -->
+            <!-- footer start -->
+<footer class="footer-area">
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Free Nekoray官方节点站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<!-- jquery
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/vendor/jquery-1.12.4.min.js"></script>
+<!-- bootstrap JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/bootstrap.min.js"></script>
+<!-- meanmenu JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.meanmenu.js"></script>
+<!-- wow JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/wow.min.js"></script>
+<!-- owl.carousel JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/owl.carousel.min.js"></script>
+<!-- scrollUp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.scrollUp.min.js"></script>
+<!-- Counter up js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.counterup.min.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/waypoints.min.js"></script>
+<!-- Video Player JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.mb.YTPlayer.js"></script>
+<!-- AJax Chimp JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.ajaxchimp.min.js"></script>
+<!-- plugins JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/plugins.js"></script>
+<!-- Nevo Slider js
+        ============================================ -->
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/assets/website/js/frontend/freenekoray/custom-slider/home.js"></script>
+<!-- Slick js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/slick.min.js"></script>
+<!--Circle chart js-->
+<script src="/assets/website/js/frontend/freenekoray/jquery.circliful.min.js"></script>
+<!--Venobox js-->
+<script src="/assets/website/js/frontend/freenekoray/venobox.min.js"></script>
+<!-- Isotope js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/isotope.pkgd.min.js"></script>
+<!-- textillate js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/jquery.textillate.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/jquery.lettering.js"></script>
+<!-- animated headline js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/animate-heading.js"></script>
+<!-- ajax js
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/ajax-mail.js"></script>
+<!-- main JS
+        ============================================ -->
+<script src="/assets/website/js/frontend/freenekoray/styleswitch.js"></script>
+<script src="/assets/website/js/frontend/freenekoray/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
