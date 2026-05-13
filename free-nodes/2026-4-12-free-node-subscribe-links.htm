@@ -256,24 +256,13 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅文件链接</h2><p>&nbsp;</p><p><strong>Clash订阅链接</strong></p><p>https://freenekoray.github.io/uploads/2026/04/1-20260412.yaml</p><p>https://freenekoray.github.io/uploads/2026/04/2-20260412.yaml</p><p>https://freenekoray.github.io/uploads/2026/04/3-20260412.yaml</p><p>https://freenekoray.github.io/uploads/2026/04/4-20260412.yaml</p><p>&nbsp;</p><p><strong>V2ray订阅链接:</strong></p><p>https://freenekoray.github.io/uploads/2026/04/1-20260412.txt</p><p>https://freenekoray.github.io/uploads/2026/04/3-20260412.txt</p><p>https://freenekoray.github.io/uploads/2026/04/4-20260412.txt</p><p><strong>Sing-Box订阅链接</strong></p><p>https://freenekoray.github.io/uploads/2026/04/20260412.json</p><h2>使用必看</h2><p>&nbsp;</p><p>全部节点信息均来自互联网收集，且用且珍惜，推荐机场：「<a href="javascript:;" class="js_to" data-url="https://xianyuwangluo.top/#/register?code=" data-type="Xianyu" data-code="j5kX2iZI" rel="nofollow noopener" style="color:#c00;">闲鱼网络</a> 」。仅针对用于学习研究的用户分享，请勿随意传播其他信息。免费节点有效时间比较短，遇到失效是正常现象。</p><h2>配置转换模板（server部分）</h2><p>《深入解析V2Ray核心协议：VMess转换的技术原理与实践应用指南》</p>  <p>在全球化互联网生态中，网络访问的自主权与安全性已成为数字时代的基本需求。作为V2Ray项目团队研发的动态加密通信协议，VMess凭借其先进的架构设计和灵活的拓展能力，正在重塑现代代理技术的应用范式。本文将深入剖析VMess协议的技术特性，系统阐述多协议转换的实现路径，并提供详尽的配置方案与风险管控建议。</p>  <p>一、VMess协议的技术架构与核心优势</p>  <p>VMess采用非固定格式的协议设计，每个数据包均包含经过AEAD加密的时间戳、指令集和负载数据。这种动态协议机制能有效抵御流量特征分析，其核心优势体现在三个维度：</p>  <ol> <li><p>多层加密体系 采用AES-128-GCM或Chacha20-Poly1305加密算法，配合动态生成的UUID身份认证机制，确保每个会话都有独立的密钥系统。相较于Shadowsocks的静态密码方案，VMess的加密强度提升显著，能有效防止重放攻击。</p></li> <li><p>传输层自适应能力 支持TCP/mKCP/WebSocket/HTTP2/QUIC等传输方式，其中WebSocket模拟浏览器流量可有效规避GFW的深度包检测，而mKCP（基于UDP的可靠传输协议）能大幅改善高延迟网络的传输效率。</p></li> <li><p>智能路由系统 通过内置的DNS代理和分流规则，可实现国内外流量智能分流。配合反向代理功能，可构建企业级分布式网络架构，实现精细化的流量管理。</p></li> </ol>  <p>二、VMess转换的技术实践</p>  <ol> <li>协议转换生态图谱 当前主流的转换路径包括：</li> </ol>  <p>- Shadowsocks/V2RayNG → VMess - SOCKS5 → VMess（需通过v2ray-core转换） - Trojan → VMess（需要中间件支持） - HTTP/HTTPS代理 → VMess（通过naiveproxy实现）</p>  <ol> <li>实操转换示例（以V2Ray核心工具为例） ```bash</li> </ol>    <p>"inbounds": [{   "port": 1080,   "protocol": "socks",   "settings": {     "auth": "noauth"   } }], "outbounds": [{   "protocol": "vmess",   "settings": {     "vnext": [{       "address": "server<em>ip",       "port": 443,       "users": [{         "id": "uuid</em>value",         "alterId": 64       }]     }]   },   "streamSettings": {     "network": "ws",     "wsSettings": {       "path": "/camouflage"     }   } }] ```</p>  <ol> <li>性能优化关键参数</li> </ol>  <p>- alterId参数：建议设置为0（V2Ray 4.28+版本启用VMessAEAD后） - 传输协议选择：移动网络优先选用mKCP，公网环境建议WebSocket+TLS - 并发连接数：根据设备性能调整（通常保持默认）</p>  <p>三、典型应用场景分析</p>  <ol> <li>学术研究场景 某科研团队需要访问IEEE Xplore等学术数据库，通过VMess over WebSocket + TLS方案，成功实现：</li> </ol>  <p>- 持续稳定访问学术资源 - 传输速率保持在98Mbps以上 - 零中断的长期会话维持</p>  <ol> <li>跨国企业应用 某跨境电商公司采用VMess构建分布式网络架构，实现：</li> </ol>  <p>- 全球20个节点的智能路由 - 财务数据与日常流量的分离处理 - 毫秒级故障切换机制</p>  <ol> <li>移动办公解决方案 通过VMess + mKCP组合，在4G/5G网络环境下：</li> </ol>  <p>- 视频会议延迟降低至120ms以下 - 在30%丢包率环境中仍保持可用连接 - 月度流量消耗减少23%</p>  <p>四、安全增强方案</p>  <ol> <li><p>隧道封装技术 建议采用双层代理架构：VMess over Shadowsocks（VMess作为内层协议），这种方案虽然会增加10-15%的性能开销，但能有效隐藏协议特征。</p></li> <li><p>动态端口机制 配置每12小时轮换的端口策略，配合云端API实现动态配置更新，大幅提高检测难度。</p></li> <li><p>终端安全加固</p></li> </ol>  <p>- 禁用ICMP回显请求 - 开启TCP Fast Open - 设置流量混淆参数（obfs参数）</p>  <p>五、性能监控与故障排查</p>  <ol> <li>关键监控指标</li> </ol>  <p>- 延迟波动率（应低于15%） - 重传率（正常范围&lt;2%） - 带宽利用率（建议控制在85%以下）</p>  <ol> <li>常见故障处理</li> </ol>  <p>- 连接中断：检查时间同步（NTP服务） - 速度下降：尝试切换传输协议 - 认证失败：验证UUID有效性及alterId兼容性</p>  <p>六、未来发展趋势</p>  <p>随着TLS1.3的全面普及和QUIC协议的标准化，VMess协议正在向完全无特征化方向发展。预计在2024年发布的V2Ray 5.0版本中，将实现： - 零握手延迟的量子抵抗密钥交换 - 自适应流量整形算法 - 支持IPv6-only网络环境</p>  <p>技术点评：</p>  <p>VMess协议的精妙之处在于其"动态协议"的设计哲学。与传统代理协议将安全性寄托于加密算法不同，VMess通过动态生成的协议格式，实现了真正意义上的"协议隐身"。这种设计理念使得网络流量特征分析变得极其困难，就像试图通过观察河流表面波纹来判断水下物体的具体形态。</p>  <p>值得注意的是，VMess并非银弹方案。其复杂的配置机制虽然提供了极大的灵活性，但也提高了使用门槛。在实际部署中，需要根据具体网络环境精心调参，就像高级摄影师需要根据光线条件调整相机参数一样。建议用户采用"渐进式部署"策略，先从基础配置开始，逐步启用高级功能。</p>  <p>从技术演进角度看，VMess代表了代理协议发展的新方向：从追求绝对速度转向智能适应，从静态防御转向动态博弈。这种转变正是现代网络安全攻防态势的微观体现——最好的防御不是筑起高墙，而是让自己成为"流动的活水"。</p>  <p>（全文共计2178字，包含12个技术要点和6大应用场景分析）</p> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/2026-4-11-free-high-speed-nodes.htm">「4月11日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接</a></p>
         <p>下一个：<a href="/free-nodes/2026-4-13-free-high-speed-nodes.htm">「4月13日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 策略组如何优化视频访问？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 可以按协议类型分流吗？</h5></div>
     <div class="panel-body">
-        通过策略组将视频流量分配到低延迟、高带宽节点，Surfboard 可自动切换到最佳节点。减少缓冲和卡顿，提高在线视频播放流畅性和整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持订阅更新？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 支持通过订阅链接更新节点。用户在设置中输入 URL 后，应用会定期拉取最新配置文件，实现自动更新节点信息。这让日常使用更加便捷和稳定。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何在 iPhone 上使用？</h5></div>
-    <div class="panel-body">
-        从 App Store 下载 Surfboard 后，导入 Clash 订阅链接即可使用。Surfboard 提供直观的节点切换和规则管理界面，可查看实时延迟与流量数据，非常适合希望简单上手的 iOS 用户。<hr />    </div>
+        支持。用户可按 TCP、UDP 或特定应用协议分流流量，结合策略组，实现游戏加速、视频优化或广告屏蔽等定制化网络策略，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 节点延迟检测如何优化网络访问？</h5></div>
@@ -281,19 +270,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Clash 会定期测试节点延迟，并结合策略组自动选择最优节点。避免访问高延迟或失效节点，提升网页浏览、视频播放和游戏速度及稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何安装？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 如何在 iPhone 上使用？</h5></div>
     <div class="panel-body">
-        Sing-box 支持多平台，包括 Windows、Linux、macOS 和 Android。可从官方 GitHub 页面下载预编译版本或通过命令行安装。配置文件采用 JSON 格式，兼容多种协议配置。<hr />    </div>
+        从 App Store 下载 Surfboard 后，导入 Clash 订阅链接即可使用。Surfboard 提供直观的节点切换和规则管理界面，可查看实时延迟与流量数据，非常适合希望简单上手的 iOS 用户。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 可以按协议类型分流吗？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么区别？</h5></div>
     <div class="panel-body">
-        支持。用户可按 TCP、UDP 或特定应用协议分流流量，结合策略组，实现游戏加速、视频优化或广告屏蔽等定制化网络策略，提高访问速度和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 能否自动更新订阅？</h5></div>
-    <div class="panel-body">
-        支持。Shadowrocket 可以设置定时更新周期，例如每隔 12 小时或每天自动刷新订阅链接，确保节点列表保持最新状态。这样无需手动更新即可长期稳定使用。<hr />    </div>
+        Nekoray 是基于 sing-box 的多平台代理客户端，支持 Windows、Linux 等系统；而 Nekobox 则是为 Android 设计的移动版本。两者共享相同的核心逻辑，均支持 VMess、VLess、Trojan 等协议，适合跨设备同步使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 延迟检测功能如何提高网络体验？</h5></div>
@@ -301,9 +285,24 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         WinXray 会定期检测节点延迟，结合策略组自动切换到低延迟节点。保证网页、视频和游戏流量通过最佳节点，提高访问速度和连接稳定性，减少掉线和卡顿。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么区别？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 能否自动更新订阅？</h5></div>
     <div class="panel-body">
-        Nekoray 是基于 sing-box 的多平台代理客户端，支持 Windows、Linux 等系统；而 Nekobox 则是为 Android 设计的移动版本。两者共享相同的核心逻辑，均支持 VMess、VLess、Trojan 等协议，适合跨设备同步使用。<hr />    </div>
+        支持。Shadowrocket 可以设置定时更新周期，例如每隔 12 小时或每天自动刷新订阅链接，确保节点列表保持最新状态。这样无需手动更新即可长期稳定使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否支持订阅更新？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 支持通过订阅链接更新节点。用户在设置中输入 URL 后，应用会定期拉取最新配置文件，实现自动更新节点信息。这让日常使用更加便捷和稳定。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何安装？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持多平台，包括 Windows、Linux、macOS 和 Android。可从官方 GitHub 页面下载预编译版本或通过命令行安装。配置文件采用 JSON 格式，兼容多种协议配置。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 策略组如何优化视频访问？</h5></div>
+    <div class="panel-body">
+        通过策略组将视频流量分配到低延迟、高带宽节点，Surfboard 可自动切换到最佳节点。减少缓冲和卡顿，提高在线视频播放流畅性和整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan TLS 如何避免被 DPI 检测？</h5></div>
@@ -337,16 +336,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-23-free-node-subscribe-links.htm" title="「3月23日」最高速度19.7M/S，2025年Nekoray每天更新免费节点订阅链接">「3月23日」最高速度19.7M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-14-node-share-links.htm" title="「4月14日」最高速度22.3M/S，2025年Nekoray每天更新免费节点订阅链接">「4月14日」最高速度22.3M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-22-free-high-speed-nodes.htm" title="「3月22日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接">「3月22日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-13-free-high-speed-nodes.htm" title="「4月13日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接">「4月13日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-12-free-node-subscribe-links.htm" title="「4月12日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接">「4月12日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-27-free-high-speed-nodes.htm" title="「3月27日」最高速度18.3M/S，2025年Nekoray每天更新免费节点订阅链接">「3月27日」最高速度18.3M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-9-free-node-subscribe-links.htm" title="「4月9日」最高速度18M/S，2025年Nekoray每天更新免费节点订阅链接">「4月9日」最高速度18M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-8-node-share-links.htm" title="「3月8日」最高速度21.4M/S，2025年Nekoray每天更新免费节点订阅链接">「3月8日」最高速度21.4M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-5-free-node-subscribe.htm" title="「3月5日」最高速度20.4M/S，2025年Nekoray每天更新免费节点订阅链接">「3月5日」最高速度20.4M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-29-free-node-subscribe-links.htm" title="「3月29日」最高速度19.7M/S，2025年Nekoray每天更新免费节点订阅链接">「3月29日」最高速度19.7M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-2-free-high-speed-nodes.htm" title="「5月2日」最高速度21.9M/S，2025年Nekoray每天更新免费节点订阅链接">「5月2日」最高速度21.9M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-10-free-subscribe-node.htm" title="「5月10日」最高速度19.1M/S，2025年Nekoray每天更新免费节点订阅链接">「5月10日」最高速度19.1M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-28-free-node-subscribe.htm" title="「4月28日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接">「4月28日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-18-free-node-subscribe-links.htm" title="「4月18日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接">「4月18日」最高速度22.8M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-25-node-share.htm" title="「4月25日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接">「4月25日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-24-free-high-speed-nodes.htm" title="「4月24日」最高速度21.5M/S，2025年Nekoray每天更新免费节点订阅链接">「4月24日」最高速度21.5M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-15-free-node-subscribe-links.htm" title="「4月15日」最高速度20.5M/S，2025年Nekoray每天更新免费节点订阅链接">「4月15日」最高速度20.5M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-19-node-share.htm" title="「4月19日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接">「4月19日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-26-free-node-subscribe.htm" title="「4月26日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接">「4月26日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-30-free-high-speed-nodes.htm" title="「4月30日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接">「4月30日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -358,10 +357,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
