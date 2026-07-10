@@ -407,37 +407,18 @@ V2Ray本身是完全开源且免费的软件，但用户需要自行购买服务
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-7-2-free-subscribe-node.htm">「7月2日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接</a></p>
+        <p>下一个：<a href="/free-nodes/2026-7-4-node-share.htm">「7月4日」最高速度19.3M/S，2025年Nekoray每天更新免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 节点如何正确配置证书？</h5></div>
+    <div class="panel-body">
+        TLS 证书必须有效且域名匹配，否则客户端无法建立连接。建议使用受信任证书并确保证书链完整，可保证节点安全和长期可用性，同时提高伪装效果和抗封锁能力。<hr />    </div>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 的 MITM 功能如何使用？</h5></div>
     <div class="panel-body">
         QuantumultX 的 MITM（中间人）功能可拦截 HTTPS 流量，用于修改或分析请求与响应。开启时需安装客户端生成的根证书，确保能正确解析加密数据。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 是否比 Trojan 更稳定？</h5></div>
-    <div class="panel-body">
-        两者都非常稳定，但 VLESS 在多平台兼容性上略优，而 Trojan 在 HTTPS 伪装和 TLS 安全性上更强。选择取决于服务器环境与具体需求，两者皆为高性能协议。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
-    <div class="panel-body">
-        Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何结合规则屏蔽广告？</h5></div>
-    <div class="panel-body">
-        Surfboard 可通过规则文件匹配广告域名或 URL，并将其重定向或阻断。结合策略组自动更新规则，可实现广告屏蔽，提高浏览体验和节省带宽。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 如何通过策略组优化多应用分流？</h5></div>
-    <div class="panel-body">
-        QuantumultX 可以根据应用类型、端口和协议设置策略组，自动选择最优节点处理不同流量。这样可保证网页浏览、视频播放和游戏访问顺畅，提高整体网络效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在 Nginx 上为 Vmess/WS 配置反向代理与 TLS？</h5></div>
-    <div class="panel-body">
-        在 Nginx 中配置 HTTPS 站点并将特定路径（如 /ray）反向代理到 V2Ray 的 WebSocket 端口，确保 proxy_set_header 设置正确（Host、X-Real-IP 等）。同时使用 certbot 获取并自动续期 TLS 证书以维护安全。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 如何实现分流规则？</h5></div>
@@ -450,14 +431,34 @@ V2Ray本身是完全开源且免费的软件，但用户需要自行购买服务
         多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，能提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 如何通过策略组优化多应用分流？</h5></div>
+    <div class="panel-body">
+        QuantumultX 可以根据应用类型、端口和协议设置策略组，自动选择最优节点处理不同流量。这样可保证网页浏览、视频播放和游戏访问顺畅，提高整体网络效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 是否比 Trojan 更稳定？</h5></div>
+    <div class="panel-body">
+        两者都非常稳定，但 VLESS 在多平台兼容性上略优，而 Trojan 在 HTTPS 伪装和 TLS 安全性上更强。选择取决于服务器环境与具体需求，两者皆为高性能协议。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何在 Nginx 上为 Vmess/WS 配置反向代理与 TLS？</h5></div>
+    <div class="panel-body">
+        在 Nginx 中配置 HTTPS 站点并将特定路径（如 /ray）反向代理到 V2Ray 的 WebSocket 端口，确保 proxy_set_header 设置正确（Host、X-Real-IP 等）。同时使用 certbot 获取并自动续期 TLS 证书以维护安全。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 如何结合规则屏蔽广告？</h5></div>
+    <div class="panel-body">
+        Surfboard 可通过规则文件匹配广告域名或 URL，并将其重定向或阻断。结合策略组自动更新规则，可实现广告屏蔽，提高浏览体验和节省带宽。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式适合高并发环境吗？</h5></div>
     <div class="panel-body">
         适合。XTLS 去除冗余加密，提高 CPU 使用效率，降低延迟。结合策略组和多出口节点，可在高并发或多连接场景下保持稳定、高速的网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 节点如何正确配置证书？</h5></div>
+    <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
     <div class="panel-body">
-        TLS 证书必须有效且域名匹配，否则客户端无法建立连接。建议使用受信任证书并确保证书链完整，可保证节点安全和长期可用性，同时提高伪装效果和抗封锁能力。    </div>
+        Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -487,11 +488,11 @@ V2Ray本身是完全开源且免费的软件，但用户需要自行购买服务
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=" data-type="Xingchen" data-code="register&code" target="_blank">
+                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
                     <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=" data-type="Xingchen" data-code="register&code" target="_blank">星辰机场</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
                         <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
@@ -505,16 +506,16 @@ V2Ray本身是完全开源且免费的软件，但用户需要自行购买服务
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-6-25-free-node-subscribe-links.htm" title="「6月25日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接">「6月25日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-14-free-subscribe-node.htm" title="「5月14日」最高速度21.2M/S，2025年Nekoray每天更新免费节点订阅链接">「5月14日」最高速度21.2M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-3-free-subscribe-node.htm" title="「6月3日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接">「6月3日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-2-free-subscribe-node.htm" title="「7月2日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接">「7月2日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-12-free-node-subscribe.htm" title="「6月12日」最高速度18.4M/S，2025年Nekoray每天更新免费节点订阅链接">「6月12日」最高速度18.4M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-18-free-subscribe-node.htm" title="「6月18日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接">「6月18日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-3-free-high-speed-nodes.htm" title="「7月3日」最高速度21.1M/S，2025年Nekoray每天更新免费节点订阅链接">「7月3日」最高速度21.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-11-node-share-links.htm" title="「6月11日」最高速度19.5M/S，2025年Nekoray每天更新免费节点订阅链接">「6月11日」最高速度19.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-6-21-node-share-links.htm" title="「6月21日」最高速度20.1M/S，2025年Nekoray每天更新免费节点订阅链接">「6月21日」最高速度20.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-31-node-share-links.htm" title="「5月31日」最高速度20M/S，2025年Nekoray每天更新免费节点订阅链接">「5月31日」最高速度20M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-2-node-share-links.htm" title="「6月2日」最高速度21.1M/S，2025年Nekoray每天更新免费节点订阅链接">「6月2日」最高速度21.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-24-free-subscribe-node.htm" title="「5月24日」最高速度19.4M/S，2025年Nekoray每天更新免费节点订阅链接">「5月24日」最高速度19.4M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-28-free-high-speed-nodes.htm" title="「5月28日」最高速度20.8M/S，2025年Nekoray每天更新免费节点订阅链接">「5月28日」最高速度20.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-21-free-subscribe-node.htm" title="「5月21日」最高速度19.8M/S，2025年Nekoray每天更新免费节点订阅链接">「5月21日」最高速度19.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-12-free-subscribe-node.htm" title="「5月12日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接">「5月12日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-10-node-share.htm" title="「7月10日」最高速度20.5M/S，2025年Nekoray每天更新免费节点订阅链接">「7月10日」最高速度20.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-17-free-high-speed-nodes.htm" title="「6月17日」最高速度18.7M/S，2025年Nekoray每天更新免费节点订阅链接">「6月17日」最高速度18.7M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-1-free-node-subscribe-links.htm" title="「7月1日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接">「7月1日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-15-free-high-speed-nodes.htm" title="「6月15日」最高速度19.7M/S，2025年Nekoray每天更新免费节点订阅链接">「6月15日」最高速度19.7M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -526,13 +527,10 @@ V2Ray本身是完全开源且免费的软件，但用户需要自行购买服务
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                     </ul>
     </div>
@@ -562,7 +560,7 @@ V2Ray本身是完全开源且免费的软件，但用户需要自行购买服务
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=" data-type="Xingchen" data-code="register&code" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                             <p>
                             <a href="/">Free Nekoray官方节点站</a> 版权所有
                             <br />
