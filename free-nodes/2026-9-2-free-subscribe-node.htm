@@ -272,44 +272,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 与 Clash 的核心区别是什么？</h5></div>
-    <div class="panel-body">
-        Mellow 采用基于透明代理的架构，适合路由或系统级流量重定向，而 Clash 更偏向规则式应用代理。Mellow 的灵活性更高，但配置复杂；Clash 则兼顾易用性与功能扩展性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何定时自动更新节点？</h5></div>
-    <div class="panel-body">
-        可在计划任务中添加命令 `passwall update` 并设定时间间隔，例如每日凌晨自动更新。这样可确保节点信息实时同步，避免旧节点失效影响连接体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何处理？</h5></div>
-    <div class="panel-body">
-        首先确认订阅 URL 是否有效，并确保网络连接正常。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 QUIC 传输模式有哪些优势？</h5></div>
-    <div class="panel-body">
-        QUIC 传输减少握手次数，支持多路复用和 UDP 基础，降低延迟并提高吞吐量。在不稳定或高丢包环境下，QUIC 可保证视频、游戏或即时通讯的稳定性和流畅体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 在高延迟网络中如何优化连接？</h5></div>
-    <div class="panel-body">
-        XTLS 模式通过减少握手和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定网络环境下保证网页浏览、视频播放和游戏连接稳定，提高用户体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
-    <div class="panel-body">
-        PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的规则模式有哪些？</h5></div>
     <div class="panel-body">
         Clash 提供三种主要模式：Global（全局代理）、Rule（规则代理）和Direct（直连）。全局模式会让所有流量通过代理；规则模式根据规则文件自动分流；直连模式则完全不经过代理。用户可根据需求灵活切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess MUX 功能如何改善短连接延迟？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 可以与其他代理客户端共存吗？</h5></div>
     <div class="panel-body">
-        VMess MUX 多路复用可以将多个短连接共享同一 TCP 或 QUIC 隧道，减少重复握手和连接延迟，特别适合游戏、即时通讯或频繁请求的场景，有效提升响应速度。<hr />    </div>
+        可以。Nekobox 与 Shadowsocks、Clash 等客户端互不干扰，可以同时运行。用户可通过策略组或分流规则选择使用节点，实现灵活的网络管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 能否同步 Quantumult X 的规则？</h5></div>
@@ -317,9 +287,39 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Surfboard 的规则语法与 Quantumult X 相似，但并非完全兼容。部分策略组或脚本需手动修改格式方能正常使用，因此不建议直接复制，最好通过转换工具处理。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 可以与其他代理客户端共存吗？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
     <div class="panel-body">
-        可以。Nekobox 与 Shadowsocks、Clash 等客户端互不干扰，可以同时运行。用户可通过策略组或分流规则选择使用节点，实现灵活的网络管理。    </div>
+        PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess MUX 功能如何改善短连接延迟？</h5></div>
+    <div class="panel-body">
+        VMess MUX 多路复用可以将多个短连接共享同一 TCP 或 QUIC 隧道，减少重复握手和连接延迟，特别适合游戏、即时通讯或频繁请求的场景，有效提升响应速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何处理？</h5></div>
+    <div class="panel-body">
+        首先确认订阅 URL 是否有效，并确保网络连接正常。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何定时自动更新节点？</h5></div>
+    <div class="panel-body">
+        可在计划任务中添加命令 `passwall update` 并设定时间间隔，例如每日凌晨自动更新。这样可确保节点信息实时同步，避免旧节点失效影响连接体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 在高延迟网络中如何优化连接？</h5></div>
+    <div class="panel-body">
+        XTLS 模式通过减少握手和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定网络环境下保证网页浏览、视频播放和游戏连接稳定，提高用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的 QUIC 传输模式有哪些优势？</h5></div>
+    <div class="panel-body">
+        QUIC 传输减少握手次数，支持多路复用和 UDP 基础，降低延迟并提高吞吐量。在不稳定或高丢包环境下，QUIC 可保证视频、游戏或即时通讯的稳定性和流畅体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 与 Clash 的核心区别是什么？</h5></div>
+    <div class="panel-body">
+        Mellow 采用基于透明代理的架构，适合路由或系统级流量重定向，而 Clash 更偏向规则式应用代理。Mellow 的灵活性更高，但配置复杂；Clash 则兼顾易用性与功能扩展性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -367,16 +367,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-subscribe-node.htm" title="「9月4日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接">「9月4日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-23.htm" title="「8月23日」最高速度20.6M/S，2025年Nekoray每天更新免费节点订阅链接">「8月23日」最高速度20.6M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-subscribe-node.htm" title="「8月26日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接">「8月26日」最高速度19.6M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-subscribe-node.htm" title="「8月22日」最高速度21.3M/S，2025年Nekoray每天更新免费节点订阅链接">「8月22日」最高速度21.3M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-29.htm" title="「8月29日」最高速度21.5M/S，2025年Nekoray每天更新免费节点订阅链接">「8月29日」最高速度21.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-12-free-subscribe-node.htm" title="「8月12日」最高速度21.8M/S，2025年Nekoray每天更新免费节点订阅链接">「8月12日」最高速度21.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-13.htm" title="「8月13日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接">「8月13日」最高速度19M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-7.htm" title="「8月7日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接">「8月7日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-node-share.htm" title="「8月6日」最高速度20.5M/S，2025年Nekoray每天更新免费节点订阅链接">「8月6日」最高速度20.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-11.htm" title="「8月11日」最高速度19.1M/S，2025年Nekoray每天更新免费节点订阅链接">「8月11日」最高速度19.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-30-node-share.htm" title="「8月30日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接">「8月30日」最高速度23M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-6-node-share.htm" title="「9月6日」最高速度20.1M/S，2025年Nekoray每天更新免费节点订阅链接">「9月6日」最高速度20.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-15.htm" title="「8月15日」最高速度20.8M/S，2025年Nekoray每天更新免费节点订阅链接">「8月15日」最高速度20.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-subscribe-node.htm" title="「9月2日」最高速度19.9M/S，2025年Nekoray每天更新免费节点订阅链接">「9月2日」最高速度19.9M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-21.htm" title="「8月21日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接">「8月21日」最高速度18.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-1.htm" title="「9月1日」最高速度19.2M/S，2025年Nekoray每天更新免费节点订阅链接">「9月1日」最高速度19.2M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-3.htm" title="「9月3日」最高速度21.8M/S，2025年Nekoray每天更新免费节点订阅链接">「9月3日」最高速度21.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-27.htm" title="「8月27日」最高速度20.3M/S，2025年Nekoray每天更新免费节点订阅链接">「8月27日」最高速度20.3M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-23.htm" title="「8月23日」最高速度20.6M/S，2025年Nekoray每天更新免费节点订阅链接">「8月23日」最高速度20.6M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -388,10 +388,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
