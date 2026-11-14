@@ -408,19 +408,19 @@ SSH隧道通过安全的SSH协议建立加密通道，将网络流量转发到�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 是否比 Trojan 更稳定？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的策略组如何实现按域名分流？</h5></div>
     <div class="panel-body">
-        两者都非常稳定，但 VLESS 在多平台兼容性上略优，而 Trojan 在 HTTPS 伪装和 TLS 安全性上更强。选择取决于服务器环境与具体需求，两者皆为高性能协议。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
-    <div class="panel-body">
-        QUIC 协议基于 UDP，多路复用和拥塞控制优化，可减少握手延迟和包重传次数。Hysteria2 利用 QUIC 的特性，使高延迟或丢包网络下依然保持低延迟和高稳定性。<hr />    </div>
+        Sing-box 支持根据域名规则匹配流量，将不同网站或应用流量分配到指定节点。结合策略组自动切换低延迟节点，可优化访问速度，保证网络稳定性和流畅体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的传输协议选择对性能有何影响？</h5></div>
     <div class="panel-body">
         V2Ray 支持 TCP、WebSocket、gRPC、QUIC 等多种传输协议。不同协议在延迟、抗封锁和吞吐量上差异明显。用户可根据网络环境选择最优协议，以获得稳定且高速的连接体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的 PAC 模式适合什么场景？</h5></div>
+    <div class="panel-body">
+        PAC 模式通过 JavaScript 文件动态判断哪些流量走代理，哪些直连。适合访问国内外混合网站环境，用户无需手动切换节点即可根据规则自动分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 传输适合什么网络环境？</h5></div>
@@ -433,19 +433,9 @@ SSH隧道通过安全的SSH协议建立加密通道，将网络流量转发到�
         全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何实现自动节点切换？</h5></div>
-    <div class="panel-body">
-        通过延迟测速和策略组配置，PassWall2 可自动切换到延迟最低的节点。这样用户无需手动操作，即可在访问网页、视频或游戏时保持高速和稳定连接，优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 节点分组功能有什么优势？</h5></div>
     <div class="panel-body">
         分组管理可按延迟、地区或用途分类节点，并结合策略组实现自动分流。用户可快速选择最优节点，提高访问速度和稳定性，方便管理大量节点并优化维护效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的策略组如何实现按域名分流？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持根据域名规则匹配流量，将不同网站或应用流量分配到指定节点。结合策略组自动切换低延迟节点，可优化访问速度，保证网络稳定性和流畅体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 的加密方式如何选择？</h5></div>
@@ -453,9 +443,19 @@ SSH隧道通过安全的SSH协议建立加密通道，将网络流量转发到�
         VMess 支持自动加密和 AEAD 加密等多种方式。AEAD 加密更安全且抗重放攻击，适合高安全性需求的网络环境，而普通加密在性能上稍快，但安全性略低。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的 PAC 模式适合什么场景？</h5></div>
+    <div class="panel-heading"><h5>VLESS 是否比 Trojan 更稳定？</h5></div>
     <div class="panel-body">
-        PAC 模式通过 JavaScript 文件动态判断哪些流量走代理，哪些直连。适合访问国内外混合网站环境，用户无需手动切换节点即可根据规则自动分流。    </div>
+        两者都非常稳定，但 VLESS 在多平台兼容性上略优，而 Trojan 在 HTTPS 伪装和 TLS 安全性上更强。选择取决于服务器环境与具体需求，两者皆为高性能协议。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
+    <div class="panel-body">
+        QUIC 协议基于 UDP，多路复用和拥塞控制优化，可减少握手延迟和包重传次数。Hysteria2 利用 QUIC 的特性，使高延迟或丢包网络下依然保持低延迟和高稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何实现自动节点切换？</h5></div>
+    <div class="panel-body">
+        通过延迟测速和策略组配置，PassWall2 可自动切换到延迟最低的节点。这样用户无需手动操作，即可在访问网页、视频或游戏时保持高速和稳定连接，优化网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -503,16 +503,16 @@ SSH隧道通过安全的SSH协议建立加密通道，将网络流量转发到�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-10-4-free-node-subscribe.htm" title="「10月4日」最高速度18.9M/S，2025年Nekoray每天更新免费节点订阅链接">「10月4日」最高速度18.9M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-7.htm" title="「9月7日」最高速度21.9M/S，2025年Nekoray每天更新免费节点订阅链接">「9月7日」最高速度21.9M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-13.htm" title="「10月13日」最高速度21.1M/S，2025年Nekoray每天更新免费节点订阅链接">「10月13日」最高速度21.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-17.htm" title="「10月17日」最高速度21.9M/S，2025年Nekoray每天更新免费节点订阅链接">「10月17日」最高速度21.9M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-14-node-share.htm" title="「11月14日」最高速度18.6M/S，2026年Nekoray每天更新免费节点订阅链接">「11月14日」最高速度18.6M/S，2026年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-10-18-free-node-subscribe.htm" title="「10月18日」最高速度21M/S，2025年Nekoray每天更新免费节点订阅链接">「10月18日」最高速度21M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-3.htm" title="「11月3日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接">「11月3日」最高速度21.6M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-15.htm" title="「10月15日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接">「10月15日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-22-free-subscribe-node.htm" title="「10月22日」最高速度22.1M/S，2025年Nekoray每天更新免费节点订阅链接">「10月22日」最高速度22.1M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-2-node-share.htm" title="「10月2日」最高速度20.8M/S，2025年Nekoray每天更新免费节点订阅链接">「10月2日」最高速度20.8M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-27.htm" title="「10月27日」最高速度20.6M/S，2025年Nekoray每天更新免费节点订阅链接">「10月27日」最高速度20.6M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-11.htm" title="「9月11日」最高速度21.7M/S，2025年Nekoray每天更新免费节点订阅链接">「9月11日」最高速度21.7M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-25.htm" title="「10月25日」最高速度22M/S，2025年Nekoray每天更新免费节点订阅链接">「10月25日」最高速度22M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-28-node-share.htm" title="「10月28日」最高速度22.4M/S，2025年Nekoray每天更新免费节点订阅链接">「10月28日」最高速度22.4M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-10-24-node-share.htm" title="「10月24日」最高速度18.2M/S，2025年Nekoray每天更新免费节点订阅链接">「10月24日」最高速度18.2M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-30-free-node-subscribe.htm" title="「10月30日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接">「10月30日」最高速度18.5M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-12-free-node-subscribe.htm" title="「11月12日」最高速度19.5M/S，2026年Nekoray每天更新免费节点订阅链接">「11月12日」最高速度19.5M/S，2026年Nekoray每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-26-free-node-subscribe.htm" title="「10月26日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接">「10月26日」最高速度22.9M/S，2025年Nekoray每天更新免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -524,13 +524,10 @@ SSH隧道通过安全的SSH协议建立加密通道，将网络流量转发到�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                     </ul>
     </div>
